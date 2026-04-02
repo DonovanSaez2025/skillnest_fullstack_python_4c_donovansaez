@@ -12,8 +12,10 @@ print("¡Bienvenido a Python!")
 # Explicamos lo que haremos a continuación
 print("Ahora veremos un bucle que muestra los números del 1 al 10:")
 
+limitnum = input("Ingresa un número")
+
 # Bucle for que recorre los números del 1 al 10
-for num in range(1, 11):
+for num in range(1, limitnum):
     print(f"El valor actual de num es: {num}")
 
 # Definimos una lista de días laborables
