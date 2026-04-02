@@ -1,8 +1,4 @@
-a = 10 + 1
-a += 20/3
-x = 5
-y = "python"
-x * y
-print(x * y)
-print(a)
-print(a - x)
+lenguaje = "Hola de nuevo Python"
+print(lenguaje)
+numero = 20
+print(numero)
