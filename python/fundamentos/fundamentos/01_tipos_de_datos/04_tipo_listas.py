@@ -31,3 +31,4 @@ print(len(vocales)) #Imprime: 5
 frozen = ["Elsa", "Anna", "Olaf"]
 frozen.pop() #Sintaxis: nombre_lista.funcion()
 print(frozen) #Imprime: ['Elsa', 'Anna']
+
