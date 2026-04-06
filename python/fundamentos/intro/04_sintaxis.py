@@ -5,7 +5,7 @@ else:
    print("Numero menor")
    
 if 1 < 2:
-   pass
+   pass # Sentencia temporal para bloques de código incompletos
 
 def funcion_pendiente():
    pass
