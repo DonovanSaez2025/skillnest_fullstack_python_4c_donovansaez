@@ -18,7 +18,7 @@ limitnum = int(input("Ingresa un número: "))
 for num in range(1, limitnum + 1):
     print(f"El valor actual de num es: {num}")
 
-# Definimos una lista de días laborables
+# Definimos una lista de días
 semana = ["Lunes", "Martes", "Miércoles", "Jueves", "Viernes", "Sábado", "Domingo"]
 
 # Seleccionamos al azar un día de la semana
