@@ -30,24 +30,26 @@ num2 = int(input("Ingresa otro número: "))
 num3 = int(input("Ingresa otro número: "))
 mayor = ""
 menor = ""
-
-if num1 < num2 and num1 < num3:
+if num1 == num2 and num2 == num3:
+    print("Todos los números son iguales.")
+elif num1 < num2 and num1 < num3:
     menor = num1
     if num2 < num3:
         mayor = num3
     elif num3 < num2:
         mayor = num2
+    print(f"El número mayor es {mayor} y el número menor es {menor}")
 elif num2 < num1 and num2 < num3:
     menor = num2
     if num1 < num3:
         mayor = num3
     elif num3 < num1:
         mayor = num1
+    print(f"El número mayor es {mayor} y el número menor es {menor}")
 elif num3 < num1 and num3 < num2:
     menor = num3
     if num1 < num2:
         mayor = num2
     elif num2 < num1:
         mayor = num1
-print(f"El número mayor es {mayor} y el número menor es {menor}")
-    
+    print(f"El número mayor es {mayor} y el número menor es {menor}")
