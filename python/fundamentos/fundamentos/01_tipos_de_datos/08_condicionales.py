@@ -25,3 +25,29 @@ if num < 60:
 #No se cumple con la condicional, por lo que no se ejecuta el bloque de código
 #Desafío
 # Ingresar 3 números por teclado e identificar al mayor y el menor mostrando ambos
+num1 = int(input("Ingresa un número: "))
+num2 = int(input("Ingresa otro número: "))
+num3 = int(input("Ingresa otro número: "))
+mayor = ""
+menor = ""
+
+if num1 < num2 and num1 < num3:
+    menor = num1
+    if num2 < num3:
+        mayor = num3
+    elif num3 < num2:
+        mayor = num2
+elif num2 < num1 and num2 < num3:
+    menor = num2
+    if num1 < num3:
+        mayor = num3
+    elif num3 < num1:
+        mayor = num1
+elif num3 < num1 and num3 < num2:
+    menor = num3
+    if num1 < num2:
+        mayor = num2
+    elif num2 < num1:
+        mayor = num1
+print(f"El número mayor es {mayor} y el número menor es {menor}")
+    
