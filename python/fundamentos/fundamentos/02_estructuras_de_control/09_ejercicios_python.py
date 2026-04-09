@@ -2,11 +2,14 @@
 '''Desarrolla un programa que solicite al usuario cuántos números pares desea ver ($n$). 
 El programa debe imprimir los primeros $n$ números pares positivos.'''
 def parDinamico():
-    num = int(input("¿Cuántos números pares deseas ver? ")) #Pedir número al usuario
-    for i in range(num + 1):
+    num = int(input("¿Cuántos pares deseas ver? ")) #Pedir número al usuario
+    pares = []
+    for i in range(1, (num * 2) + 1):
         if i % 2 == 0:
-            print(i)
+            pares.append(i)
+    print(f"Números pares: {pares}")
             
+
 #Ejercicio 2: Verificador de Edad y Acceso
 '''Pide al usuario su año de nacimiento. Calcula su edad y muestra si es mayor de edad (18+).
 Si tiene menos de 18, indica cuántos años le faltan para la mayoría de edad.'''
@@ -213,6 +216,8 @@ def listaCompras():
         articulo = input("Agrega un articulo (o escribre 'terminar' para salir): ")
         if articulo.lower() == "terminar":
             break
+        elif articulo.strip() == "":
+            print("No puede estar vacío")
         else:
             carrito.append(articulo)
     if len(carrito) > 0:
@@ -221,12 +226,26 @@ def listaCompras():
 
 #Ejercicio 15: Análisis de Temperaturas
 '''Solicita las temperaturas de los 7 días de la semana y guárdalas en un arreglo. Muestra:
-El promedio semanal.
+- El promedio semanal.
 - Cuántos días la temperatura fue superior a 25 grados.
 - El día con la temperatura más baja (asumiendo que el índice 0 es Lunes).'''
 def analisisTemp():
-    pass
-analisisTemp()
+    dias = ["Lunes", "Martes", "Miércoles", "Jueves", "Viernes", "Sábado", "Domingo"]
+    tempSemanal = []
+    superior25 = 0
+    for i in range(len(dias)):
+        temperatura = int(input(f"Ingresa la temperatura del día {dias[i]}: "))
+        tempSemanal.append(temperatura)
+        if temperatura > 25:
+            superior25 += 1
+    print(f"El promedio semanal fue de: {sum(tempSemanal) / len(tempSemanal)}°")
+    if superior25 > 1:
+        print(f"{superior25} días tuvieron una temperatura superior a 25°")
+    elif superior25 == 1:
+        print(f"Solo {superior25} día tuvo una temperatura superior a 25°")
+    else:
+        print("Ningún día tuvo una temperatura superior a 25°")
+    print(f"La temperatura más baja registrada fue de {min(tempSemanal)}°")
 
 #Menu de navegación de ejercicios
 continuar = True
@@ -249,5 +268,34 @@ while continuar:
     print("--- Ejercicio 15 ---")
     opcion = input("\n --- Elige una opción: (1-15) (0 para salir): ")
     if opcion == "1":
-        print(parDinamico())
-    
+        parDinamico()
+    elif opcion == "2":
+        verificadorEdad()
+    elif opcion == "3":
+        calculadoraDescuento()
+    elif opcion == "4":
+        clasificadorNum()
+    elif opcion == "5":
+        multiplicarPersonalizada()
+    elif opcion == "6":
+        sumatoriaCentinela()
+    elif opcion == "7":
+        contadorVocales()
+    elif opcion == "8":
+        validarContrasena()
+    elif opcion == "9":
+        registroNombres()
+    elif opcion == "10":
+        promedioNotas()
+    elif opcion == "11":
+        filtroArreglos()
+    elif opcion == "12":
+        buscadorElementos()
+    elif opcion == "13":
+        simulacionInventario()
+    elif opcion == "14":
+        listaCompras()
+    elif opcion == "15":
+        analisisTemp()
+    elif opcion == "0":
+        break
