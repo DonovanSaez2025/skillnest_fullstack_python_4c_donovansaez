@@ -80,7 +80,8 @@ def multiplicarPersonalizada():
 ingrese un número negativo. Al final, muestra la suma total (sin incluir el negativo).'''
 def sumatoriaCentinela():
     total = 0
-    while 0 < 1:
+    aniadirNum = True
+    while aniadirNum:
         num = int(input("Ingresa un número a sumar: "))
         if (num < 0):
             break
@@ -207,7 +208,8 @@ El proceso termina cuando el usuario escribe "terminar".
 Al final, muestra la lista ordenada alfabéticamente.'''
 def listaCompras():
     carrito = []
-    while 0 < 1:
+    aniadiendoCarrito = True
+    while aniadiendoCarrito:
         articulo = input("Agrega un articulo (o escribre 'terminar' para salir): ")
         if articulo.lower() == "terminar":
             break
@@ -225,3 +227,27 @@ El promedio semanal.
 def analisisTemp():
     pass
 analisisTemp()
+
+#Menu de navegación de ejercicios
+continuar = True
+while continuar:
+    print("\n--- Ejercicios Python ---")
+    print("--- Ejercicio 1 ---")
+    print("--- Ejercicio 2 ---")
+    print("--- Ejercicio 3 ---")
+    print("--- Ejercicio 4 ---")
+    print("--- Ejercicio 5 ---")
+    print("--- Ejercicio 6 ---")
+    print("--- Ejercicio 7 ---")
+    print("--- Ejercicio 8 ---")
+    print("--- Ejercicio 9 ---")
+    print("--- Ejercicio 10 ---")
+    print("--- Ejercicio 11 ---")
+    print("--- Ejercicio 12 ---")
+    print("--- Ejercicio 13 ---")
+    print("--- Ejercicio 14 ---")
+    print("--- Ejercicio 15 ---")
+    opcion = input("\n --- Elige una opción: (1-15) (0 para salir): ")
+    if opcion == "1":
+        print(parDinamico())
+    
