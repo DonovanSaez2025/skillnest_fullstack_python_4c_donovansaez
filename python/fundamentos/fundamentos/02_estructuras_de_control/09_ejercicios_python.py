@@ -139,18 +139,27 @@ Al finalizar, calcula y muestra el promedio, la nota más alta y la más baja.''
 def promedioNotas():
     notasLimit = int(input("Ingresa la cantidad límite de notas: "))
     notas = []
+    valido = True
     for i in range(notasLimit):
         nota = float(input("Ingresa una nota: "))
-        notas.append(nota)
-    promedio = sum(notas) / len(notas)
-    alta = max(notas)
-    baja = min(notas)
-    print(f"El promedio final del alumno es de {promedio}, la nota más alta fue {alta} y la más baja fue {baja}")
-    
-promedioNotas()
+        if nota >= 1.0 and nota <= 7.0:
+            notas.append(nota)
+        else:
+            valido = False
+            break
+    if valido == True:
+        promedio = sum(notas) / len(notas)
+        alta = max(notas)
+        baja = min(notas)
+        print(f"El promedio final del alumno es de {promedio}, la nota más alta fue {alta} y la más baja fue {baja}")
+    else:
+        print("Ingresa una nota válida.")
+
 #Ejercicio 11: Filtro de Arreglos
 '''Dado un arreglo de números generado por el usuario,crea un nuevo arreglo que
 contenga solo los números que sean mayores a 50. Muestra ambos arreglos.'''
+def filtroArreglos():
+    
 
 #Ejercicio 12: Buscador de Elementos
 '''Crea una lista de 10 ciudades. Pide al usuario que ingrese el nombre de una ciudad y
