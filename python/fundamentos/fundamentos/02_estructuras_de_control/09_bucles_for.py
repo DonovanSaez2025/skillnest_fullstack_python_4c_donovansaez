@@ -69,5 +69,3 @@ for letra in "detente":
         continue
     print(letra)
 #Imprime: d, e, t, e, t, e
-
-x = 6
