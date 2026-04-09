@@ -156,27 +156,72 @@ def promedioNotas():
         print("Ingresa una nota válida.")
 
 #Ejercicio 11: Filtro de Arreglos
-'''Dado un arreglo de números generado por el usuario,crea un nuevo arreglo que
+'''Dado un arreglo de números generado por el usuario, crea un nuevo arreglo que
 contenga solo los números que sean mayores a 50. Muestra ambos arreglos.'''
 def filtroArreglos():
-    
+    limit = int(input("Ingresa el límite números: "))
+    listaNum = []
+    mayor50 = []
+    for i in range(limit):
+        num = int(input("Ingresa un número: "))
+        listaNum.append(num)
+        if num > 50:
+            mayor50.append(num)
+    print(f"Números ingresados: {listaNum}")
+    print(f"Números mayores que 50: {mayor50}")
 
 #Ejercicio 12: Buscador de Elementos
 '''Crea una lista de 10 ciudades. Pide al usuario que ingrese el nombre de una ciudad y
 el programa debe decir si la ciudad se encuentra en la lista y en qué índice (posición) está.'''
+def buscadorElementos():
+    listada = False
+    ciudades = [
+        "Santiago", "Chihuahua", "New York", "Chillán", "Sao Pablo", "Barcelona", "Valparaíso", "Iquique",
+        "Caracas", "Antofagasta"
+        ]
+    ciudadInput = input("Ingresa una ciudad: ")
+    for i in range(len(ciudades)):
+        if ciudadInput == ciudades[i]:
+            print(f"La ciudad {ciudadInput} está en la posición {i} en la lista.")
+            listada = True
+            break
+    if listada == False:
+        print(f"La ciudad {ciudadInput} no se encuentra en la lista")
 
 #Ejercicio 13: Simulación de Inventario
-'''Crea dos arreglos: uno para nombres_productos y otro para precios.Permite al usuario
+'''Crea dos arreglos: uno para nombres_productos y otro para precios. Permite al usuario
 ingresar 3 productos con sus precios. Luego, muestra una lista formateada:
 Producto: [Nombre] - Precio: $[Valor].'''
+def simulacionInventario():
+    nombres_productos = []
+    precios = []
+    for i in range(3):
+        nombres_productos.append(input("Ingresa el nombre de un producto: "))
+        precios.append(float(input("Ingresa el precio del producto: ")))
+    for i in range(len(nombres_productos)):
+        print(f"Producto: {nombres_productos[i]} - Precio: ${precios[i]}")
 
 #Ejercicio 14: Generador de Lista de Compras
 '''Usa un bucle while para que el usuario agregue artículos a una lista de compras.
 El proceso termina cuando el usuario escribe "terminar".
 Al final, muestra la lista ordenada alfabéticamente.'''
+def listaCompras():
+    carrito = []
+    while 0 < 1:
+        articulo = input("Agrega un articulo (o escribre 'terminar' para salir): ")
+        if articulo.lower() == "terminar":
+            break
+        else:
+            carrito.append(articulo)
+    if len(carrito) > 0:
+        carrito.sort()
+        print(f"Carrito de compras: {carrito}")
 
 #Ejercicio 15: Análisis de Temperaturas
 '''Solicita las temperaturas de los 7 días de la semana y guárdalas en un arreglo. Muestra:
 El promedio semanal.
 - Cuántos días la temperatura fue superior a 25 grados.
 - El día con la temperatura más baja (asumiendo que el índice 0 es Lunes).'''
+def analisisTemp():
+    pass
+analisisTemp()
