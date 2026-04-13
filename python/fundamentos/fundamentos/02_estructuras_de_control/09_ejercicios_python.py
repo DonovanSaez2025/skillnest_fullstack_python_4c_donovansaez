@@ -95,14 +95,14 @@ def sumatoriaCentinela():
 '''Pide al usuario una frase o palabra. Utiliza un bucle para recorrer
 la cadena y contar cuántas vocales tiene en total.'''
 def contadorVocales():
-    texto = input("Ingresa una frase o palabra: ")
+    texto = input("Ingresa una frase o palabra: ").lower()
     vocales = 0
     for i in range(len(texto)):
         #Detectar vocales
-        if texto[i].lower() == "a" or texto[i].lower() == "e" or texto[i].lower() == "i" or texto[i].lower() == "o" or texto[i].lower() == "u":
+        if texto[i] == "a" or texto[i] == "e" or texto[i] == "i" or texto[i] == "o" or texto[i] == "u":
             vocales += 1
         #Detectar vocales sin tilde
-        elif texto[i].lower() == "á" or texto[i].lower() == "é" or texto[i].lower() == "í" or texto[i].lower() == "ó" or texto[i].lower() == "ú":
+        elif texto[i] == "á" or texto[i] == "é" or texto[i] == "í" or texto[i]. == "ó" or texto[i] == "ú":
             vocales += 1
     print(f"Hay {vocales} vocales en total en el string '{texto}'")
 
