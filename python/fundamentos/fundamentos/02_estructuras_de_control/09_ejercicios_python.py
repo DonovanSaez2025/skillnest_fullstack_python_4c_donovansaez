@@ -102,7 +102,7 @@ def contadorVocales():
         if texto[i] == "a" or texto[i] == "e" or texto[i] == "i" or texto[i] == "o" or texto[i] == "u":
             vocales += 1
         #Detectar vocales sin tilde
-        elif texto[i] == "á" or texto[i] == "é" or texto[i] == "í" or texto[i]. == "ó" or texto[i] == "ú":
+        elif texto[i] == "á" or texto[i] == "é" or texto[i] == "í" or texto[i] == "ó" or texto[i] == "ú":
             vocales += 1
     print(f"Hay {vocales} vocales en total en el string '{texto}'")
 
