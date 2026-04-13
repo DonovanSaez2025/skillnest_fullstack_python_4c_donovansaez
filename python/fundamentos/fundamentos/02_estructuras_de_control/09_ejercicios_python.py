@@ -83,8 +83,7 @@ def multiplicarPersonalizada():
 ingrese un número negativo. Al final, muestra la suma total (sin incluir el negativo).'''
 def sumatoriaCentinela():
     total = 0
-    aniadirNum = True
-    while aniadirNum:
+    while True:
         num = int(input("Ingresa un número a sumar: "))
         if (num < 0):
             break
