@@ -18,8 +18,8 @@ def trampaEmoji():
             print(f"Punto {i} Divertido") #cambiar por emoji
 
 #
-bonusFinal = 0
-for i in range(1, 500000):
+bonusXP = 0
+for i in range(1, 500001):
     if i % 2 == 0:
-        bonusFinal += i
-print(f"La recompensa final es de {bonusFinal} puntos")
+        bonusXP += i
+print(f"La recompensa final es de {bonusXP} puntos")
