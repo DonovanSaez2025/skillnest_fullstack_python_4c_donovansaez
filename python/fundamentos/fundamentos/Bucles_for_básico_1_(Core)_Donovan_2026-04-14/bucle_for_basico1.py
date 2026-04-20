@@ -42,7 +42,7 @@ e imprime el total acumulado.'''
 def sumarBonus():
     print("Sumando puntos de bonificación de cada segundo par hasta el segundo 500000.")
     bonusXP = 0
-    for i in range(1, 500001):
+    for i in range(0, 500001):
         if i % 2 == 0:
             bonusXP += 1
     print(f"La recompensa final es de {bonusXP} puntos")
