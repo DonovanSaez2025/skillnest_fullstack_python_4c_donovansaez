@@ -78,14 +78,14 @@ def contadorDinamico():
 #Menú de navegación
 continuar = True
 while continuar:
-    print("\n--- Ejercicios Python ---")
-    print("--- Interacci 1 ---")
+    print("\n--- Ejercicio Core ---")
+    print("--- Ejercicio 1 ---")
     print("--- Ejercicio 2 ---")
     print("--- Ejercicio 3 ---")
     print("--- Ejercicio 4 ---")
     print("--- Ejercicio 5 ---")
     print("--- Ejercicio 6 ---")
-    opcion = input("\n --- Elige una opción: (1-15) (0 para salir): ")
+    opcion = input("\n --- Elige una opción: (1-6) (0 para salir): ")
     if opcion == "1":
         nivelesImprimir()
     elif opcion == "2":
