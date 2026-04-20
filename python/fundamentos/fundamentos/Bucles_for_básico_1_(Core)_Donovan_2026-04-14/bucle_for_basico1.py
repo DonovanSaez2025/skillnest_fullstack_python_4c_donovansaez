@@ -1,3 +1,7 @@
+"""
+En este archivo pondrás en práctica el uso de bucles 'for' en Python,
+usando ejemplos inspirados en videojuegos y situaciones atractivas.
+"""
 #1. Generador de niveles:
 #Imagina que estás diseñando un juego de plataformas donde cada nivel se numeran del 0 al 100.
 #Utiliza un bucle for para imprimir todos los niveles desde el 0 hasta el 100 (incluyendo el 100).
