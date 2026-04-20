@@ -78,7 +78,7 @@ def contadorDinamico():
 #Menú de navegación
 continuar = True
 while continuar:
-    print("\n--- Ejercicio Core ---")
+    print("\n--- Ejercicios Core ---")
     print("--- Ejercicio 1 ---")
     print("--- Ejercicio 2 ---")
     print("--- Ejercicio 3 ---")
