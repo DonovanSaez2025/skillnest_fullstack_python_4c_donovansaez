@@ -1,3 +1,4 @@
+import os
 # Funciones básicas práctica 2
 # 1. Calcula experiencia
 def multiplica_por_2(num):
@@ -51,6 +52,9 @@ def valor_multiplicado_longitud(a, b):
 # Parte 1: Debe retornar: [10, 10]
 # Parte 2: Debe retornar: [35, 35, 35, 35, 35]
 
+def limpiarConsola():
+    os.system('cls')
+
 # Menú de navegación
 Continue = True
 while Continue:
@@ -62,25 +66,31 @@ while Continue:
     print("Ejercicio 5")
     opcion = input("Escoge un ejercicio del 1 al 5: ")
     if opcion == "1":
+        limpiarConsola()
         print("\nImprimiendo ejercicio 1:")
         print(multiplica_por_2(5))
     elif opcion == "2":
+        limpiarConsola()
         print("\nImprimiendo ejercicio 2:")
         print(suma_y_resta([120, 115]))
     elif opcion == "3":
+        limpiarConsola()
         print("\nImprimiendo ejercico 3:")
         print(sumatoria_menos_longitud([10, 5, 3, 7]))
     elif opcion == "4":
+        limpiarConsola()
         print("\nImprimiendo ejercico 4 parte 1:")
         print(valores_multiplicados_segundo([100, 3, 50, 20]))
         
         print("\nImprimiendo ejercico 4 parte 2:")
         print(valores_multiplicados_segundo([100]))
     elif opcion == "5":
+        limpiarConsola()
         print("\nImprimiendo ejercico 5 parte 1:")
         print(valor_multiplicado_longitud(5, 2))
         
         print("\nImprimiendo ejercico 5 parte 2:")
         print(valor_multiplicado_longitud(7, 5))
     elif opcion == "0":
+        limpiarConsola()
         break
