@@ -93,4 +93,6 @@ while Continue:
         print(valor_multiplicado_longitud(7, 5))
     elif opcion == "0":
         limpiarConsola()
+    else:
+        limpiarConsola()
         break
