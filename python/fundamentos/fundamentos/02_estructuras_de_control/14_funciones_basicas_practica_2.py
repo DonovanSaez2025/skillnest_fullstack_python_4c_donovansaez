@@ -10,7 +10,7 @@ def multiplica_por_2(num):
 # Debe retornar: [0, 2, 4, 6, 8, 10]
 def ejercicio1():
     valor = multiplica_por_2(5)
-    return valor
+    print(valor)
 
 # 2, Analiza publicaciones
 def suma_y_resta(numList):
@@ -21,7 +21,7 @@ def suma_y_resta(numList):
 # Imprime: 235 y retorna: 5
 def ejercicio2():
     valor = suma_y_resta([120, 115])
-    return valor
+    print(valor)
 
 # 3. Puntaje ajustado
 def sumatoria_menos_longitud(numList):
@@ -33,7 +33,7 @@ def sumatoria_menos_longitud(numList):
 # Suma total = 25, longitud = 4, debe retornar: 21
 def ejercicio3():
     valor = sumatoria_menos_longitud([10, 5, 3, 7])
-    return valor
+    print(valor)
 
 # 4. Ajusta visualizaciones
 def valores_multiplicados_segundo(numList):
@@ -49,11 +49,11 @@ def valores_multiplicados_segundo(numList):
 # Parte 1: Imprime: 4 y retorna: [300, 9, 150, 60]
 def ejercicio4_1():
     valor = valores_multiplicados_segundo([100, 3, 50, 20])
-    return(valor)
+    print(valor)
 # Parte 2: Imprime: 1 y retorna: []
 def ejercicio4_2():
     valor = valores_multiplicados_segundo([100])
-    return(valor)
+    print(valor)
 
 # 5. Genera precio fijo
 def valor_multiplicado_longitud(a, b):
@@ -64,11 +64,11 @@ def valor_multiplicado_longitud(a, b):
 # Parte 1: Debe retornar: [10, 10]
 def ejercicio5_1():
     valor = valor_multiplicado_longitud(5, 2)
-    return valor
+    print(valor)
 # Parte 2: Debe retornar: [35, 35, 35, 35, 35]
 def ejercicio5_2():
     valor = valor_multiplicado_longitud(7, 5)
-    return valor
+    print(valor)
 
 def limpiarConsola():
     os.system('cls')
@@ -86,34 +86,27 @@ while Continue:
     if opcion == "1":
         limpiarConsola()
         print("\nImprimiendo ejercicio 1:")
-        resultado = ejercicio1()
-        print(resultado)
+        ejercicio1()
     elif opcion == "2":
         limpiarConsola()
         print("\nImprimiendo ejercicio 2:")
-        resultado = ejercicio2()
-        print(resultado)
+        ejercicio2()
     elif opcion == "3":
         limpiarConsola()
         print("\nImprimiendo ejercico 3:")
-        resultado = ejercicio3()
-        print(resultado)
+        ejercicio3()
     elif opcion == "4":
         limpiarConsola()
         print("\nImprimiendo ejercico 4 parte 1:")
-        resultado1 = ejercicio4_1()
-        print(resultado1)
+        ejercicio4_1()
         print("\nImprimiendo ejercico 4 parte 2:")
-        resultado2 = ejercicio4_2()
-        print(resultado2)
+        ejercicio4_2()
     elif opcion == "5":
         limpiarConsola()
         print("\nImprimiendo ejercico 5 parte 1:")
-        resultado1 = ejercicio5_1()
-        print(resultado1)
+        ejercicio5_1()
         print("\nImprimiendo ejercico 5 parte 2:")
-        resultado2 = ejercicio5_2()
-        print(resultado2)
+        ejercicio5_2()
     elif opcion == "0":
         limpiarConsola()
         break
