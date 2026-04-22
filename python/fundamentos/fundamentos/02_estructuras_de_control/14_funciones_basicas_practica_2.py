@@ -109,11 +109,11 @@ while Continue:
     elif opcion == "5":
         limpiarConsola()
         print("\nImprimiendo ejercico 5 parte 1:")
-        result1 = ejercicio5_1()
-        print(result1)
+        resultado1 = ejercicio5_1()
+        print(resultado1)
         print("\nImprimiendo ejercico 5 parte 2:")
-        result2 = ejercicio5_2()
-        print(result2)
+        resultado2 = ejercicio5_2()
+        print(resultado2)
     elif opcion == "0":
         limpiarConsola()
         break
