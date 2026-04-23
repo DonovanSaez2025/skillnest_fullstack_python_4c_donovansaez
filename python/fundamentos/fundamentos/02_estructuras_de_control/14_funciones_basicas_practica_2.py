@@ -44,7 +44,6 @@ def valores_multiplicados_segundo(numList):
     else:
         for i in range(0, longitud):
             numList[i] *= 3
-            
     return numList
 # Parte 1: Imprime: 4 y retorna: [300, 9, 150, 60]
 def ejercicio4_1():
