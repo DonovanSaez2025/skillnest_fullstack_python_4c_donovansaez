@@ -10,7 +10,7 @@ class UsuarioStreaming:
     def agregar_a_lista(self, titulo):
         #Agrega un contenido a la lista de reproducción del usuario.
         self.lista_reproduccion.append(titulo)
-        print(f"Lista de reproducción de {self.nombre}:\n{" || ".join(self.lista_reproduccion)}")
+        print(f"Lista de reproducción de {self.nombre}:\n- {"\n- ".join(self.lista_reproduccion)}")
 
     def ver_contenido(self, titulo):
         #Simula que el usuario reproduce un contenido.
