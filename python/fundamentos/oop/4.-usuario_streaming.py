@@ -8,21 +8,21 @@ class UsuarioStreaming:
         self.lista_reproduccion = []
 
     def agregar_a_lista(self, titulo):
-        """Agrega un contenido a la lista de reproducción del usuario."""
+        #Agrega un contenido a la lista de reproducción del usuario.
         self.lista_reproduccion.append(titulo)
-        print(f"Lista de reproducción de {self.nombre}:\n{", ".join(self.lista_reproduccion)}")
+        print(f"Lista de reproducción de {self.nombre}:\n{" || ".join(self.lista_reproduccion)}")
 
     def ver_contenido(self, titulo):
-        """Simula que el usuario reproduce un contenido."""
+        #Simula que el usuario reproduce un contenido.
         print(f"{self.nombre} está viendo ahora: {titulo}")
 
     def cambiar_suscripcion(self, nueva_suscripcion):
-        """Cambia el tipo de suscripción del usuario."""
+        #Cambia el tipo de suscripción del usuario.
         self.suscripcion = nueva_suscripcion
         print(f"Nueva suscripción de {self.nombre}: {self.suscripcion}")
 
     def mostrar_info_usuario(self):
-        """Muestra la información del usuario y su lista de reproducción."""
+        #Muestra la información del usuario y su lista de reproducción.
         print(f"Nombre: {self.nombre}")
         print(f"Email: {self.email}")
         print(f"Suscripción: {self.suscripcion}")
@@ -83,7 +83,7 @@ while Continue:
                 if titulo in matias.lista_reproduccion:
                     matias.ver_contenido(titulo)
                 else:
-                    print(f"Ese video no está en la lista de {matias.nombre}")
+                    print(f"Ese video no está en la lista de {matias.nombre}.")
         elif usuario == "sebastian":
             if len(sebastian.lista_reproduccion) == 0:
                 print(f"La lista de {sebastian.nombre} está vacía.")
@@ -93,7 +93,7 @@ while Continue:
                 if titulo in sebastian.lista_reproduccion:
                     sebastian.ver_contenido(titulo)
                 else:
-                    print(f"Ese video no está en la lista de {sebastian.nombre}")
+                    print(f"Ese video no está en la lista de {sebastian.nombre}.")
         elif usuario == "sebastian":
             if len(camilo.lista_reproduccion) == 0:
                 print(f"La lista de {camilo.nombre} está vacía.")
@@ -103,7 +103,7 @@ while Continue:
                 if titulo in camilo.lista_reproduccion:
                     camilo.ver_contenido(titulo)
                 else:
-                    print(f"Ese video no está en la lista de {camilo.nombre}")
+                    print(f"Ese video no está en la lista de {camilo.nombre}.")
         else:
             print("Usuario no encontrado.")
     elif opcion == "3":
