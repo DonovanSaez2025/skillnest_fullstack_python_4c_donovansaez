@@ -94,7 +94,7 @@ while Continue:
                     sebastian.ver_contenido(titulo)
                 else:
                     print(f"Ese video no está en la lista de {sebastian.nombre}.")
-        elif usuario == "sebastian":
+        elif usuario == "camilo":
             if len(camilo.lista_reproduccion) == 0:
                 print(f"La lista de {camilo.nombre} está vacía.")
             else:
