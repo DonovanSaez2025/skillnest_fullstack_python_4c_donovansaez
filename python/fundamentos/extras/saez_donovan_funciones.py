@@ -108,6 +108,7 @@ def mayoresEdad(listaEdades):
         if listaEdades[i] >= 18:
             mayorEdad += 1
     print(f"{mayorEdad} personas son mayores de edad.")
+
 def ejercicio7():
     limit = int(input("Ingresa el límite de valores: "))
     listaEdades = []
