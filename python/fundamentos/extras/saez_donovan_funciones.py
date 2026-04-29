@@ -75,25 +75,54 @@ def ejercicio4():
 # 5. Crear una función que reciba una lista de precios de productos
 # y aplique un descuento del 10%, mostrando el valor original y el nuevo valor.
 def descuentoProducto(listaPrecios):
-    pass
-
+    subtotal = sum(listaPrecios)
+    descuento = subtotal - (subtotal * 0.1)
+    print(f"Precio total: ${subtotal}\nCon descuento: ${descuento}")
+    
 def ejercicio5():
-    pass
+    limit = int(input("Ingresa el límite de productos: "))
+    listaPrecios = []
+    for i in range(0, limit):
+        precio = float(input("Ingresa el precio de un producto: "))
+        listaPrecios.append(precio)
+    descuentoProducto(listaPrecios)
 
 # 6. Crear una función que reciba un número entero y determine si es par o impar.
-def parImpar(numero):
-    pass
+def parImpar(num):
+    if num == 0:
+        print("Número 0")
+    elif num % 2 == 0:
+        print(f"El número {num} es par")
+    else:
+        print(f"El número {num} es impar")
 
 def ejercicio6():
-    pass
+    num = int(input("Ingresa un número entero: "))
+    parImpar(num)
 
 # 7. Crear una función que reciba una lista de edades
 # y muestre cuántas personas son mayores de edad (18 años o más).
 def mayoresEdad(listaEdades):
-    pass
-
+    mayorEdad = 0
+    for i in range(0, len(listaEdades)):
+        if listaEdades[i] >= 18:
+            mayorEdad += 1
+    print(f"{mayorEdad} personas son mayores de edad.")
 def ejercicio7():
-    pass
+    limit = int(input("Ingresa el límite de valores: "))
+    listaEdades = []
+    go = False
+    for i in range(0, limit):
+        edad = float(input("Ingresa la edad de una persona: "))
+        if edad < 0:
+            print("Edad imposible.")
+            go = False
+            break
+        else:
+            listaEdades.append(edad)
+            go = True
+    if go == True:
+        mayoresEdad(listaEdades)
 
 # 8. Crear una función que reciba una lista de palabras
 # y permita buscar cuántas veces aparece una palabra específica ingresada por el usuario.
