@@ -2,8 +2,8 @@ import os
 # 1. Crear una función que reciba una lista de números enteros
 # y muestre cuál es el número mayor y cuál es el menor.
 def numeroMayorMenor(listado):
-    menor = min(listaNum)
-    mayor = max(listaNum)
+    menor = min(listado)
+    mayor = max(listado)
     print(f"El número menor es: {menor}\nEl número mayor es: {mayor}")
 
 def ejercicio1():
@@ -38,7 +38,7 @@ def mostrarNombres(listaNombres):
     for i in range(0, len(listaNombres)):
         if len(listaNombres[i]) > 5:
             mayor5.append(listaNombres[i])
-    print(f"Nombres con más de 5 letras: {", ".join(mayor5)}")
+    print(f"Nombres con más de 5 letras: \n- {"\n- ".join(mayor5)}")
 
 def ejercicio3():
     limit = int(input("Ingresa el límite de valores: "))
