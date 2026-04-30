@@ -180,14 +180,25 @@ def ejercicio9():
 
 # 10. Crear una función que reciba una lista de productos
 # (utilizando diccionarios con nombre y stock) y muestre cuáles tienen un stock menor a 5 unidades.
-def stockMenor(listaProductos):
-    stockMenor = 0
-    for i in range(0, len(listaProductos)):
-        pass
+def stockMenor(listaProductos, longitud):
+    stockMenorNombre = []
+    stockMenor = []
+    for i in range(0, longitud):
+        if listaProductos["stock"][i] < 5:
+            stockMenorNombre.append(listaProductos["nombre"][i])
+            stockMenor.append(listaProductos["stock"][i])
+    print("Productos con menos de 5 unidades:")
+    for i in range(0, len(stockMenorNombre)):
+        if stockMenor[i] == 0:
+            print(f"Stock de {stockMenorNombre[i]}: ninguna unidad")
+        elif stockMenor[i] == 1:
+            print(f"Stock de {stockMenorNombre[i]}: {stockMenor[i]} unidad")
+        elif stockMenor[i] > 1:
+            print(f"Stock de {stockMenorNombre[i]}: {stockMenor[i]} unidades")
 
 def ejercicio10():
     limit = int(input("Ingresa un límite de productos: "))
-    listaProductos = {"nombres": [], "stock": []}
+    listaProductos = {"nombre": [], "stock": []}
     i = 0
     while i < limit:
         nombreProd = input("Ingresa el nombre de un producto: ").strip()
@@ -195,10 +206,10 @@ def ejercicio10():
         if nombreProd == "" or stockProd < 0:
                 print("Error: valores inválidos.")
         else:
-            listaProductos["nombres"].append(nombreProd)
+            listaProductos["nombre"].append(nombreProd)
             listaProductos["stock"].append(stockProd)
             i += 1
-    stockMenor(listaProductos)
+    stockMenor(listaProductos, limit)
 
 # Limpiar consola
 def limpiarConsola():
