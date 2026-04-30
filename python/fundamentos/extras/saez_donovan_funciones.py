@@ -181,7 +181,9 @@ def ejercicio9():
 # 10. Crear una función que reciba una lista de productos
 # (utilizando diccionarios con nombre y stock) y muestre cuáles tienen un stock menor a 5 unidades.
 def stockMenor(listaProductos):
-    pass
+    stockMenor = 0
+    for i in range(0, len(listaProductos)):
+        pass
 
 def ejercicio10():
     limit = int(input("Ingresa un límite de productos: "))
