@@ -2,7 +2,6 @@ import os
 # 1. Crear una función que reciba una lista de números enteros
 # y muestre cuál es el número mayor y cuál es el menor.
 def numeroMayorMenor(listado):
-    listaNum = listado
     menor = min(listaNum)
     mayor = max(listaNum)
     print(f"El número menor es: {menor}\nEl número mayor es: {mayor}")
