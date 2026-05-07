@@ -29,8 +29,8 @@ dimensiones = (200, 50) # Declara una variable tipo tupla (variable inmutable) l
 print(dimensiones[0]) # Imprime el valor de la posición 0 de la variable dimensiones
 
 persona = { # Declara una variable tipo diccionario (objeto) llamada persona con 2 items
-   "nombre": "Carlos", # Se establece un item y se le asigna un valor
-   "edad": 30 # Se establece un item y se le asigna un valor
+    "nombre": "Carlos", # Se establece un item y se le asigna un valor
+    "edad": 30 # Se establece un item y se le asigna un valor
 } # Cierre del diccionario
 
 print(persona["nombre"]) # Imprime en pantalla el valor del item "nombre" de la variable persona
@@ -40,18 +40,18 @@ del persona["ciudad"] # Se elimina el item completo
 
 for i in range(5): # Se crea bucle con la variable i en rango desde 0 a 5
     
-   if i == 2: # Se establece condición IF == 2
-       continue # Ignora los procesos siguientes y continua
-   if i == 4: # Se establece condición IF == 4
-       break # Se rompe el bucle
-   print(i) # Imprime el valor de la variable i
+    if i == 2: # Se establece condición IF == 2
+        continue # Ignora los procesos siguientes y continua
+    if i == 4: # Se establece condición IF == 4
+        break # Se rompe el bucle
+    print(i) # Imprime el valor de la variable i
 
 contador = 0 # Se declara la variable tipo INT llamada contador
 while contador < 3: # Bucle while: mientras contador sea menor a 3 
-   print(f"while contador es: {contador}") # Imprime el contador en un mensaje concatenado con fstring
-   contador += 1 # Suma uno a la variable contador
+    print(f"while contador es: {contador}") # Imprime el contador en un mensaje concatenado con fstring
+    contador += 1 # Suma uno a la variable contador
 
 def saludar_usuario(nombre): # Crea una función con un parámetro
-   return f"Hola, {nombre}" # Retorna el paramétro concatenado con fstring
+    return f"Hola, {nombre}" # Retorna el paramétro concatenado con fstring
 
 print(saludar_usuario("Francisca")) # Llama a la función saludar_usuario() enviandole el paramétro francisca e imprimiendo el valor retornado'''

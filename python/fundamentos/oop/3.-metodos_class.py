@@ -7,6 +7,12 @@ class Usuario:
         self.saldo_pagar = 0
     def hacer_compra(self, monto):  #recibe como argumento el monto de la compra
         self.saldo_pagar += monto   #el saldo a pagar del usuario aumenta en la cantidad del valor recibido
+        return self
+    def pagar_tarjeta(self, monto):
+        self.saldo_pagar -= monto
+        return self
+    def mostrar_saldo_usuario(self):
+        print(self.saldo_pagar)
     def aumentar_credito(self, monto):
         self.limite_credito += monto
     def cambiar_email(self, nuevoemail):
@@ -15,49 +21,5 @@ class Usuario:
 miyagi = Usuario("Nariyoshi", "Miyagi", "miyagi@codingdojo.la")
 daniel = Usuario("Daniel", "Larusso", "daniel@codingdojo.la")
 donovan = Usuario("Donovan", "Sáez", "donovansaez@liceovvh.cl")
-
-# Compras miyagi
-print("Compras de Miyagi ")
-primeracompra = 2000
-miyagi.hacer_compra(primeracompra)
-print(f"Primera compra de {miyagi.nombre}: ${primeracompra}")
-segundacompra = 300
-miyagi.hacer_compra(segundacompra)
-print(f"Segunda compra de {miyagi.nombre}: ${segundacompra}")
-# Imprimir cuanto crédito le queda
-print(f"Crédito disponible de {miyagi.nombre}: #{miyagi.limite_credito - miyagi.saldo_pagar}")
-
-# Compras daniel
-print("Compras de Daniel")
-daniel.hacer_compra(45)
-print(daniel.saldo_pagar)
-
-#Tarea
-'''
-1. - Crear un nuevo método que permita aumentar el límite de crédito.
-- imprimir el nuevo limite.
-2. - Crear método que permita cambiar el correo.
-- Mostrar el nuevo correo.
-'''
-# 1. aumentar limite del crédito
-instancia = input("Selecciona una instancia (miyagi, daniel): ")
-if instancia == "miyagi": 
-    monto = int(input("Ingresa un monto de dinero: "))
-    miyagi.aumentar_credito(monto)
-    print(f"Nuevo límite de crédito para {miyagi.nombre}: ${miyagi.limite_credito}")
-elif instancia == "daniel":
-    monto = int(input("Ingresa un monto de dinero: "))
-    daniel.aumentar_credito(monto)
-    print(f"Nuevo límite de crédito para {daniel.nombre}: ${daniel.limite_credito}")
     
-# 2. cambiar el correo
-instancia = input("Selecciona una instancia(miyagi, daniel): ")
-if instancia == "miyagi": 
-    nuevocorreo = input("Ingresa un nuevo correo electrónico: ")
-    miyagi.cambiar_email(nuevocorreo)
-    print(f"Nuevo correo electrónico para {miyagi.nombre}: {miyagi.email}")
-elif instancia == "daniel":
-    nuevocorreo = input("Ingresa un nuevo correo electrónico: ")
-    daniel.cambiar_email(nuevocorreo)
-    print(f"Nuevo correo electrónico para {daniel.nombre}: {daniel.email}")
-    
+miyagi.hacer_compra(150).hacer_compra(300).pagar_tarjeta(50).mostrar_saldo_usuario()
