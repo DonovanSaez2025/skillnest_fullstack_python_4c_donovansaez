@@ -45,7 +45,7 @@ def metodosEncadenados():
         if titulo == "":
             print("El título mo puede estar vacío.")
             continue
-        if verTitulo in matias.lista_reproduccion == False:
+        if (verTitulo in matias.lista_reproduccion) == False:
             print("Vídeo para ver no encontrado.")
             continue
         if nuevaSuscripcion != "Gratis" and nuevaSuscripcion != "Estándar" != nuevaSuscripcion != "Premium":
