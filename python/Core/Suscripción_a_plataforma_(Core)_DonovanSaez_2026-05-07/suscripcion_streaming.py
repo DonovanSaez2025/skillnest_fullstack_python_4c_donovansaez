@@ -53,7 +53,7 @@ user2 = SuscripcionStreaming("Arael", "Estándar")
 user3 = SuscripcionStreaming("MatildeX", "Premium")
 
 '''Haz que el primer usuario intente ver contenido
-exclusivo mejore su suscripción y pague su saldo.'''
+exclusivo, mejore su suscripción y pague su saldo.'''
 print("== Actividad usuario 1 ==")
 user1.ver_contenido_exclusivo().cambiar_suscripcion("Estándar").realizar_pago(5.99).ver_contenido_exclusivo()
 
