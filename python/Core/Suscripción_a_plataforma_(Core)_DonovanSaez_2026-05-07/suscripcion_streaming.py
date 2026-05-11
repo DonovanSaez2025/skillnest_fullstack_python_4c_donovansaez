@@ -1,11 +1,11 @@
 class SuscripcionStreaming:
     costos_suscripcion = {"Gratis": 0, "Estándar": 5.99, "Premium": 10.99}
     
-    def __init__(self, usuario, saldo_pendiente, tipo_suscripcion="Gratis"):
+    def __init__(self, usuario, tipo_suscripcion="Gratis"):
         self.usuario = usuario
         self.tipo_suscripcion = tipo_suscripcion
         self.costo_mensual = SuscripcionStreaming.costos_suscripcion[tipo_suscripcion]
-        self.saldo_pendiente = saldo_pendiente
+        self.saldo_pendiente = self.costo_mensual
 
     def realizar_pago(self, monto):
         #Reduce el saldo pendiente según el monto pagado.
@@ -48,9 +48,9 @@ class SuscripcionStreaming:
         return self
         
 #Crea 3 usuarios con diferentes tipos de suscripción.
-user1 = SuscripcionStreaming("Matías", 0)
-user2 = SuscripcionStreaming("Arael", 5.99, "Estándar")
-user3 = SuscripcionStreaming("MatildeX", 10.99, "Premium")
+user1 = SuscripcionStreaming("Matías")
+user2 = SuscripcionStreaming("Arael", "Estándar")
+user3 = SuscripcionStreaming("MatildeX", "Premium")
 
 '''Haz que el primer usuario intente ver contenido
 exclusivo mejore su suscripción y pague su saldo.'''
