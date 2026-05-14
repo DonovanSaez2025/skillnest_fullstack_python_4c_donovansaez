@@ -80,5 +80,5 @@ sebastian.realizar_compra(4000).pagar_saldo(5000)
 randy.mostrar_total_clientes()
 
 donovan.validar_membresia("Bronce")
-sebastian.validar_membresia("Oro")
+sebastian.validar_membresia("Diamante")
 randy.mostrar_informacion()
