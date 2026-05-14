@@ -73,9 +73,11 @@ class CafeteriaCliente:
 donovan = CafeteriaCliente("Donovan", 0, 0, "Bronce")
 sebastian = CafeteriaCliente("Sebastián", 0, 0, "Plata")
 randy = CafeteriaCliente("Randy", 0, 0, "Oro")
+
 donovan.realizar_compra(3520).pagar_saldo(2000)
 sebastian.realizar_compra(4000).pagar_saldo(5000)
 randy.mostrar_total_clientes()
+
 donovan.validar_membresia("Bronce")
 sebastian.validar_membresia("Oro")
 randy.mostrar_informacion()
