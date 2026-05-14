@@ -67,7 +67,7 @@ class CafeteriaCliente:
         print(f"\nMostrando información de {self.nombre}: ")
         print(f"Nombre: {self.nombre}")
         print(f"Puntos acumulados: {self.puntos_acumulados}")
-        print(f"Saldo pendiente: $0{self.saldo_pendiente}")
+        print(f"Saldo pendiente: ${self.saldo_pendiente}")
         print(f"Tipo de membresía: {self.tipo_membresia}")
 
 donovan = CafeteriaCliente("Donovan", 0, 0, "Bronce")
