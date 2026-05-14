@@ -63,13 +63,14 @@ class CafeteriaCliente:
         else:
             print(f"{tipo} es una Membresía inválida.")
             return False
-
+    def mostrar_informacion(self):
+        print(f"\nMostrando información de {self.nombre}: ")
+        print(f"Nombre: {self.nombre}")
+        print(f"Puntos acumulados: {self.puntos_acumulados}")
+        print(f"Saldo pendiente: $0{self.saldo_pendiente}")
+        print(f"Tipo de membresía: {self.tipo_membresia}")
 
 donovan = CafeteriaCliente("Donovan", 0, 0, "Bronce")
 sebastian = CafeteriaCliente("Sebastián", 0, 0, "Plata")
 randy = CafeteriaCliente("Randy", 0, 0, "Oro")
-donovan.realizar_compra(3520).pagar_saldo(2000)
-sebastian.realizar_compra(4000).pagar_saldo(5000)
-randy.mostrar_total_clientes()
-donovan.validar_membresia("Bronce")
-sebastian.validar_membresia("Oro")
+randy.mostrar_informacion()
