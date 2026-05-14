@@ -63,6 +63,7 @@ class CafeteriaCliente:
         else:
             print(f"{tipo} es una Membresía inválida.")
             return False
+        
     def mostrar_informacion(self):
         print(f"\nMostrando información de {self.nombre}: ")
         print(f"Nombre: {self.nombre}")
