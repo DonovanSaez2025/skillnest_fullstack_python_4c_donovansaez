@@ -61,7 +61,7 @@ class CafeteriaCliente:
             print(f"{tipo} es una membresía válida.")
             return True
         else:
-            print(f"{tipo} es una Membresía inválida.")
+            print(f"{tipo} es una membresía inválida.")
             return False
         
     def mostrar_informacion(self):
