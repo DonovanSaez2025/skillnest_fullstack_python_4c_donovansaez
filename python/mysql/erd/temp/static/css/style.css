@@ -9,13 +9,14 @@ body {
 }
 
 .contenedor {
-    max-width: 800px;
-    margin: 120px auto 0 auto;
+    max-width: 1000px;
+    margin: 0 auto;
 }
 
 .row {
     display: flex;
     justify-content: space-between;
+    gap: 70px;
 }
 
 .col h2 {
@@ -113,3 +114,4 @@ td {
     display: flex;
     justify-content: space-between;
 }
+
