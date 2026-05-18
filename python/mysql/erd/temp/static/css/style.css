@@ -31,9 +31,10 @@ form {
     display: flex;
     flex-direction: column;
     margin-top: 15px;
+
 }
 
-.submit {
+.boton {
     align-self: center;
     margin-top: 10px;
     font-size: 1rem;
@@ -63,5 +64,52 @@ form {
 
 table, th, td {
     border: 2px solid #000;
+    border-bottom: none;
+    border-top: none;
     border-collapse: collapse;
+}
+
+th {
+    background-color: #ccc;
+}
+
+.data-gray {
+    background-color: #eee;
+}
+
+.data-white {
+    background-color: #fff;
+}
+
+table {
+    border-top: 2px solid #000;
+    border-bottom: 2px solid #000;
+    text-align: left;
+}
+
+th, td {
+    padding: 0 15px 0 2px;
+}
+
+td {
+    padding: 5px 3px;
+}
+
+.row {
+    display: flex;
+    justify-content: center;
+}
+
+.nuevo-user {
+    margin: 0 0 11px 340px;
+}
+
+.bi {
+    font-size: 1.5em;
+}
+
+.data-actions {
+    border: none;
+    display: flex;
+    justify-content: space-between;
 }
