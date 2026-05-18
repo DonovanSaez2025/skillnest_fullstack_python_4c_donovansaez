@@ -13,32 +13,34 @@
 <body>
     <div class="contenedor">
         <h1>Nuevo Usuario</h1>
-        <form class="crear-user">
-            <div class="parte">
-                <label for="username">Nombre</label>
-                <input class="input-box" type="text" id="username" name="username">
-            </div>
-            <div class="parte">
-                <label for="email">E-mail</label>
-                <input class="input-box" type="email" id="email" name="email">
-            </div>
-            <div class="parte">
-                <label for="pass">Contraseña</label>
-                <input class="input-box" type="password" id="pass" name="pass">
-            </div>
-            <div class="parte">
-                <label for="confpass">Conf. Contraseña</label>
-                <input class="input-box" type="password" id="confpass" name="confpass">
-            </div>
-            <div class="parte">
-                <label for="tipouser">Tipo de Usuario</label>
-                <select class="select-box" name="tipouser" id="tipouser">
-                    <option value="administrador">Administrador</option>
-                    <option value="usuario">Usuario</option>
-                </select>
-            </div>
-            <input class="boton" type="submit" value="Crear">
-        </form>
+        <div class="form-div">
+            <form class="crear-user">
+                <div class="parte short-part">
+                    <label for="username">Nombre</label>
+                    <input class="input-box" type="text" id="username" name="username">
+                </div>
+                <div class="parte short-part">
+                    <label for="email">E-mail</label>
+                    <input class="input-box" type="email" id="email" name="email">
+                </div>
+                <div class="parte short-part">
+                    <label for="pass">Contraseña</label>
+                    <input class="input-box" type="password" id="pass" name="pass">
+                </div>
+                <div class="parte short-part">
+                    <label for="confpass">Conf. Contraseña</label>
+                    <input class="input-box" type="password" id="confpass" name="confpass">
+                </div>
+                <div class="parte">
+                    <label for="tipouser">Tipo de Usuario</label>
+                    <select class="select-box" name="tipouser" id="tipouser">
+                        <option value="administrador">Administrador</option>
+                        <option value="usuario">Usuario</option>
+                    </select>
+                </div>
+                <input class="boton" type="submit" value="Crear">
+            </form>
+        </div>
     </div>
 </body>
 
