@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="donovansaez@liceovvh.cl">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="../static/css/style.css">
+    <title>Editar</title>
+</head>
+
+<body>
+    <div class="contenedor">
+        <h1>Editar Usuario</h1>
+        <div class="form-div">
+            <form class="edit-user">
+                <div class="parte short-part">
+                    <label for="username">Nombre</label>
+                    <input class="input-box" type="text" id="username" name="username">
+                </div>
+                <div class="parte short-part">
+                    <label for="email">E-mail</label>
+                    <input class="input-box" type="email" id="email" name="email">
+                </div>
+                <div class="parte short-part">
+                    <label for="pass">Contraseña</label>
+                    <input class="input-box" type="password" id="pass" name="pass">
+                </div>
+                <div class="parte short-part">
+                    <label for="confpass">Conf. Contraseña</label>
+                    <input class="input-box" type="password" id="confpass" name="confpass">
+                </div>
+                <div class="parte">
+                    <label for="tipouser">Tipo de Usuario</label>
+                    <select class="select-box" name="tipouser" id="tipouser">
+                        <option value="administrador">Administrador</option>
+                        <option value="usuario">Usuario</option>
+                    </select>
+                </div>
+                <input class="boton" type="submit" value="Crear">
+            </form>
+        </div>
+    </div>
+</body>
+
+</html>
