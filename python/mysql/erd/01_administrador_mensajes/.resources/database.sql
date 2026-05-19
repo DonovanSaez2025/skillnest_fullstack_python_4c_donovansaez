@@ -25,7 +25,7 @@ CREATE TABLE IF NOT EXISTS `sistema_mensajes`.`roles` (
   `nombreRol` VARCHAR(50) NOT NULL,
   `descripcionRol` VARCHAR(300) NOT NULL,
   `created_at` DATETIME DEFAULT CURRENT_TIMESTAMP, -- CURRENT_TIMESTAMP: hora y fecha actual
-  `updated_at` DATETIME DEFAULT CURRENT_TIMESTAMP ON UPDATE,
+  `updated_at` DATETIME DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   `created_by` INT NULL,
   `deleted` TINYINT(1) DEFAULT 0, -- Borrado lógico: no se borra el elemento físicamente
   PRIMARY KEY (`idRoles`))
@@ -49,7 +49,7 @@ CREATE TABLE IF NOT EXISTS `sistema_mensajes`.`usuarios` (
   `email` VARCHAR(150) NOT NULL,
   `password_hash` VARCHAR(100) NOT NULL,
   `created_at` DATETIME DEFAULT CURRENT_TIMESTAMP,
-  `updated_at` DATETIME DEFAULT CURRENT_TIMESTAMP ON UPDATE,
+  `updated_at` DATETIME DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   `created_by` INT NULL,
   `deleted` TINYINT(1) DEFAULT 0,
   PRIMARY KEY (`idUsuario`),
@@ -73,7 +73,7 @@ CREATE TABLE IF NOT EXISTS `sistema_mensajes`.`mensajes` (
   `emisor` INT NOT NULL,
   `contenido` TEXT NOT NULL,
   `created_at` DATETIME DEFAULT CURRENT_TIMESTAMP,
-  `updated_at` DATETIME DEFAULT CURRENT_TIMESTAMP ON UPDATE,
+  `updated_at` DATETIME DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   `created_by` INT NULL,
   `deleted` TINYINT(1) DEFAULT 0,
   PRIMARY KEY (`idMensaje`),
@@ -100,7 +100,7 @@ CREATE TABLE IF NOT EXISTS `sistema_mensajes`.`comentarios` (
   `idUsuario` INT NOT NULL,
   `contenido` TEXT NOT NULL,
   `created_at` DATETIME DEFAULT CURRENT_TIMESTAMP,
-  `updated_at` DATETIME DEFAULT CURRENT_TIMESTAMP ON UPDATE,
+  `updated_at` DATETIME DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   `created_by` INT NULL,
   `deleted` TINYINT(1) DEFAULT 0,
   PRIMARY KEY (`idComentario`),
