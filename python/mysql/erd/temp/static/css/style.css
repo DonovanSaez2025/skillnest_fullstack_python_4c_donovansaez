@@ -10,7 +10,7 @@ body {
 
 .contenedor {
     max-width: 1000px;
-    margin: 0 auto;
+    margin: 25px auto 0 auto;
 }
 
 .row {
@@ -43,6 +43,7 @@ form {
     padding: 1px 8px;
     border: 3px solid #000;
     box-shadow: 4px 3px 0px #000;
+    cursor: pointer;
 }
 
 .parte {
@@ -163,6 +164,10 @@ h1 {
     margin-right: 66px;
 }
 
-button {
+.user-table .data-actions {
+    justify-content: center;
+}
+
+.bi {
     cursor: pointer;
 }
