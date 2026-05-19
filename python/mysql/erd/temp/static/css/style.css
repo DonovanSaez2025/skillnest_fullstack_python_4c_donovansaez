@@ -44,6 +44,12 @@ form {
     border: 3px solid #000;
     box-shadow: 4px 3px 0px #000;
     cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.boton:hover {
+    background-color: #d1d1d1;
+    transition: background-color 0.2s;
 }
 
 .parte {
