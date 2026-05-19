@@ -171,3 +171,53 @@ h1 {
 .bi {
     cursor: pointer;
 }
+
+.contenedor-mess {
+    max-width: 500px;
+    margin: 25px auto 0 auto;
+}
+
+.mess-h1 {
+    text-align: left;
+    margin-bottom: 12px;
+}
+
+.enviar-mensaje {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 16px;
+}
+
+.mess-box {
+    border: 3px solid #000;
+    padding: 0 2px;
+    flex: 6;
+}
+
+.enviar-boton {
+    margin: 0;
+    padding: 2.5px 0;
+    flex: 1;
+}
+
+.recent-mess {
+    margin-top: 26px;
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+.link-recent {
+    color: #2b78e4;
+}
+
+.comment-sect {
+    margin: 15px 0 0 70px;
+}
+
+.comt-box {
+    border: 3px solid #000;
+    padding: 4px 2px;
+    flex: 6;
+}
