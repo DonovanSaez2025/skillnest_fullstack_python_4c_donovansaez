@@ -27,7 +27,7 @@ CREATE TABLE IF NOT EXISTS `mydb`.`roles` (
   `created_at` DATETIME DEFAULT CURRENT_TIMESTAMP, -- CURRENT_TIMESTAMP: hora y fecha actual
   `updated_at` DATETIME DEFAULT CURRENT_TIMESTAMP ON UPDATE,
   `created_by` INT NULL,
-  `deleted` TINYINT(1) NULL,
+  `deleted` TINYINT(1) DEFAULT 0, -- Borrado lógico: no se borra el elemento físicamente
   PRIMARY KEY (`idRoles`))
 ENGINE = InnoDB;
 
@@ -44,7 +44,7 @@ CREATE TABLE IF NOT EXISTS `mydb`.`usuarios` (
   `created_at` DATETIME DEFAULT CURRENT_TIMESTAMP,
   `updated_at` DATETIME DEFAULT CURRENT_TIMESTAMP ON UPDATE,
   `created_by` INT NULL,
-  `deleted` TINYINT(1) NULL,
+  `deleted` TINYINT(1) DEFAULT 0,
   PRIMARY KEY (`idUsuario`),
   UNIQUE INDEX `username_UNIQUE` (`nombre_usuario` ASC) VISIBLE,
   UNIQUE INDEX `email_UNIQUE` (`email` ASC) VISIBLE,
@@ -68,7 +68,7 @@ CREATE TABLE IF NOT EXISTS `mydb`.`mensajes` (
   `created_at` DATETIME DEFAULT CURRENT_TIMESTAMP,
   `updated_at` DATETIME DEFAULT CURRENT_TIMESTAMP ON UPDATE,
   `created_by` INT NULL,
-  `deleted` TINYINT(1) NULL,
+  `deleted` TINYINT(1) DEFAULT 0,
   PRIMARY KEY (`idMensaje`),
   INDEX `fk_mensajes_usuarios1_idx` (`emisor` ASC) VISIBLE,
   INDEX `fk_mensajes_usuarios2_idx` (`receptor` ASC) VISIBLE,
@@ -95,7 +95,7 @@ CREATE TABLE IF NOT EXISTS `mydb`.`comentarios` (
   `created_at` DATETIME DEFAULT CURRENT_TIMESTAMP,
   `updated_at` DATETIME DEFAULT CURRENT_TIMESTAMP ON UPDATE,
   `created_by` INT NULL,
-  `deleted` TINYINT(1) NULL,
+  `deleted` TINYINT(1) DEFAULT 0,
   PRIMARY KEY (`idComentario`),
   INDEX `fk_comentarios_usuarios1_idx` (`idUsuario` ASC) VISIBLE,
   CONSTRAINT `fk_comentarios_usuarios1`
