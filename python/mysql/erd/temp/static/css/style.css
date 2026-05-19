@@ -162,3 +162,7 @@ h1 {
 .edit-user .select-box {
     margin-right: 66px;
 }
+
+button {
+    cursor: pointer;
+}
