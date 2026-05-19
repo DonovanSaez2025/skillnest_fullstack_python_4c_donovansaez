@@ -31,6 +31,13 @@ CREATE TABLE IF NOT EXISTS `mydb`.`roles` (
   PRIMARY KEY (`idRoles`))
 ENGINE = InnoDB;
 
+/* 
+DIEGO MUERE- DEBEMOS SACARLO DEL SISTEMA. Borrado físico: DELETE FROM USUARIO
+El borrado físico el dato deja de existir, no se puede recuperar
+Borrado lógico: campo deleted activo - deleted 1
+Podemos ocultar el dato para que el cliente no lo vea
+pero no sale del sistema.
+*/
 
 -- -----------------------------------------------------
 -- Table `mydb`.`usuarios`
