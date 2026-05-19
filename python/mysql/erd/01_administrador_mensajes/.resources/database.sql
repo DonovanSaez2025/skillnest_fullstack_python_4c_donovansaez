@@ -8,19 +8,19 @@ SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0;
 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION';
 
 -- -----------------------------------------------------
--- Schema mydb
+-- Schema sistema_mensajes
 -- -----------------------------------------------------
 
 -- -----------------------------------------------------
--- Schema mydb
+-- Schema sistema_mensajes
 -- -----------------------------------------------------
-CREATE SCHEMA IF NOT EXISTS `mydb` DEFAULT CHARACTER SET utf8 ;
-USE `mydb` ;
+CREATE SCHEMA IF NOT EXISTS `sistema_mensajes` DEFAULT CHARACTER SET utf8 ;
+USE `sistema_mensajes` ;
 
 -- -----------------------------------------------------
--- Table `mydb`.`roles`
+-- Table `sistema_mensajes`.`roles`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `mydb`.`roles` (
+CREATE TABLE IF NOT EXISTS `sistema_mensajes`.`roles` (
   `idRoles` INT NOT NULL AUTO_INCREMENT,
   `nombreRol` VARCHAR(50) NOT NULL,
   `descripcionRol` VARCHAR(300) NOT NULL,
@@ -40,9 +40,9 @@ pero no sale del sistema.
 */
 
 -- -----------------------------------------------------
--- Table `mydb`.`usuarios`
+-- Table `sistema_mensajes`.`usuarios`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `mydb`.`usuarios` (
+CREATE TABLE IF NOT EXISTS `sistema_mensajes`.`usuarios` (
   `idUsuario` INT NOT NULL AUTO_INCREMENT,
   `idRol` INT NOT NULL,
   `nombre_usuario` VARCHAR(100) NOT NULL,
@@ -58,16 +58,16 @@ CREATE TABLE IF NOT EXISTS `mydb`.`usuarios` (
   INDEX `fk_usuarios_tiposUsuario_idx` (`idRol` ASC) VISIBLE,
   CONSTRAINT `fk_usuarios_tiposUsuario`
     FOREIGN KEY (`idRol`)
-    REFERENCES `mydb`.`roles` (`idRoles`)
+    REFERENCES `sistema_mensajes`.`roles` (`idRoles`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `mydb`.`mensajes`
+-- Table `sistema_mensajes`.`mensajes`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `mydb`.`mensajes` (
+CREATE TABLE IF NOT EXISTS `sistema_mensajes`.`mensajes` (
   `idMensaje` INT NOT NULL AUTO_INCREMENT,
   `receptor` INT NOT NULL,
   `emisor` INT NOT NULL,
@@ -81,21 +81,21 @@ CREATE TABLE IF NOT EXISTS `mydb`.`mensajes` (
   INDEX `fk_mensajes_usuarios2_idx` (`receptor` ASC) VISIBLE,
   CONSTRAINT `fk_mensajes_usuarios1`
     FOREIGN KEY (`emisor`)
-    REFERENCES `mydb`.`usuarios` (`idUsuario`)
+    REFERENCES `sistema_mensajes`.`usuarios` (`idUsuario`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
   CONSTRAINT `fk_mensajes_usuarios2`
     FOREIGN KEY (`receptor`)
-    REFERENCES `mydb`.`usuarios` (`idUsuario`)
+    REFERENCES `sistema_mensajes`.`usuarios` (`idUsuario`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `mydb`.`comentarios`
+-- Table `sistema_mensajes`.`comentarios`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `mydb`.`comentarios` (
+CREATE TABLE IF NOT EXISTS `sistema_mensajes`.`comentarios` (
   `idComentario` INT NOT NULL AUTO_INCREMENT,
   `idUsuario` INT NOT NULL,
   `contenido` TEXT NOT NULL,
@@ -107,7 +107,7 @@ CREATE TABLE IF NOT EXISTS `mydb`.`comentarios` (
   INDEX `fk_comentarios_usuarios1_idx` (`idUsuario` ASC) VISIBLE,
   CONSTRAINT `fk_comentarios_usuarios1`
     FOREIGN KEY (`idUsuario`)
-    REFERENCES `mydb`.`usuarios` (`idUsuario`)
+    REFERENCES `sistema_mensajes`.`usuarios` (`idUsuario`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
