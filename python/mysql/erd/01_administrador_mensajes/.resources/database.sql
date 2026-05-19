@@ -21,7 +21,7 @@ USE `sistema_mensajes` ;
 -- Table `sistema_mensajes`.`roles`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `sistema_mensajes`.`roles` (
-  `idRoles` INT NOT NULL AUTO_INCREMENT,
+  `idRol` INT NOT NULL AUTO_INCREMENT,
   `nombreRol` VARCHAR(50) NOT NULL,
   `descripcionRol` VARCHAR(300) NOT NULL,
   `created_at` DATETIME DEFAULT CURRENT_TIMESTAMP, -- CURRENT_TIMESTAMP: hora y fecha actual
@@ -116,3 +116,22 @@ ENGINE = InnoDB;
 SET SQL_MODE=@OLD_SQL_MODE;
 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
+
+-- Insertar datos en tablas
+USE sistema_mensajes;
+
+-- Insertar datos a la tabla de roles
+INSERT INTO roles(nombreRol, descripcionRol)
+VALUES ("Administrador", "Acceso total"),
+("Premium", "Acceso especial."),
+("Usuario", "Acceso limitado."),
+("Sancionado", "Solo vista."),
+("Vetado", "No puede acceder al sitio.");
+
+-- Insertar datos a la tabla de usuarios
+INSERT INTO usuarios(idRol, nombre_usuario, email, password_hash)
+VALUES (1, "Patricia", "patricia@codingdojo.com", "ih82/(hjSAO22-186nd"),
+(3, "Andrea", "andrea@codingdojo.com", "iuA8(!($hdHkas_s"),
+(3, "Katya", "katya@codingdojo.com", "ASHFJ)#(kdÑ_d,"),
+(4, "Matías", "matias@gmail.com", "SKFJ-_S)_(!)%"),
+(5, "Fresia", "fresia@comeduc.cl", "AKAISFU)(#__fg");
