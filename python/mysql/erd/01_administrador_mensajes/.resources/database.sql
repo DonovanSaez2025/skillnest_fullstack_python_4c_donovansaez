@@ -125,7 +125,7 @@ INSERT INTO roles(nombreRol, descripcionRol, created_by)
 VALUES ("Administrador", "Acceso total", 1),
 ("Premium", "Acceso especial.", 1),
 ("Usuario", "Acceso limitado.", 1),
-("Sancionado", "Solo vista.", 1),
+("Invitado", "Solo vista.", 1),
 ("Vetado", "No puede acceder al sitio.", 1);
 
 -- Insertar datos a la tabla de usuarios
@@ -197,3 +197,18 @@ WHERE deleted = 1;
 SELECT nombre_usuario, email, idRol
 FROM usuarios
 WHERE deleted = 0;
+
+-- TAREA
+-- Mostrar roles de usuario (nombre y descripción)
+SELECT nombreRol, descripcionRol
+FROM roles;
+
+-- Eliminar dos roles de usuario
+UPDATE roles
+SET deleted = 1
+WHERE idRol IN (4, 5);
+
+-- Recuperar 1 rol de usuario
+UPDATE roles
+SET deleted = 0
+WHERE idRol = 5;
