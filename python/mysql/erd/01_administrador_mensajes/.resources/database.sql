@@ -28,7 +28,7 @@ CREATE TABLE IF NOT EXISTS `sistema_mensajes`.`roles` (
   `updated_at` DATETIME DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   `created_by` INT NULL,
   `deleted` TINYINT(1) DEFAULT 0, -- Borrado lógico: no se borra el elemento físicamente
-  PRIMARY KEY (`idRoles`))
+  PRIMARY KEY (`idRol`))
 ENGINE = InnoDB;
 
 /* 
@@ -58,7 +58,7 @@ CREATE TABLE IF NOT EXISTS `sistema_mensajes`.`usuarios` (
   INDEX `fk_usuarios_tiposUsuario_idx` (`idRol` ASC) VISIBLE,
   CONSTRAINT `fk_usuarios_tiposUsuario`
     FOREIGN KEY (`idRol`)
-    REFERENCES `sistema_mensajes`.`roles` (`idRoles`)
+    REFERENCES `sistema_mensajes`.`roles` (`idRol`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
@@ -121,38 +121,39 @@ SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
 USE sistema_mensajes;
 
 -- Insertar datos a la tabla de roles
-INSERT INTO roles(nombreRol, descripcionRol)
-VALUES ("Administrador", "Acceso total"),
-("Premium", "Acceso especial."),
-("Usuario", "Acceso limitado."),
-("Sancionado", "Solo vista."),
-("Vetado", "No puede acceder al sitio.");
+INSERT INTO roles(nombreRol, descripcionRol, created_by)
+VALUES ("Administrador", "Acceso total", 1),
+("Premium", "Acceso especial.", 1),
+("Usuario", "Acceso limitado.", 1),
+("Sancionado", "Solo vista.", 1),
+("Vetado", "No puede acceder al sitio.", 1);
 
 -- Insertar datos a la tabla de usuarios
 INSERT INTO usuarios(idRol, nombre_usuario, email, password_hash)
 VALUES (1, "Patricia", "patricia@codingdojo.com", "ih82/(hjSAO22-186nd"),
-(3, "Andrea", "andrea@codingdojo.com", "iuA8(!($hdHkas_s"),
+(2, "Andrea", "andrea@codingdojo.com", "iuA8(!($hdHkas_s"),
 (3, "Katya", "katya@codingdojo.com", "ASHFJ)#(kdÑ_d,"),
 (4, "Matías", "matias@gmail.com", "SKFJ-_S)_(!)%"),
 (5, "Fresia", "fresia@comeduc.cl", "AKAISFU)(#__fg");
 
 -- Insertar datos a la tabla de mensajes
-INSERT INTO mensajes(receptor, emisor, contenido)
-VALUES (1, 2, "Hola amiga cómo estás"),
-(2, 3, "Me caes muy bien amigo jaja"),
-(3, 4, "Eres nueva por lo que veo"),
-(4, 5, "No te conozco, creo que no eres de acá"),
-(5, 1, "Espero estés bien por hoy");
+INSERT INTO mensajes(receptor, created_by, emisor, contenido)
+VALUES (1, 2, 2, "Hola amiga cómo estás"),
+(2, 3, 3, "Me caes muy bien amiga jaja"),
+(3, 4, 4, "Eres nueva por lo que veo"),
+(4, 5, 5, "No te conozco, creo que no eres de acá"),
+(5, 1, 1, "Espero estés bien por hoy");
 
 -- Insertar datos a la tabla de comentarios
-INSERT INTO comentarios(idUsuario, contenido)
-VALUES (1, "Muy buena amiga"),
-(2, "No sé qué pensar"),
-(3, "Tal vez tenga una oportuniodad"),
-(4, "Chico raro"),
-(5, "Por qué son así");
+INSERT INTO comentarios(idUsuario, contenido, created_by)
+VALUES (1, "Muy buena amiga", 2),
+(2, "No sé qué pensar", 3),
+(3, "Tal vez tenga una oportuniodad", 4),
+(4, "Chico raro", 5),
+(5, "Por qué son así", 1);
 
-SELECT * FROM roles;
-SELECT * FROM usuarios;
-SELECT * FROM mensajes;
-SELECT * FROM comentarios;
+-- CONSULTAS SIMPLES CON CONDICIÓN
+-- WHERE en MySQL: Mostrar mensajes donde el remitente sea Matías
+SELECT contenido, emisor
+FROM mensajes
+WHERE emisor = 4; -- WHERE aplica condición sobre consulta
