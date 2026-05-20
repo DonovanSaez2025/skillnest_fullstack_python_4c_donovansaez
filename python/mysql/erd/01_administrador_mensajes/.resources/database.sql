@@ -151,3 +151,8 @@ VALUES (1, "Muy buena amiga"),
 (3, "Tal vez tenga una oportuniodad"),
 (4, "Chico raro"),
 (5, "Por qué son así");
+
+SELECT * FROM roles;
+SELECT * FROM usuarios;
+SELECT * FROM mensajes;
+SELECT * FROM comentarios;
