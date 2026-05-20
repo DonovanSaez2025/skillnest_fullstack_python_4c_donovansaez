@@ -135,3 +135,19 @@ VALUES (1, "Patricia", "patricia@codingdojo.com", "ih82/(hjSAO22-186nd"),
 (3, "Katya", "katya@codingdojo.com", "ASHFJ)#(kdÑ_d,"),
 (4, "Matías", "matias@gmail.com", "SKFJ-_S)_(!)%"),
 (5, "Fresia", "fresia@comeduc.cl", "AKAISFU)(#__fg");
+
+-- Insertar datos a la tabla de mensajes
+INSERT INTO mensajes(receptor, emisor, contenido)
+VALUES (1, 2, "Hola amiga cómo estás"),
+(2, 3, "Me caes muy bien amigo jaja"),
+(3, 4, "Eres nueva por lo que veo"),
+(4, 5, "No te conozco, creo que no eres de acá"),
+(5, 1, "Espero estés bien por hoy");
+
+-- Insertar datos a la tabla de comentarios
+INSERT INTO comentarios(idUsuario, contenido)
+VALUES (1, "Muy buena amiga"),
+(2, "No sé qué pensar"),
+(3, "Tal vez tenga una oportuniodad"),
+(4, "Chico raro"),
+(5, "Por qué son así");
