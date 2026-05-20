@@ -157,3 +157,43 @@ VALUES (1, "Muy buena amiga", 2),
 SELECT contenido, emisor
 FROM mensajes
 WHERE emisor = 4; -- WHERE aplica condición sobre consulta
+
+-- MOSTRAR USUARIOS QUE ESTÁN ACTIVOS (DELETE = 0)
+SELECT nombre_usuario, email, idRol
+FROM usuarios
+WHERE deleted = 0;
+
+-- BORRAR USUARIO LÓGICAMENTE
+UPDATE usuarios
+SET deleted = 1
+WHERE idUsuario = 1;
+
+-- MOSTRAR USUARIOS QUE ESTÁN ELIMINADOS (DELETE = 1)
+SELECT nombre_usuario, email, idRol
+FROM usuarios
+WHERE deleted = 1;
+
+-- RECUPERAR USUARIO
+UPDATE usuarios
+SET deleted = 0
+WHERE idUsuario = 1;
+
+-- MOSTRAR USUARIOS QUE ESTÁN ACTIVOS (DELETE = 0)
+SELECT nombre_usuario, email, idRol
+FROM usuarios
+WHERE deleted = 0;
+
+-- BORRAR USUARIO LÓGICAMENTE
+UPDATE usuarios
+SET deleted = 1
+WHERE idUsuario = 2;
+
+-- MOSTRAR USUARIOS QUE ESTÁN ELIMINADOS (DELETE = 1)
+SELECT nombre_usuario, email, idRol
+FROM usuarios
+WHERE deleted = 1;
+
+-- MOSTRAR USUARIOS QUE ESTÁN ACTIVOS (DELETE = 0)
+SELECT nombre_usuario, email, idRol
+FROM usuarios
+WHERE deleted = 0;
