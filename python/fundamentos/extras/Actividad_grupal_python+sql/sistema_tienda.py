@@ -1,4 +1,6 @@
 import os
+
+#Clase Producto
 class Producto:
     tienda = "Porky's Big Shots"
     listaProductos = []
@@ -20,6 +22,7 @@ class Producto:
         self.stock_producto += cantidad
         print(f"Nuevo stock de {self.nombre_producto}: {self.stock_producto}")
 
+#Clase Cliente
 class Cliente:
     tienda = "Porky's Big Shots"
     banco = "Bancoestado"
@@ -72,6 +75,7 @@ class Cliente:
         print(f"Nombre: {self.nombre_cliente}")
         print(f"Dirección: {self.direccion_cliente}")
 
+#Clase Venta
 class Venta:
     tienda = "Porky's Big Shots"
     banco = "Bancoestado"
