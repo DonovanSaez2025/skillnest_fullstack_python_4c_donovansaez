@@ -13,12 +13,12 @@ class Producto:
         print(f"\nMostrando información del producto '{self.nombre_producto}'")
         print(f"Nombre del producto: {self.nombre_producto}")
         print(f"Stock del producto: {self.stock_producto}")
-        print(f"Precio unitario del producto: {self.precio_producto}\n")
+        print(f"Precio unitario del producto: {self.precio_producto}")
     
     def actualizar_stock(self, cantidad):
         print("Actualizando stock del producto...")
         self.stock_producto += cantidad
-        print(f"Nuevo stock de {self.nombre_producto}: {self.stock_producto}\n")
+        print(f"Nuevo stock de {self.nombre_producto}: {self.stock_producto}")
 
 class Cliente:
     tienda = "Porky's Big Shots"
@@ -38,19 +38,19 @@ class Cliente:
             prod01.stock_producto -= cantidad
             precio_final += prod01.precio_producto * cantidad
             self.saldo_pendiente += precio_final
-            print(f"Precio final: {precio_final}\nSaldo a pagar total: {self.saldo_pendiente}\n")
+            print(f"Precio final: {precio_final}\nSaldo a pagar total: {self.saldo_pendiente}")
         elif nombre_producto == "Mouse":
             print(f"\nComprando {cantidad} {nombre_producto}/s...")
             prod02.stock_producto -= cantidad
             precio_final += prod02.precio_producto * cantidad
             self.saldo_pendiente += precio_final
-            print(f"Precio final: {precio_final}\nSaldo a pagar total: {self.saldo_pendiente}\n")
-        elif nombre_producto == "Disco duro externo 2tb":
+            print(f"Precio final: {precio_final}\nSaldo a pagar total: {self.saldo_pendiente}")
+        elif nombre_producto == "Disco sólido externo 2tb":
             print(f"\nComprando {cantidad} {nombre_producto}/s...")
             prod03.stock_producto -= cantidad
             precio_final += prod03.precio_producto * cantidad
             self.saldo_pendiente += precio_final
-            print(f"Precio final: {precio_final}\nSaldo a pagar total: {self.saldo_pendiente}\n")
+            print(f"Precio final: {precio_final}\nSaldo a pagar total: {self.saldo_pendiente}")
         venta_hecha = Venta(nombre_producto, cantidad, self.nombre_cliente, "26/05/2026", precio_final)
         
     def pagar_saldo(self, monto):
@@ -75,25 +75,36 @@ class Cliente:
 class Venta:
     tienda = "Porky's Big Shots"
     banco = "Bancoestado"
+    ventaLista = []
     
     def __init__(self, nombre_producto, cantidad, nombre_cliente, fecha_venta, precio_total):
-        self.nombre_productos = nombre_producto
-        self.cantidad = cantidad
+        self.nombre_producto = nombre_producto
+        self.cantidad_producto = cantidad
         self.nombre_cliente = nombre_cliente
         self.fecha_venta = fecha_venta
         self.precio_total = precio_total
+        self.registrar_venta()
         
     def registrar_venta(self):
-        pass
+        Venta.ventaLista.append({"Cliente":self.nombre_cliente, "Producto":self.nombre_producto,
+                                "Cantidad":self.cantidad_producto, "Fecha":self.fecha_venta,
+                                "Precio total": self.precio_total})
     
-    def calcular_total(self):
-        pass
+    @staticmethod
+    def calcular_total():
+        i = 0
+        total = 0
+        print("Calculando el total generado...")
+        while i < len(Venta.ventaLista):
+            total += Venta.ventaLista[i]["Precio total"]
+            i+=1
+        print(f"Total generado: ${total}")
     
 # Crear instancias
 #Productos
 prod01 = Producto("Laptop", 10, 199.99)
 prod02 = Producto("Mouse", 5, 15.99)
-prod03 = Producto("Disco duro externo 2tb", 100, 229.99)
+prod03 = Producto("Disco sólido externo 2tb", 100, 229.99)
 
 #Clientes
 clie01 = Cliente("Donovan", "Llo Lleó 1948, San Ramón")
@@ -106,10 +117,11 @@ def limpiarConsola():
 
 # Menu while
 while True:
-    print("--- Actividad grupal sistema_tiendas ---")
+    print("\n--- Actividad grupal sistema_tiendas ---")
     print("--- 1: Mostrar producto ---")
     print("--- 2: Actualizar stock de un producto ---")
     print("--- 3: Comprar productos ---")
+    print("--- 4: Calcular el total de las ventas ---")
     
     opcion = input("Ingresa una opción: ")
     
@@ -122,10 +134,10 @@ while True:
             prod01.mostrar_producto()
         elif ins == "Mouse":
             prod02.mostrar_producto()
-        elif ins == "Disco duro externo 2tb":
+        elif ins == "Disco sólido externo 2tb":
             prod03.mostrar_producto()
         else:
-            print("Producto inválido.\n")
+            print("Producto inválido.")
     elif opcion == "2":
         limpiarConsola()
         print(f"Productos:\n- {"\n- ".join(Producto.listaProductos)}")
@@ -135,21 +147,21 @@ while True:
             if cantidad > 0:
                 prod01.actualizar_stock(cantidad)
             else:
-                print("Inválido.\n")
+                print("Inválido.")
         elif ins == "Mouse":
             cantidad = int(input("Ingresa la cantidad de stock a sumar: "))
             if cantidad > 0:
                 prod02.actualizar_stock(cantidad)
             else:
-                print("Inválido.\n")
-        elif ins == "Disco duro externo 2tb":
+                print("Inválido.")
+        elif ins == "Disco sólido externo 2tb":
             cantidad = int(input("Ingresa la cantidad de stock a sumar: "))
             if cantidad > 0:
                 prod03.actualizar_stock(cantidad)
             else:
-                print("Inválido.\n")
+                print("Inválido.")
         else:
-            print("Producto inválido.\n")
+            print("Producto inválido.")
     elif opcion == "3":
         limpiarConsola()
         print(f"Clientes:\n- {"\n- ".join(Cliente.listaClientes)}")
@@ -172,7 +184,7 @@ while True:
                         print("No hay suficiente stock.")
                     else:
                         clie01.realizar_compra(nombre_prod, cantidad)
-                elif nombre_prod == "Disco duro externo 2tb":
+                elif nombre_prod == "Disco sólido externo 2tb":
                     if prod03.stock_producto < cantidad:
                         print("No hay suficiente stock.")
                     else:
@@ -197,7 +209,7 @@ while True:
                         print("No hay suficiente stock.")
                     else:
                         clie02.realizar_compra(nombre_prod, cantidad)
-                elif nombre_prod == "Disco duro externo 2tb":
+                elif nombre_prod == "Disco sólido externo 2tb":
                     if prod03.stock_producto < cantidad:
                         print("No hay suficiente stock.")
                     else:
@@ -222,7 +234,7 @@ while True:
                         print("No hay suficiente stock.")
                     else:
                         clie03.realizar_compra(nombre_prod, cantidad)
-                elif nombre_prod == "Disco duro externo 2tb":
+                elif nombre_prod == "Disco sólido externo 2tb":
                     if prod03.stock_producto < cantidad:
                         print("No hay suficiente stock.")
                     else:
@@ -231,6 +243,12 @@ while True:
                 print("Producto inválido.")
         else:
             print("Nombre inválido.")
+    elif opcion == "4":
+        limpiarConsola()
+        if len(Venta.ventaLista) == 0:
+            print("No se ha hecho ninguna venta.")
+        else:
+            Venta.calcular_total()
     elif opcion == "0":
         limpiarConsola()
         break
