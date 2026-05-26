@@ -130,3 +130,49 @@ ENGINE = InnoDB;
 SET SQL_MODE=@OLD_SQL_MODE;
 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
+
+-- Insertar datos
+INSERT INTO Direcciones(pais, region, comuna, calle, numero_casa, created_by)
+VALUES("Chile", "Región Metropolitana", "San Ramón", "Llo Lleó", "1948", 1),
+("Chile", "Región Metropolitana", "San Ramón", "Doñihue", "2945", 1),
+("Chile", "Región Metropolitana", "San Ramón", "Américo Vespucio", "2775", 1);
+
+INSERT INTO tipos_usuario(nombre_tipo, descripcion_tipo, created_by)
+VALUES("Administrador", "Acceso total", 1),
+("Usuario", "Funciones básicas del sitio", 1);
+
+INSERT INTO Clientes(id_tipo_usuario, id_direccion, nombre_cliente, saldo_pendiente, created_by)
+VALUES(1, 1, "Donovan", 0, 1),
+(2, 2, "MatildeX", 0, 1),
+(2, 3, "Randy", 0, 1),
+(2, 2, "Martín", 900, 1);
+
+INSERT INTO Productos(nombre_producto, stock_producto, precio_unitario, created_by)
+VALUES("Laptop", 10, 199.99, 1),
+("Mouse", 5, 15.99, 1),
+("Disco sólido externo 2tb", 100, 229.99, 1),
+("Disket", 22, 12.5, 1);
+
+INSERT INTO Ventas(id_cliente, id_producto, cantidad_productos, precio_total, created_by)
+VALUES(1, 1, 5, 999.95, 1),
+(2, 2, 3, 47.97, 1),
+(3, 3, 50, 1499.5, 1);
+
+-- Borrar algunos datos
+UPDATE Productos
+SET deleted = 1
+WHERE id_producto = 4;
+
+UPDATE Clientes
+SET deleted = 1
+WHERE id_cliente = 4;
+
+-- Mostrar clientes activos
+SELECT id_cliente, nombre_cliente
+FROM Clientes
+WHERE deleted = 0;
+
+-- Mostrar productos activos
+SELECT id_producto, nombre_producto, stock_producto
+FROM Productos
+WHERE deleted = 0;
