@@ -121,7 +121,8 @@ while True:
     print("--- 1: Mostrar producto ---")
     print("--- 2: Actualizar stock de un producto ---")
     print("--- 3: Comprar productos ---")
-    print("--- 4: Calcular el total de las ventas ---")
+    print("--- 4: Pagar saldo pendiente ---")
+    print("--- 5: Calcular el total de las ventas ---")
     
     opcion = input("Ingresa una opción: ")
     
@@ -244,6 +245,33 @@ while True:
         else:
             print("Nombre inválido.")
     elif opcion == "4":
+        limpiarConsola()
+        print(f"Clientes:\n- {"\n- ".join(Cliente.listaClientes)}")
+        ins = input("Ingresa tu nombre: ")
+        if ins == "Donovan":
+            print(f"\nSaldo a pagar: ${clie01.saldo_pendiente}")
+            monto = float(input("Ingresa el monto a pagar: "))
+            if monto < 1:
+                print("Cantidad inválida: ")
+            else:
+                clie01.pagar_saldo(monto)
+        elif ins == "MatildeX":
+            print(f"\nSaldo a pagar: ${clie02.saldo_pendiente}")
+            monto = float(input("Ingresa el monto a pagar: "))
+            if monto < 1:
+                print("Cantidad inválida: ")
+            else:
+                clie02.pagar_saldo(monto)
+        elif ins == "Randy":
+            print(f"\nSaldo a pagar: ${clie03.saldo_pendiente}")
+            monto = float(input("Ingresa el monto a pagar: "))
+            if monto < 1:
+                print("Cantidad inválida: ")
+            else:
+                clie03.pagar_saldo(monto)
+        else:
+            print("Nombre inválido.")
+    elif opcion == "5":
         limpiarConsola()
         if len(Venta.ventaLista) == 0:
             print("No se ha hecho ninguna venta.")
