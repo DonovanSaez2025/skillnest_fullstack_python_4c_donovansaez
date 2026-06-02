@@ -9,13 +9,13 @@ class Usuario:
         self.saldo_pendiente = 0
         Usuario.usuarios.append(self.username)
         
-    def realizar_pedido(self):
+    def realizar_pedido(self, pelicula, cantidad):
         pass
     
-    def pagar_saldo(self):
+    def pagar_saldo(self, monto):
         pass
     
-    def cambiar_contrasena(self):
+    def cambiar_contrasena(self, nueva_contrasena):
         pass
     
     def mostrar_usuarios(self):

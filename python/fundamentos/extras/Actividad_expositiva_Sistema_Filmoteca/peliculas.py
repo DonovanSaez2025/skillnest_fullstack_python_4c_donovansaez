@@ -10,6 +10,12 @@ class Pelicula:
         self.formato = formato
         Pelicula.peliculas.append(self.titulo)
         
+    def actualizar_stock(self, cantidad):
+        pass
+    
+    def restaurar_pelicula(self):
+        pass
+        
     def mostrar_info_pelicula(self):
         print("Mostrando información de la película...")
         print(f"Título: {self.titulo}")
