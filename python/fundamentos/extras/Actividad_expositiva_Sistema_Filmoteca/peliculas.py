@@ -12,3 +12,9 @@ class Pelicula:
         
     def mostrar_info_pelicula(self):
         print("Mostrando información de la película...")
+        print(f"Título: {self.titulo}")
+        print(f"Año de publicación: {self.anio}")
+        print(f"Formato: {self.formato}")
+        print(f"Estado de restauración: {self.estado_restauracion}")
+        print(f"Stock: {self.stock}")
+        print(f"Precio unitario: {self.precio_unitario}")
