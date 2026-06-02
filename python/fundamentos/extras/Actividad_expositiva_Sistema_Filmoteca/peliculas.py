@@ -1,13 +1,3 @@
-class Usuario:
-    usuarios = []
-    
-    def __init__(self, username, email, password, tipo_usuario):
-        self.username = username
-        self.email = email
-        self.password_hash = password
-        self.tipo_usuario = tipo_usuario
-        Usuario.usuarios.append(self.username)
-
 class Pelicula:
     peliculas = []
     
@@ -19,3 +9,6 @@ class Pelicula:
         self.precio_unitario = precio_unitario
         self.formato = formato
         Pelicula.peliculas.append(self.titulo)
+        
+    def mostrar_info_pelicula(self):
+        print("Mostrando información de la película...")
