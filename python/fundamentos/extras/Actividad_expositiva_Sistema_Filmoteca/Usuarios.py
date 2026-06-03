@@ -9,14 +9,24 @@ class Usuario:
         self.saldo_pendiente = 0
         Usuario.usuarios.append(self.username)
         
-    def realizar_pedido(self, pelicula, cantidad):
-        pass
+    def realizar_pedido(self, pelicula, cantidad, precio):
+        print("Comprando película...")
     
     def pagar_saldo(self, monto):
-        pass
+        if monto > self.saldo_pendiente:
+            print("Error: monto más alto que el saldo a pagar.")
+        else:
+            print("Pagando saldo...")
+            self.saldo_pendiente -= monto
+            if self.saldo_pendiente > 0:
+                print("Saldo totalmente pagado.")
+            else:
+                print(f"Parte del saldo pagado, pero aún quedan ${self.saldo_pendiente} por pagar")
     
     def cambiar_contrasena(self, nueva_contrasena):
-        pass
+        print("Actualizando contraseña...")
+        self.password_hash = nueva_contrasena
+        print("Contraseña actualizada.")
     
     def mostrar_usuarios(self):
         print("Imprimiendo información del usuario...")
@@ -24,8 +34,3 @@ class Usuario:
         print(f"Email: {self.username}")
         print(f"Tipo de usuario: {self.tipo_usuario}")
         print(f"Saldo pendiente: {self.saldo_pendiente}")
-        
-# Crear instancias
-user1 = Usuario("SuperDONO17", "donovansaez@liceovvh.cl", "JAOSF)=/JF", "Administrador")
-user2 = Usuario("IncrediJavi", "javierazapata@liceovvh.cl", "nsKSJ=(/!/%", "Usuario")
-user3 = Usuario("MegaDav", "davidtobar@liceovvh.cl", "NAu9!)47", "Usuario")

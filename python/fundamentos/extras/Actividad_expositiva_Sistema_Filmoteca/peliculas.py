@@ -1,20 +1,30 @@
 class Pelicula:
     peliculas = []
     
-    def __init__(self, titulo, anio, estado_restauracion, precio_unitario, stock, formato):
+    def __init__(self, titulo, anio, precio_unitario, stock, formato, estado_restauracion=False):
         self.titulo = titulo
         self.anio = anio
-        self.estado_restauracion = estado_restauracion
-        self.stock = stock
+        if estado_restauracion == "Si":
+            self.estado_restauracion = True
+        else:
+            self.estado_restauracion = False
         self.precio_unitario = precio_unitario
+        self.stock = stock
         self.formato = formato
         Pelicula.peliculas.append(self.titulo)
         
     def actualizar_stock(self, cantidad):
-        pass
+        print("Actualizando stock...")
+        self.stock += cantidad
+        print(f"Stock actualizado, stock actual de la película: {self.stock}")
     
     def restaurar_pelicula(self):
-        pass
+        if self.estado_restauracion == True:
+            print(f"La película {self.titulo} ya está restaurada")
+        else:
+            print("Restaurando película...")
+            self.estado_restauracion = True
+            print("Película restaurada con éxito.")
         
     def mostrar_info_pelicula(self):
         print("Mostrando información de la película...")
@@ -24,10 +34,3 @@ class Pelicula:
         print(f"Estado de restauración: {self.estado_restauracion}")
         print(f"Stock: {self.stock}")
         print(f"Precio unitario: {self.precio_unitario}")
-    
-#Crear instancias    
-pel1 = Pelicula("Bugs Bunny's 3rd Movie: 1001 Rabbit Tales", 1981, "No restaurado", 5.99, 10, "VHS")
-pel2 = Pelicula("The Bugs Bunny Road-Runner Movie", 1979, "No restaurado", 3.99, 3, "Betamax")
-pel3 = Pelicula("Looney Looney Looney Bugs Bunny Movie", 1982, "No restaurado", 9.99, 5, "LaserDisc")
-pel4 = Pelicula("Space Jam", 1996, "Restaurado", 15.99, 30, "DVD")
-pel5 = Pelicula("Daffy Duck's Quackbusters", 1988, "Restaurado", 20.99, 25, "Blu-ray")
