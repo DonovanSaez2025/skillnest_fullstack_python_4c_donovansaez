@@ -1,3 +1,8 @@
+#Importar clases
+from conexion import Conexion
+from peliculas import Pelicula
+from pedidos import Pedido
+
 class Usuario:
     usuarios = []
     tipo_usuario = ["Administrador", "Usuario"]
@@ -11,7 +16,7 @@ class Usuario:
         self.saldo_pendiente = 0
         Usuario.usuarios.append(self.username)
         
-    def realizar_pedido(self, pelicula, cantidad, precio):
+    def realizar_pedido(self, pelicula_ID, cantidad):
         print("Comprando película...")
         
     def pagar_saldo(self, monto):
@@ -36,3 +41,7 @@ class Usuario:
         print(f"Email: {self.username}")
         print(f"Tipo de usuario: {self.tipo_usuario}")
         print(f"Saldo pendiente: {self.saldo_pendiente}")
+        
+user1 = (1, "SuperDONO17", "donovansaez@liceovvh.cl", "JAOSF)=/JF", 1)
+user2 = (2, "IncrediJavi", "javierazapata@liceovvh.cl", "nsKSJ=(/!/%", 2)
+user3 = (3, "MegaDav", "davidtobar@liceovvh.cl", "NAu9!)47", 2)
