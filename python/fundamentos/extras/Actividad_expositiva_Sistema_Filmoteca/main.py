@@ -1,6 +1,9 @@
 from conexion import Conexion
 from usuarios import Usuario
 from peliculas import Pelicula
+from usuarios import user1
+from usuarios import user2
+from usuarios import user3
 import os
 
 # Función para limpiar la consola
@@ -22,30 +25,144 @@ while True:
     
     if opcion == "1":
         limpiarConsola()
-        i = 0
-        while i < len(Pelicula.peliculas):
-            print(f"- {Pelicula.peliculas[i]} - Stock: {Pelicula.peliculas[i].stock}")
-            i+=1
-        pelicula = input("Selecciona una película (título completo): ").strip()
-        if pelicula in Pelicula.peliculas:
-            cantidad = int(input("Ingresa la cantidad de esa película que quieras comprar: "))
+        user = input("Ingresa tu nombre de usuario: ")
+        if user == "SuperDONO17":
+            print(f"Películas:\n -{("\n -").join(Pelicula.peliculas)}")
+            pelicula = input("Selecciona una película (título completo): ").strip()
+            if pelicula in Pelicula.peliculas:
+                cantidad = int(input("Ingresa la cantidad de esa película que quieras comprar: "))
+                if cantidad < 1:
+                    print("Cantidad inválida.")
+                else:
+                    user1.realizar_pedido(pelicula, cantidad)
+            else:
+                print("Película inváida.")
+        elif user == "IncrediJavi":
+            print(f"Películas:\n -{("\n -").join(Pelicula.peliculas)}")
+            pelicula = input("Selecciona una película (título completo): ").strip()
+            if pelicula in Pelicula.peliculas:
+                cantidad = int(input("Ingresa la cantidad de esa película que quieras comprar: "))
+                if cantidad < 1:
+                    print("Cantidad inválida.")
+                else:
+                    user2.realizar_pedido(pelicula, cantidad)
+            else:
+                print("Película inváida.")
+        elif user == "MegaDav":
+            print(f"Películas:\n -{("\n -").join(Pelicula.peliculas)}")
+            pelicula = input("Selecciona una película (título completo): ").strip()
+            if pelicula in Pelicula.peliculas:
+                cantidad = int(input("Ingresa la cantidad de esa película que quieras comprar: "))
+                if cantidad < 1:
+                    print("Cantidad inválida.")
+                else:
+                    user3.realizar_pedido(pelicula, cantidad)
+            else:
+                print("Película inváida.")
         else:
-            print("Película inváida.")
+            print("Usuario inválido.")
         
     elif opcion == "2":
         limpiarConsola()
+        user = input("Ingresa tu nombre de usuario: ")
+        if user == "SuperDONO17":
+            if user1.saldo_pendiente == "0":
+                print("El usuario no tiene un saldo que pagar.")
+            else:
+                print(f"Saldo a pagar: ${user1.saldo_pendiente}")
+                monto = float(input("Ingresa un monto de dinero: "))
+                if monto < 1:
+                    print("Monto de dinero inválido.")
+                else:
+                    user1.pagar_saldo(monto)
+        elif user == "IncrediJavi":
+            if user2.saldo_pendiente == "0":
+                print("El usuario no tiene un saldo que pagar.")
+            else:
+                print(f"Saldo a pagar: ${user2.saldo_pendiente}")
+                monto = float(input("Ingresa un monto de dinero: "))
+                if monto < 1:
+                    print("Monto de dinero inválido.")
+                else:
+                    user2.pagar_saldo(monto)
+        elif user == "MegaDav":
+            if user3.saldo_pendiente == "0":
+                print("El usuario no tiene un saldo que pagar.")
+            else:
+                print(f"Saldo a pagar: ${user3.saldo_pendiente}")
+                monto = float(input("Ingresa un monto de dinero: "))
+                if monto < 1:
+                    print("Monto de dinero inválido.")
+                else:
+                    user3.pagar_saldo(monto)
+        else:
+            print("Usuario inválido.")
     elif opcion == "3":
         limpiarConsola()
+        user = input("Ingresa tu nombre de usuario: ")
+        if user == "SuperDONO17":
+            pass
+        elif user == "IncrediJavi":
+            pass
+        elif user == "MegaDav":
+            pass
+        else:
+            print("Usuario inválido.")
     elif opcion == "4":
         limpiarConsola()
+        user = input("Ingresa tu nombre de usuario: ")
+        if user == "SuperDONO17":
+            pass
+        elif user == "IncrediJavi":
+            pass
+        elif user == "MegaDav":
+            pass
+        else:
+            print("Usuario inválido.")
     elif opcion == "5":
         limpiarConsola()
+        user = input("Ingresa tu nombre de usuario: ")
+        if user == "SuperDONO17":
+            pass
+        elif user == "IncrediJavi":
+            pass
+        elif user == "MegaDav":
+            pass
+        else:
+            print("Usuario inválido.")
     elif opcion == "6":
         limpiarConsola()
+        user = input("Ingresa tu nombre de usuario: ")
+        if user == "SuperDONO17":
+            pass
+        elif user == "IncrediJavi":
+            pass
+        elif user == "MegaDav":
+            pass
+        else:
+            print("Usuario inválido.")
     elif opcion == "7":
         limpiarConsola()
+        user = input("Ingresa tu nombre de usuario: ")
+        if user == "SuperDONO17":
+            pass
+        elif user == "IncrediJavi":
+            pass
+        elif user == "MegaDav":
+            pass
+        else:
+            print("Usuario inválido.")
     elif opcion == "8":
         limpiarConsola()
+        user = input("Ingresa tu nombre de usuario: ")
+        if user == "SuperDONO17":
+            pass
+        elif user == "IncrediJavi":
+            pass
+        elif user == "MegaDav":
+            pass
+        else:
+            print("Usuario inválido.")
     elif opcion == "0":
         print("Saliendo...")
         break
