@@ -1,17 +1,19 @@
 class Usuario:
     usuarios = []
+    tipo_usuario = ["Administrador", "Usuario"]
     
-    def __init__(self, username, email, password, tipo_usuario):
+    def __init__(self, ID, username, email, password, tipo_usuario_ID):
+        self.ID = ID
         self.username = username
         self.email = email
         self.password_hash = password
-        self.tipo_usuario = tipo_usuario
+        self.tipo_usuario = tipo_usuario_ID
         self.saldo_pendiente = 0
         Usuario.usuarios.append(self.username)
         
     def realizar_pedido(self, pelicula, cantidad, precio):
         print("Comprando película...")
-    
+        
     def pagar_saldo(self, monto):
         if monto > self.saldo_pendiente:
             print("Error: monto más alto que el saldo a pagar.")

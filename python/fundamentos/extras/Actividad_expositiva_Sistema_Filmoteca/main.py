@@ -1,2 +1,10 @@
 while True:
-    print("--- Sistema de filmoteca ---")
+    print("\n--- Sistema de filmoteca ---")
+    print("--- 1: Realizar un pedido de películas ---")
+    print("--- 2: Pagar saldo pendiente ---")
+    print("--- 3: Cambiar contraseña ---")
+    print("--- 4: Mostrar un usuario ---")
+    print("--- 5: Actualizar stock de una película ---")
+    print("--- 6: Restaurar una película---")
+    print("--- 7: Mostrar información de una película ---")
+    print("--- 8: Mostrar los formatos ---")
