@@ -15,8 +15,8 @@ class Conexion:
         conexion = mysql.connector.connect(
             host="localhost",
             user="root",
-            password="123456",
-            database="colegio"
+            password="1234",
+            database="sistema_filmoteca"
         )
 
         return conexion

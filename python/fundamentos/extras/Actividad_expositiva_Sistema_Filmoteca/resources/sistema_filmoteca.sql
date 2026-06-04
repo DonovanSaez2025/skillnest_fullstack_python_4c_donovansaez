@@ -24,10 +24,10 @@ CREATE TABLE IF NOT EXISTS `Sistema_Filmoteca`.`Tipos_de_formatos` (
   `id_tipo_formato` INT NOT NULL AUTO_INCREMENT,
   `nombre_tipo_formato` VARCHAR(50) NOT NULL,
   `descripcion_tipo_formato` VARCHAR(100) NOT NULL,
-  `created_at` DATETIME NULL,
-  `updated_at` DATETIME NULL,
+  `created_at` DATETIME DEFAULT CURRENT_TIMESTAMP,
+  `updated_at` DATETIME DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   `created_by` INT NULL,
-  `deleted` TINYINT(1) NULL,
+  `deleted` TINYINT(1) DEFAULT 0,
   PRIMARY KEY (`id_tipo_formato`),
   UNIQUE INDEX `nombre_tipo_formato_UNIQUE` (`nombre_tipo_formato` ASC) VISIBLE)
 ENGINE = InnoDB;
@@ -43,10 +43,10 @@ CREATE TABLE IF NOT EXISTS `Sistema_Filmoteca`.`Formatos` (
   `capacidad_KB` INT NOT NULL,
   `resolucion_X` INT NOT NULL,
   `resolucion_Y` INT NOT NULL,
-  `created_at` DATETIME NULL,
-  `updated_at` DATETIME NULL,
+  `created_at` DATETIME DEFAULT CURRENT_TIMESTAMP,
+  `updated_at` DATETIME DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   `created_by` INT NULL,
-  `deleted` TINYINT(1) NULL,
+  `deleted` TINYINT(1) DEFAULT 0,
   PRIMARY KEY (`id_formato`),
   UNIQUE INDEX `nombre_formato_UNIQUE` (`nombre_formato` ASC) VISIBLE,
   INDEX `fk_Formatos_Tipos_de_formatos_idx` (`id_tipo_formato` ASC) VISIBLE,
@@ -64,14 +64,14 @@ CREATE TABLE IF NOT EXISTS `Sistema_Filmoteca`.`Películas` (
   `id_pelicula` INT NOT NULL AUTO_INCREMENT,
   `id_formato` INT NOT NULL,
   `titulo_pelicula` VARCHAR(200) NOT NULL,
-  `anio_publicacion` DATE NOT NULL,
+  `anio_publicacion` YEAR NOT NULL,
   `restaurado` TINYINT(1) NOT NULL,
   `stock` INT NOT NULL,
   `precio_unitario` FLOAT NOT NULL,
-  `created_at` DATETIME NULL,
-  `updated_at` DATETIME NULL,
+  `created_at` DATETIME DEFAULT CURRENT_TIMESTAMP,
+  `updated_at` DATETIME DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   `created_by` INT NULL,
-  `deleted` TINYINT(1) NULL,
+  `deleted` TINYINT(1) DEFAULT 0,
   PRIMARY KEY (`id_pelicula`),
   INDEX `fk_Películas_Formatos1_idx` (`id_formato` ASC) VISIBLE,
   CONSTRAINT `fk_Películas_Formatos1`
@@ -88,10 +88,10 @@ CREATE TABLE IF NOT EXISTS `Sistema_Filmoteca`.`Tipos_de_usuario` (
   `id_tipo_usuario` INT NOT NULL AUTO_INCREMENT,
   `nombre_tipo_usuario` VARCHAR(50) NOT NULL,
   `descripcion_tipo_usuario` VARCHAR(100) NOT NULL,
-  `created_at` DATETIME NULL,
-  `updated_at` DATETIME NULL,
+  `created_at` DATETIME DEFAULT CURRENT_TIMESTAMP,
+  `updated_at` DATETIME DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   `created_by` INT NULL,
-  `deleted` TINYINT(1) NULL,
+  `deleted` TINYINT(1) DEFAULT 0,
   PRIMARY KEY (`id_tipo_usuario`),
   UNIQUE INDEX `nombre_tipo_formato_UNIQUE` (`nombre_tipo_usuario` ASC) VISIBLE)
 ENGINE = InnoDB;
@@ -105,10 +105,10 @@ CREATE TABLE IF NOT EXISTS `Sistema_Filmoteca`.`Usuarios` (
   `username` VARCHAR(50) NOT NULL,
   `email` VARCHAR(80) NOT NULL,
   `password_hash` VARCHAR(200) NOT NULL,
-  `created_at` DATETIME NULL,
-  `updated_at` DATETIME NULL,
+  `created_at` DATETIME DEFAULT CURRENT_TIMESTAMP,
+  `updated_at` DATETIME DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   `created_by` INT NULL,
-  `deleted` TINYINT(1) NULL,
+  `deleted` TINYINT(1) DEFAULT 0,
   PRIMARY KEY (`id_usuario`),
   UNIQUE INDEX `username_UNIQUE` (`username` ASC) VISIBLE,
   UNIQUE INDEX `email_UNIQUE` (`email` ASC) VISIBLE,
@@ -127,10 +127,10 @@ CREATE TABLE IF NOT EXISTS `Sistema_Filmoteca`.`pedidos` (
   `id_pedido` INT NOT NULL AUTO_INCREMENT,
   `id_usuario` INT NOT NULL,
   `precio_total` FLOAT NOT NULL,
-  `created_at` DATETIME NULL,
-  `updated_at` DATETIME NULL,
+  `created_at` DATETIME DEFAULT CURRENT_TIMESTAMP,
+  `updated_at` DATETIME DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   `created_by` INT NULL,
-  `deleted` TINYINT(1) NULL,
+  `deleted` TINYINT(1) DEFAULT 0,
   PRIMARY KEY (`id_pedido`),
   INDEX `fk_pedidos_Usuarios1_idx` (`id_usuario` ASC) VISIBLE,
   CONSTRAINT `fk_pedidos_Usuarios1`
@@ -208,13 +208,13 @@ VALUES(1, 19.97, 1),
 (3, 26.98, 1);
 
 -- Detalles pedidos
-INSERT INTO detalles_pedidos(id_pedido, id_pelicula)
-VALUES(1, 1),
-(1, 2),
-(1, 3),
-(2, 4),
-(3, 1),
-(3, 5);
+INSERT INTO detalles_pedidos(id_pedido, id_pelicula, cantidad)
+VALUES(1, 1, 5),
+(1, 2, 3),
+(1, 3, 2),
+(2, 4, 1),
+(3, 1, 10),
+(3, 5, 15);
 
 -- -----------------------------------------------------
 -- Select data
