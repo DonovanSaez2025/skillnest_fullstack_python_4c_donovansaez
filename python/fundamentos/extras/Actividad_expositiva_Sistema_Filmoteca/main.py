@@ -25,6 +25,7 @@ while True:
     
     if opcion == "1":
         limpiarConsola()
+        print(f"Usuarios registrados: \n- {("\n- ").join(Usuario.usuarios)}")
         user = input("Ingresa tu nombre de usuario: ")
         if user == "SuperDONO17":
             print(f"Películas:\n -{("\n -").join(Pelicula.peliculas)}")
@@ -61,9 +62,9 @@ while True:
                 print("Película inváida.")
         else:
             print("Usuario inválido.")
-        
     elif opcion == "2":
         limpiarConsola()
+        print(f"Usuarios registrados: \n- {("\n- ").join(Usuario.usuarios)}")
         user = input("Ingresa tu nombre de usuario: ")
         if user == "SuperDONO17":
             if user1.saldo_pendiente == "0":
@@ -99,9 +100,16 @@ while True:
             print("Usuario inválido.")
     elif opcion == "3":
         limpiarConsola()
+        print(f"Usuarios registrados: \n- {("\n- ").join(Usuario.usuarios)}")
         user = input("Ingresa tu nombre de usuario: ")
         if user == "SuperDONO17":
-            pass
+            nuev_cont = input("Ingresa una nueva contraseña (mínimo 8 caracteres): ").strip()
+            if nuev_cont == user1.password_hash:
+                print("La contraseña es la misma.")
+            elif len(nuev_cont) < 8:
+                print("La contraseña es muy corta.")
+            else:
+                user1.cambiar_contrasena(nuev_cont)
         elif user == "IncrediJavi":
             pass
         elif user == "MegaDav":
