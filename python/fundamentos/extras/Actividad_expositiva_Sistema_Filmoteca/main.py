@@ -1,6 +1,9 @@
+# Importar clases
 from conexion import Conexion
 from usuarios import Usuario
 from peliculas import Pelicula
+from pedidos import Pedido
+# Importar instancias
 from usuarios import user1
 from usuarios import user2
 from usuarios import user3
@@ -186,15 +189,40 @@ while True:
         print(f"Películas: \n- {("\n- ").join(Pelicula.peliculas)}")
         pel = input("Ingresa el título de una película: ")
         if pel == pel1.titulo:
-            pass
+            if pel1.estado_restauracion == True:
+                print("Esta película ya está restaurada.")
+            else:
+                confirmacion = input("¿Restaurar película? (si/no): ").strip()
+                if confirmacion.lower() == "si":
+                    pel1.restaurar_pelicula()
         elif pel == pel2.titulo:
-            pass
+            if pel2.estado_restauracion == True:
+                print("Esta película ya está restaurada.")
+            else:
+                confirmacion = input("¿Restaurar película? (si/no): ").strip()
+                if confirmacion.lower() == "si":
+                    pel2.restaurar_pelicula()
         elif pel == pel3.titulo:
-            pass
+            if pel3.estado_restauracion == True:
+                print("Esta película ya está restaurada.")
+            else:
+                confirmacion = input("¿Restaurar película? (si/no): ").strip()
+                if confirmacion.lower() == "si":
+                    pel3.restaurar_pelicula()
         elif pel == pel4.titulo:
-            pass
+            if pel4.estado_restauracion == True:
+                print("Esta película ya está restaurada.")
+            else:
+                confirmacion = input("¿Restaurar película? (si/no): ").strip()
+                if confirmacion.lower() == "si":
+                    pel4.restaurar_pelicula()
         elif pel == pel5.titulo:
-            pass
+            if pel5.estado_restauracion == True:
+                print("Esta película ya está restaurada.")
+            else:
+                confirmacion = input("¿Restaurar película? (si/no): ").strip()
+                if confirmacion.lower() == "si":
+                    pel5.restaurar_pelicula()
         else:
             print("Película no encontrada")
     elif opcion == "7":
@@ -202,20 +230,28 @@ while True:
         print(f"Películas: \n- {("\n- ").join(Pelicula.peliculas)}")
         pel = input("Ingresa el título de una película: ")
         if pel == pel1.titulo:
-            pass
+            pel1.mostrar_info_pelicula()
         elif pel == pel2.titulo:
-            pass
+            pel2.mostrar_info_pelicula()
         elif pel == pel3.titulo:
-            pass
+            pel3.mostrar_info_pelicula()
         elif pel == pel4.titulo:
-            pass
+            pel4.mostrar_info_pelicula()
         elif pel == pel5.titulo:
-            pass
+            pel5.mostrar_info_pelicula()
         else:
             print("Película no encontrada")
     elif opcion == "8":
         limpiarConsola()
-        pass
+        Pelicula.mostrar_formatos()
+    elif opcion == "9":
+        limpiarConsola()
+        print(f"Cantidad de pedidos: {Pedido}")
+        id = int(input("Ingresa el ID del pedido: "))
+        if id-1 < 0 or id > len(Pedido.pedidos):
+            print("ID inválido.")
+        else:
+            Pedido.mostrarPedido(id-1)
     elif opcion == "0":
         print("Saliendo...")
         break

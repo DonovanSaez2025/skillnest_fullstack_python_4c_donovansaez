@@ -21,12 +21,9 @@ class Pelicula:
         print(f"Stock actualizado, stock actual de la película: {self.stock}")
     
     def restaurar_pelicula(self):
-        if self.estado_restauracion == True:
-            print(f"La película {self.titulo} ya está restaurada")
-        else:
-            print("Restaurando película...")
-            self.estado_restauracion = True
-            print("Película restaurada con éxito.")
+        print("Restaurando película...")
+        self.estado_restauracion = True
+        print("Película restaurada con éxito.")
         
     def mostrar_info_pelicula(self):
         print("Mostrando información de la película...")
