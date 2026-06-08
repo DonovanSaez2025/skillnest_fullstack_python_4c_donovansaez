@@ -12,13 +12,14 @@ class Usuario:
     usuarios = []
     tipo_usuario = ["Administrador", "Usuario"]
     
-    def __init__(self, ID, username, email, password, tipo_usuario_ID):
+    def __init__(self, ID, username, email, password, tipo_usuario_ID, created_by=1):
         self.ID = ID
         self.username = username
         self.email = email
         self.password_hash = password
         self.tipo_usuario = tipo_usuario_ID
         self.saldo_pendiente = 0
+        self.created_by = created_by
         Usuario.usuarios.append(self.username)
         
     def realizar_pedido(self, pelicula, cantidad):
@@ -83,13 +84,37 @@ class Usuario:
     def cambiar_contrasena(self, nueva_contrasena):
         print("Actualizando contraseña...")
         self.password_hash = nueva_contrasena
-        print("Contraseña actualizada.")
+        
+        conexion = Conexion.conectar()
+        cursor = conexion.cursor()
     
-    def mostrar_usuarios(self):
-        print("Imprimiendo información del usuario...")
-        print(f"Nombre de usuario: {self.username}")
-        print(f"Email: {self.username}")
-        print(f"Tipo de usuario: {self.tipo_usuario}")
+        sql = """INSERT INTO Usuarios(password_hash)
+        VALUES(%s)"""
+        valores = (self.password_hash)
+        cursor.execute(sql, valores)
+        
+        conexion.commit()
+        print("Contraseña actualizada correctamente.")
+        cursor.close()
+        conexion.close()
+        
+    def mostrar_usuarios(self, id):
+        conexion = Conexion.conectar()
+        cursor = conexion.cursor()
+        sql = """SELECT id_usuario, id_tipo_usuario, username, email
+        FROM Usuarios
+        WHERE deleted = 0"""
+        cursor.execute(sql)
+        listaUsuarios = cursor.fetchall()
+        tipo = ""
+        if listaUsuarios[id-1][1] == 2:
+            tipo = "Administrador"
+        elif listaUsuarios[id-1][1] == 1:
+            tipo = "Usuario"
+        print("\nImprimiendo información del usuario...")
+        print(f"Nombre de usuario: {listaUsuarios[id-1][2]}")
+        print(f"Email: {listaUsuarios[id-1][3]}")
+        print(f"Tipo de usuario: {tipo}")
         print(f"Saldo pendiente: {self.saldo_pendiente}")
         
 user1 = Usuario(1, "SuperDONO17", "donovansaez@liceovvh.cl", "JAOSF)=/JF", 1)

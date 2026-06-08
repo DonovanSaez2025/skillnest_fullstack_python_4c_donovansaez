@@ -141,11 +141,14 @@ while True:
         print(f"Usuarios registrados: \n- {("\n- ").join(Usuario.usuarios)}")
         user = input("Ingresa tu nombre de usuario: ")
         if user == user1.username:
-            user1.mostrar_usuarios()
+            id = 1
+            user1.mostrar_usuarios(id)
         elif user == user2.username:
-            user1.mostrar_usuarios()
+            id = 2
+            user1.mostrar_usuarios(id)
         elif user == user3.username:
-            user3.mostrar_usuarios()
+            id = 3
+            user3.mostrar_usuarios(id)
         else:
             print("Usuario inválido.")
     elif opcion == "5":
