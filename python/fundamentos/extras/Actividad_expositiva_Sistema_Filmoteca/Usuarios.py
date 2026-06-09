@@ -1,6 +1,5 @@
 #Importar clases e instancias
 from conexion import Conexion
-from peliculas import Pelicula
 from pedidos import Pedido
 from peliculas import pel1
 from peliculas import pel2
@@ -44,6 +43,7 @@ class Usuario:
                 conexion.commit()
                 cursor.close()
                 conexion.close()
+                Pedido.listarPedido(len(Pedido.pedidos)+1, self.ID, pel1.ID, cantidad, total, "09/06/2026")
         elif pelicula == pel2.titulo:
             if cantidad > pel2.stock:
                 print("Stock no disponible.")
@@ -64,6 +64,7 @@ class Usuario:
                 conexion.commit()
                 cursor.close()
                 conexion.close()
+                Pedido.listarPedido(len(Pedido.pedidos)+1, self.ID, pel2.ID, cantidad, total, "09/06/2026")
         elif pelicula == pel3.titulo:
             if cantidad > pel3.stock:
                 print("Stock no disponible.")
@@ -84,6 +85,7 @@ class Usuario:
                 conexion.commit()
                 cursor.close()
                 conexion.close()
+                Pedido.listarPedido(len(Pedido.pedidos)+1, self.ID, pel3.ID, cantidad, total, "09/06/2026")
         elif pelicula == pel4.titulo:
             if cantidad > pel4.stock:
                 print("Stock no disponible.")
@@ -104,6 +106,7 @@ class Usuario:
                 conexion.commit()
                 cursor.close()
                 conexion.close()
+                Pedido.listarPedido(len(Pedido.pedidos)+1, self.ID, pel4.ID, cantidad, total, "09/06/2026")
         elif pelicula == pel5.titulo:
             if cantidad > pel5.stock:
                 print("Stock no disponible.")
@@ -124,6 +127,7 @@ class Usuario:
                 conexion.commit()
                 cursor.close()
                 conexion.close()
+                Pedido.listarPedido(len(Pedido.pedidos)+1, self.ID, pel5.ID, cantidad, total, "09/06/2026")
         # Contacto SQL
         conexion = Conexion.conectar()
         cursor = conexion.cursor()

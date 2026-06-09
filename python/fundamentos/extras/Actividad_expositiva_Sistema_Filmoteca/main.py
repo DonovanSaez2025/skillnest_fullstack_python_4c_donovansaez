@@ -35,7 +35,7 @@ while True:
         print(f"Usuarios registrados: \n- {("\n- ").join(Usuario.usuarios)}")
         user = input("Ingresa tu nombre de usuario: ")
         if user == user1.username:
-            print(f"Películas:\n -{("\n -").join(Pelicula.peliculas)}")
+            print(f"Películas:\n -{("\n- ").join(Pelicula.peliculas)}")
             pelicula = input("Selecciona una película (título completo): ").strip()
             if pelicula in Pelicula.peliculas:
                 cantidad = int(input("Ingresa la cantidad de esa película que quieras comprar: "))
@@ -46,7 +46,7 @@ while True:
             else:
                 print("Película inváida.")
         elif user == user2.username:
-            print(f"Películas:\n -{("\n -").join(Pelicula.peliculas)}")
+            print(f"Películas:\n -{("\n- ").join(Pelicula.peliculas)}")
             pelicula = input("Selecciona una película (título completo): ").strip()
             if pelicula in Pelicula.peliculas:
                 cantidad = int(input("Ingresa la cantidad de esa película que quieras comprar: "))
@@ -57,7 +57,7 @@ while True:
             else:
                 print("Película inváida.")
         elif user == user3.username:
-            print(f"Películas:\n -{("\n -").join(Pelicula.peliculas)}")
+            print(f"Películas:\n -{("\n- ").join(Pelicula.peliculas)}")
             pelicula = input("Selecciona una película (título completo): ").strip()
             if pelicula in Pelicula.peliculas:
                 cantidad = int(input("Ingresa la cantidad de esa película que quieras comprar: "))

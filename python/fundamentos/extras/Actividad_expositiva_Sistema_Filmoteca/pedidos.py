@@ -1,3 +1,4 @@
+from conexion import Conexion
 class Pedido:
     pedidos = []
     
@@ -14,13 +15,17 @@ class Pedido:
     def listarPedido(cls, ID, u_ID, p_ID, cant, prec_t, fecha):
         cls.pedidos.append({"ID": ID, "Usuario ID": u_ID, "Película ID": p_ID,
                             "Cantidad": cant, "Precio final": prec_t, "Fecha venta": fecha})
-        
-    @classmethod
-    def mostrarPedido(cls, id):
-        print(f"Mostrando pedido N°{id}")
-        print(f"ID del pedido: {cls.pedidos[id]["ID"]}")
-        print(f"ID del usuario: {cls.pedidos[id]["usuario_ID"]}")
-        print(f"ID de la película: {cls.pedidos[id]["pelicula_ID"]}")
-        print(f"Cantidad comprada: {cls.pedidos[id]["cantidad"]}")
-        print(f"Precio total: {cls.pedidos[id]["precio_total"]}")
-        print(f"Fecha de la venta: {cls.pedidos[id]["fecha_venta"]}")
+        # Contacto SQL
+        conexion = Conexion.conectar()
+        cursor = conexion.cursor()
+        sql = """INSERT INTO pedidos(id_usuario, precio_total, created_by)
+        VALUES(%s, %s, 1)"""
+        valores = (u_ID, prec_t)
+        cursor.execute(sql, valores)
+        sql = """INSERT INTO detalles_pedidos(id_pedido, id_pelicula, cantidad)
+        VALUES(%s, %s, %s)"""
+        valores = (ID, p_ID, cant)
+        cursor.execute(sql, valores)
+        conexion.commit()
+        cursor.close()
+        conexion.close()
