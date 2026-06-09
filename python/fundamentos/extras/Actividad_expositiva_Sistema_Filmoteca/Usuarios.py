@@ -33,6 +33,17 @@ class Usuario:
                 pel1.stock -= cantidad
                 print(f"\nPelícula/s comprada/s éxitosamente\nSaldo a pagar total: ${self.saldo_pendiente}")
                 print(f"Stock actual de {pel1.titulo}: {pel1.stock}")
+                # Contacto SQL
+                conexion = Conexion.conectar()
+                cursor = conexion.cursor()
+                sql = """UPDATE Películas
+                SET stock = %s
+                WHERE id_pelicula = %s"""
+                valores = (pel1.stock, pel1.ID)
+                cursor.execute(sql, valores)
+                conexion.commit()
+                cursor.close()
+                conexion.close()
         elif pelicula == pel2.titulo:
             if cantidad > pel2.stock:
                 print("Stock no disponible.")
@@ -42,6 +53,17 @@ class Usuario:
                 pel2.stock -= cantidad
                 print(f"\nPelícula/s comprada/s éxitosamente\nSaldo a pagar total: ${self.saldo_pendiente}")
                 print(f"Stock actual de {pel2.titulo}: {pel2.stock}")
+                # Contacto SQL
+                conexion = Conexion.conectar()
+                cursor = conexion.cursor()
+                sql = """UPDATE Películas
+                SET stock = %s
+                WHERE id_pelicula = %s"""
+                valores = (pel2.stock, pel2.ID)
+                cursor.execute(sql, valores)
+                conexion.commit()
+                cursor.close()
+                conexion.close()
         elif pelicula == pel3.titulo:
             if cantidad > pel3.stock:
                 print("Stock no disponible.")
@@ -51,6 +73,17 @@ class Usuario:
                 pel3.stock -= cantidad
                 print(f"\nPelícula/s comprada/s éxitosamente\nSaldo a pagar total: ${self.saldo_pendiente}")
                 print(f"Stock actual de {pel3.titulo}: {pel3.stock}")
+                # Contacto SQL
+                conexion = Conexion.conectar()
+                cursor = conexion.cursor()
+                sql = """UPDATE Películas
+                SET stock = %s
+                WHERE id_pelicula = %s"""
+                valores = (pel3.stock, pel3.ID)
+                cursor.execute(sql, valores)
+                conexion.commit()
+                cursor.close()
+                conexion.close()
         elif pelicula == pel4.titulo:
             if cantidad > pel4.stock:
                 print("Stock no disponible.")
@@ -60,6 +93,17 @@ class Usuario:
                 pel4.stock -= cantidad
                 print(f"\nPelícula/s comprada/s éxitosamente\nSaldo a pagar total: ${self.saldo_pendiente}")
                 print(f"Stock actual de {pel4.titulo}: {pel4.stock}")
+                # Contacto SQL
+                conexion = Conexion.conectar()
+                cursor = conexion.cursor()
+                sql = """UPDATE Películas
+                SET stock = %s
+                WHERE id_pelicula = %s"""
+                valores = (pel4.stock, pel4.ID)
+                cursor.execute(sql, valores)
+                conexion.commit()
+                cursor.close()
+                conexion.close()
         elif pelicula == pel5.titulo:
             if cantidad > pel5.stock:
                 print("Stock no disponible.")
@@ -69,6 +113,28 @@ class Usuario:
                 pel5.stock -= cantidad
                 print(f"\nPelícula/s comprada/s éxitosamente\nSaldo a pagar total: ${self.saldo_pendiente}")
                 print(f"Stock actual de {pel5.titulo}: {pel5.stock}")
+                # Contacto SQL
+                conexion = Conexion.conectar()
+                cursor = conexion.cursor()
+                sql = """UPDATE Películas
+                SET stock = %s
+                WHERE id_pelicula = %s"""
+                valores = (pel5.stock, pel5.ID)
+                cursor.execute(sql, valores)
+                conexion.commit()
+                cursor.close()
+                conexion.close()
+        # Contacto SQL
+        conexion = Conexion.conectar()
+        cursor = conexion.cursor()
+        sql = """UPDATE Usuarios
+        SET saldo_pendiente = %s
+        WHERE id_usuario = %s"""
+        valores = (self.saldo_pendiente, self.ID)
+        cursor.execute(sql, valores)
+        conexion.commit()
+        cursor.close()
+        conexion.close()
         
     def pagar_saldo(self, monto):
         if monto > self.saldo_pendiente:
@@ -80,25 +146,36 @@ class Usuario:
                 print("Saldo totalmente pagado.")
             else:
                 print(f"Parte del saldo pagado, pero aún quedan ${self.saldo_pendiente} por pagar")
+        # Contacto SQL
+        conexion = Conexion.conectar()
+        cursor = conexion.cursor()
+        sql = """UPDATE Usuarios
+        SET saldo_pendiente = %s
+        WHERE id_usuario = %s"""
+        valores = (self.saldo_pendiente, self.ID)
+        cursor.execute(sql, valores)
+        conexion.commit()
+        cursor.close()
+        conexion.close()
     
     def cambiar_contrasena(self, nueva_contrasena):
         print("Actualizando contraseña...")
         self.password_hash = nueva_contrasena
-        
+        # Contacto SQL
         conexion = Conexion.conectar()
         cursor = conexion.cursor()
-    
-        sql = """INSERT INTO Usuarios(password_hash)
-        VALUES(%s)"""
+        sql = """UPDATE Usuarios
+        SET password_hash = %s
+        WHERE id_usuario = %s"""
         valores = (self.password_hash)
         cursor.execute(sql, valores)
-        
         conexion.commit()
         print("Contraseña actualizada correctamente.")
         cursor.close()
         conexion.close()
         
     def mostrar_usuarios(self, id):
+        #Contacto SQL
         conexion = Conexion.conectar()
         cursor = conexion.cursor()
         sql = """SELECT id_usuario, id_tipo_usuario, username, email
@@ -106,11 +183,13 @@ class Usuario:
         WHERE deleted = 0"""
         cursor.execute(sql)
         listaUsuarios = cursor.fetchall()
+        #Establecer tipo
         tipo = ""
         if listaUsuarios[id-1][1] == 2:
             tipo = "Administrador"
         elif listaUsuarios[id-1][1] == 1:
             tipo = "Usuario"
+        #Imprimir información
         print("\nImprimiendo información del usuario...")
         print(f"Nombre de usuario: {listaUsuarios[id-1][2]}")
         print(f"Email: {listaUsuarios[id-1][3]}")

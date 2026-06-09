@@ -19,6 +19,7 @@ class Pelicula:
         print("Actualizando stock...")
         self.stock += cantidad
         print(f"Stock actualizado, stock actual de la película: {self.stock}")
+        
     
     def restaurar_pelicula(self):
         print("Restaurando película...")
