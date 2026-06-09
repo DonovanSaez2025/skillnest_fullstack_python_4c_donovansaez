@@ -27,7 +27,7 @@ class Pelicula:
         cursor = conexion.cursor()
         sql = """UPDATE Películas
         SET stock = %s
-        WHERE id_pelicula = %s"""
+        WHERE id_pelicula = %s AND deleted = 0"""
         valores = (self.stock, self.ID)
         cursor.execute(sql, valores)
         conexion.commit()
@@ -45,11 +45,11 @@ class Pelicula:
         cursor = conexion.cursor()
         sql = """UPDATE Películas
         SET restaurado = %s
-        WHERE id_pelicula = %s"""
+        WHERE id_pelicula = %s AND deleted = 0"""
         valores = (1, self.ID)
         cursor.execute(sql, valores)
         conexion.commit()
-        print(f"Stock actualizado, stock actual de la película: {self.stock}")
+        print(f"Película restaurada correctamente.")
         cursor.close()
         conexion.close()
         
@@ -61,24 +61,25 @@ class Pelicula:
         FROM Películas p
         INNER JOIN Formatos f
         ON p.id_formato = f.id_formato
-        WHERE p.deleted = 0 AND f.deleted = 0"""
-        cursor.execute(sql)
-        listaPeliculas = cursor.fetchall()
-        print(listaPeliculas)
+        WHERE p.id_pelicula = %s AND p.deleted = 0 AND f.deleted = 0"""
+        valores = (self.ID,)
+        cursor.execute(sql, valores)
+        listaPelicula = cursor.fetchall()
+        print(listaPelicula)
         #Establecer estado de restauracion
         rest = ""
-        if listaPeliculas[self.ID-1][3] == 1:
+        if listaPelicula[0][3] == 1:
             rest = "Restaurado"
         else:
             rest = "No restaurado"
         #Imprimir información
         print("\nMostrando información de la película...")
-        print(f"Título: {listaPeliculas[self.ID-1][0]}")
-        print(f"Año de publicación: {listaPeliculas[self.ID-1][1]}")
-        print(f"Formato: {listaPeliculas[self.ID-1][2]}")
+        print(f"Título: {listaPelicula[0][0]}")
+        print(f"Año de publicación: {listaPelicula[0][1]}")
+        print(f"Formato: {listaPelicula[0][2]}")
         print(f"Estado de restauración: {rest}")
-        print(f"Stock: {listaPeliculas[self.ID-1][4]}")
-        print(f"Precio unitario: {listaPeliculas[self.ID-1][5]}")
+        print(f"Stock: {listaPelicula[0][4]}")
+        print(f"Precio unitario: {listaPelicula[0][5]}")
         
     @classmethod
     def mostrar_formatos(cls):
@@ -92,11 +93,8 @@ class Pelicula:
         listaFormatos = cursor.fetchall()
         #Imprimir información
         print("\nMostrando información de los formatos...")
-        print(f"{listaFormatos[0][0]}: {listaFormatos[0][1]}")
-        print(f"{listaFormatos[1][0]}: {listaFormatos[1][1]}")
-        print(f"{listaFormatos[2][0]}: {listaFormatos[2][1]}")
-        print(f"{listaFormatos[3][0]}: {listaFormatos[3][1]}")
-        print(f"{listaFormatos[4][0]}: {listaFormatos[4][1]}")
+        for i in range(0, len(listaFormatos)):
+            print(f"{listaFormatos[i][0]}: {listaFormatos[i][1]}")
         
 pel1 = Pelicula(1, "Bugs Bunny's 3rd Movie: 1001 Rabbit Tales", 1981, 5.99, 10, 1)
 pel2 = Pelicula(2, "The Bugs Bunny Road-Runner Movie", 1979, 3.99, 3, 2)

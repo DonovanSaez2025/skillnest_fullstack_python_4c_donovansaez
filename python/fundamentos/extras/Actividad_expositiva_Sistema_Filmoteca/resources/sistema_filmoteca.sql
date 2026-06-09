@@ -201,10 +201,10 @@ VALUES("Usuario", "Acceso básico.", 1),
 ("Administrador", "Acceso total", 1);
 
 -- Usuarios
-INSERT INTO Usuarios(id_tipo_usuario, username, email, password_hash, created_by)
-VALUES(2, "SuperDONO17", "donovansaez@liceovvh.cl", "JAOSF)=/JF", 1),
-(1, "IncrediJavi", "javierazapata@liceovvh.cl", "nsKSJ=(/!/%", 1),
-(1, "MegaDav", "davidtobar@liceovvh.cl", "NAu9!)47", 1);
+INSERT INTO Usuarios(id_tipo_usuario, username, email, password_hash, saldo_pendiente, created_by)
+VALUES(2, "SuperDONO17", "donovansaez@liceovvh.cl", "JAOSF)=/JF", 0, 1),
+(1, "IncrediJavi", "javierazapata@liceovvh.cl", "nsKSJ=(/!/%", 0, 1),
+(1, "MegaDav", "davidtobar@liceovvh.cl", "NAu9!)47", 0, 1);
 
 -- Pedidos
 INSERT INTO pedidos(id_usuario, precio_total, created_by)

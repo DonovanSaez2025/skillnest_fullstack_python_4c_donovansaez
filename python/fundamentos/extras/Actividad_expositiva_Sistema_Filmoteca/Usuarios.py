@@ -12,13 +12,13 @@ class Usuario:
     usuarios = []
     tipo_usuario = ["Administrador", "Usuario"]
     
-    def __init__(self, ID, username, email, password, tipo_usuario_ID, created_by=1):
+    def __init__(self, ID, username, email, password, tipo_usuario_ID, saldo_pendiente=0, created_by=1):
         self.ID = ID
         self.username = username
         self.email = email
         self.password_hash = password
         self.tipo_usuario = tipo_usuario_ID
-        self.saldo_pendiente = 0
+        self.saldo_pendiente = saldo_pendiente
         self.created_by = created_by
         Usuario.usuarios.append(self.username)
         
@@ -174,27 +174,26 @@ class Usuario:
         cursor.close()
         conexion.close()
         
-    def mostrar_usuarios(self, id):
+    def mostrar_usuarios(self):
         #Contacto SQL
         conexion = Conexion.conectar()
         cursor = conexion.cursor()
-        sql = """SELECT id_usuario, id_tipo_usuario, username, email
-        FROM Usuarios
-        WHERE deleted = 0"""
-        cursor.execute(sql)
-        listaUsuarios = cursor.fetchall()
-        #Establecer tipo
-        tipo = ""
-        if listaUsuarios[id-1][1] == 2:
-            tipo = "Administrador"
-        elif listaUsuarios[id-1][1] == 1:
-            tipo = "Usuario"
+        sql = """SELECT t.nombre_tipo_usuario, u.username, u.email, u.saldo_pendiente
+        FROM Usuarios u
+        INNER JOIN Tipos_de_usuario t
+        ON u.id_tipo_usuario = t.id_tipo_usuario
+        WHERE id_usuario = %s AND u.deleted = 0 AND t.deleted = 0"""
+        valores = (self.ID,)
+        cursor.execute(sql, valores)
+        listaUsuario = cursor.fetchall()
+        cursor.close()
+        conexion.close()
         #Imprimir información
         print("\nImprimiendo información del usuario...")
-        print(f"Nombre de usuario: {listaUsuarios[id-1][2]}")
-        print(f"Email: {listaUsuarios[id-1][3]}")
-        print(f"Tipo de usuario: {tipo}")
-        print(f"Saldo pendiente: {self.saldo_pendiente}")
+        print(f"Nombre de usuario: {listaUsuario[0][1]}")
+        print(f"Email: {listaUsuario[0][2]}")
+        print(f"Tipo de usuario: {listaUsuario[0][0]}")
+        print(f"Saldo pendiente: ${listaUsuario[0][3]}")
         
 user1 = Usuario(1, "SuperDONO17", "donovansaez@liceovvh.cl", "JAOSF)=/JF", 1)
 user2 = Usuario(2, "IncrediJavi", "javierazapata@liceovvh.cl", "nsKSJ=(/!/%", 2)
