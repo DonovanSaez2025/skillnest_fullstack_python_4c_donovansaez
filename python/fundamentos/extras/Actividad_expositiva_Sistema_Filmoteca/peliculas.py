@@ -1,3 +1,7 @@
+#Importar clases e instancias
+from conexion import Conexion
+from pedidos import Pedido
+
 class Pelicula:
     peliculas = []
     formatos = ["VHS", "Betamax", "LaserDisc", "DVD", "Blu-ray"]
@@ -18,31 +22,81 @@ class Pelicula:
     def actualizar_stock(self, cantidad):
         print("Actualizando stock...")
         self.stock += cantidad
+        # Contacto SQL
+        conexion = Conexion.conectar()
+        cursor = conexion.cursor()
+        sql = """UPDATE Películas
+        SET stock = %s
+        WHERE id_pelicula = %s"""
+        valores = (self.stock, self.ID)
+        cursor.execute(sql, valores)
+        conexion.commit()
         print(f"Stock actualizado, stock actual de la película: {self.stock}")
+        cursor.close()
+        conexion.close()
         
     
     def restaurar_pelicula(self):
         print("Restaurando película...")
         self.estado_restauracion = True
         print("Película restaurada con éxito.")
+        # Contacto SQL
+        conexion = Conexion.conectar()
+        cursor = conexion.cursor()
+        sql = """UPDATE Películas
+        SET restaurado = %s
+        WHERE id_pelicula = %s"""
+        valores = (1, self.ID)
+        cursor.execute(sql, valores)
+        conexion.commit()
+        print(f"Stock actualizado, stock actual de la película: {self.stock}")
+        cursor.close()
+        conexion.close()
         
     def mostrar_info_pelicula(self):
-        print("Mostrando información de la película...")
-        print(f"Título: {self.titulo}")
-        print(f"Año de publicación: {self.anio}")
-        print(f"Formato: {Pelicula.formatos[self.formato_ID - 1]}")
-        print(f"Estado de restauración: {self.estado_restauracion}")
-        print(f"Stock: {self.stock}")
-        print(f"Precio unitario: {self.precio_unitario}")
+        #Contacto SQL
+        conexion = Conexion.conectar()
+        cursor = conexion.cursor()
+        sql = """SELECT p.titulo_pelicula, p.anio_publicacion, f.nombre_formato, p.restaurado, p.stock, p.precio_unitario
+        FROM Películas p
+        INNER JOIN Formatos f
+        ON p.id_formato = f.id_formato
+        WHERE p.deleted = 0 AND f.deleted = 0"""
+        cursor.execute(sql)
+        listaPeliculas = cursor.fetchall()
+        print(listaPeliculas)
+        #Establecer estado de restauracion
+        rest = ""
+        if listaPeliculas[self.ID-1][3] == 1:
+            rest = "Restaurado"
+        else:
+            rest = "No restaurado"
+        #Imprimir información
+        print("\nMostrando información de la película...")
+        print(f"Título: {listaPeliculas[self.ID-1][0]}")
+        print(f"Año de publicación: {listaPeliculas[self.ID-1][1]}")
+        print(f"Formato: {listaPeliculas[self.ID-1][2]}")
+        print(f"Estado de restauración: {rest}")
+        print(f"Stock: {listaPeliculas[self.ID-1][4]}")
+        print(f"Precio unitario: {listaPeliculas[self.ID-1][5]}")
         
     @classmethod
     def mostrar_formatos(cls):
-        print("Mostrando información de los formatos...")
-        print(f"{cls.formatos[0]}: El primer formato de video casero")
-        print(f"{cls.formatos[1]}: Competidor del VHS")
-        print(f"{cls.formatos[2]}: Precursor del DVD")
-        print(f"{cls.formatos[3]}: Derrotó al VHS por su mayor capacidad en GB en lugar de horas de grabación")
-        print(f"{cls.formatos[4]}: Compitiendo con el DVD al día de hoy")
+        #Contacto SQL
+        conexion = Conexion.conectar()
+        cursor = conexion.cursor()
+        sql = """SELECT nombre_formato, descripcion_formato
+        FROM Formatos
+        WHERE deleted = 0"""
+        cursor.execute(sql)
+        listaFormatos = cursor.fetchall()
+        #Imprimir información
+        print("\nMostrando información de los formatos...")
+        print(f"{listaFormatos[0][0]}: {listaFormatos[0][1]}")
+        print(f"{listaFormatos[1][0]}: {listaFormatos[1][1]}")
+        print(f"{listaFormatos[2][0]}: {listaFormatos[2][1]}")
+        print(f"{listaFormatos[3][0]}: {listaFormatos[3][1]}")
+        print(f"{listaFormatos[4][0]}: {listaFormatos[4][1]}")
         
 pel1 = Pelicula(1, "Bugs Bunny's 3rd Movie: 1001 Rabbit Tales", 1981, 5.99, 10, 1)
 pel2 = Pelicula(2, "The Bugs Bunny Road-Runner Movie", 1979, 3.99, 3, 2)

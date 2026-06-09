@@ -1,7 +1,6 @@
 # Importar clases
-from conexion import Conexion
-from usuarios import Usuario
 from peliculas import Pelicula
+from usuarios import Usuario
 from pedidos import Pedido
 # Importar instancias
 from usuarios import user1
