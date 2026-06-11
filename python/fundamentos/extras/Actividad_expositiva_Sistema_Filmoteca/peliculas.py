@@ -1,6 +1,5 @@
 #Importar clases e instancias
 from conexion import Conexion
-from pedidos import Pedido
 
 class Pelicula:
     peliculas = []
