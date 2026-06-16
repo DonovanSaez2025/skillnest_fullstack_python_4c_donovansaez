@@ -22,9 +22,10 @@ class Pedido:
         VALUES(%s, %s, 1)"""
         valores = (u_ID, prec_t)
         cursor.execute(sql, valores)
+        id_pedido_real = cursor.lastrowid
         sql = """INSERT INTO detalles_pedidos(id_pedido, id_pelicula, cantidad)
         VALUES(%s, %s, %s)"""
-        valores = (ID, p_ID, cant)
+        valores = (id_pedido_real, p_ID, cant)
         cursor.execute(sql, valores)
         conexion.commit()
         cursor.close()

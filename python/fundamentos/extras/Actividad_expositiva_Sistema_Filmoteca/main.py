@@ -1,4 +1,5 @@
 # Importar clases
+from conexion import Conexion
 from peliculas import Pelicula
 from usuarios import Usuario
 from pedidos import Pedido
