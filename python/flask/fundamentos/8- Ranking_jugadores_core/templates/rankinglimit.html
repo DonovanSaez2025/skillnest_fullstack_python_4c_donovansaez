@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Bootstrap icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+    <title>Ranking de Jugadores</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: {% if color %}{{ color }}{% else %}#f4f4f4{% endif %};
+            text-align: center;
+        }
+        h1 {
+            color: #333;
+        }
+        .table {
+            display: flex;
+            flex-direction: column;
+            width: 560px;
+            margin: 0 auto;
+        }
+        .table h2 {
+            color: white;
+        }
+        .bg-top {
+            background-color: black;
+            border-top-left-radius: 10px;
+            border-top-right-radius: 10px;
+        }
+        .ranking {
+            display: flex;
+            justify-content: space-between;
+            background: white;
+            border-bottom-left-radius: 10px;
+            border-bottom-right-radius: 10px;
+            box-shadow: 0px 0px 10px #0000001a;
+        }
+        ul {
+            text-align: left;
+            margin: 0 auto;
+            list-style: none;
+            padding: 0;
+        }
+        li {
+            display: flex;
+            width: 530px;
+            align-items: center;
+            justify-content: space-between;
+            font-size: 18px;
+            margin: 10px auto;
+            padding: 0 0 12px; 0
+            border-bottom: 1px solid #ddd;
+        }
+        .top span {
+            font-weight: bold;
+            background-color: gold;
+            padding: 5px 9px;
+            border-radius: 150px;
+        }
+        .subtop span {
+            font-weight: bold;
+            background-color: #c0c0c1;
+            padding: 5px 9px;
+            border-radius: 150px;
+        }
+        .thirdtop span {
+            font-weight: bold;
+            background-color: #c28242;
+            color: white;
+            padding: 5px 9px;
+            border-radius: 150px;
+        }
+        .other span {
+            font-weight: bold;
+            background-color: #eaebed;
+            color: black;
+            padding: 5px 9px;
+            border-radius: 150px;
+        }
+        li .player {
+            font-weight: bold;
+            color: black;
+            background: none;
+            padding: 0;
+            border-radius: 0;
+        }
+        li .points {
+            text-align: right;
+            color: #6e757c;
+            background: none;
+            padding: 0;
+            border-radius: 0;
+        }
+    </style>
+</head>
+
+<body>
+    <h1><i class="bi bi-trophy-fill"></i> Ranking de Jugadores <i class="bi bi-controller"></i></h1>
+    <div class="table">
+        <div class="bg-top">
+            <h2><i class="bi bi-star-fill"></i> Top Jugadores</h2>
+        </div>
+        <div class="ranking">
+            <ul>
+                {% for jugador in jugadores %}
+                    {% if limit==True and loop.index < numero%}
+                        <li {% if loop.index == 1 %} class="top" {% elif loop.index == 2 %} class="subtop" {% elif loop.index == 3 %} class="thirdtop" {% else %} class="other" {% endif %}>
+                            <span>{{ loop.index }}</span><span class="player">{{ jugador.nombre }}</span><span class="points">{{ jugador.puntaje }} puntos</span>
+                        </li>
+                    {% endif %}
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+</body>
+</html>
