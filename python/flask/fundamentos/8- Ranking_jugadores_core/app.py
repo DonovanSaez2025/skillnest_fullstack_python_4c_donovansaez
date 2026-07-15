@@ -14,14 +14,23 @@ jugadores = [
 
 # Ruta para mostrar el ranking de jugadores
 @app.route("/ranking")
-def raking():
+def ranking():
     return render_template("ranking.html", jugadores=jugadores)
+
 # Ruta para mostrar un número limitado de jugadores
 @app.route("/ranking/<int:numero>")
 def limit(numero):
     return render_template("rankinglimit.html", jugadores=jugadores, numero=numero+1, limit=True)
 
 # Ruta para personalizar el color del ranking
+@app.route("/ranking/<color>")
+def color(color):
+    return render_template("ranking.html", jugadores=jugadores, color=color)
+
+# Ruta para personalizar el color del ranking y limitar el número de jugadores
+@app.route("/ranking/<int:numero>/<color>")
+def limitcolor(numero, color):
+    return render_template("rankinglimit.html", jugadores=jugadores, numero=numero+1, limit=True, color=color)
 
 # Ejecutar el servidor
 if __name__ == "__main__":
