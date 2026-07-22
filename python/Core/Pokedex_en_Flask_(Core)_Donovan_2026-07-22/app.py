@@ -17,27 +17,28 @@ pokedex = [
 ]
 
 # Ruta para mostrar todos los Pokémon
-@app.route("/")
+@app.route("/pokemon")
 def pokedexfull():
     return render_template("index.html")
 
 # Ruta para mostrar un Pokémon por nombre
-@app.route("/<pokename>")
+@app.route("/pokemon/<pokename>")
 def pokenamefilter(pokename):
     return render_template("index.html", pokename=pokename)
 
 # Ruta para mostrar un Pokémon por número en la Pokédex
-@app.route("/<pokeid>")
+@app.route("/pokemon/<pokeid>")
 def pokedexid(pokeid):
     return render_template("index.html", pokeid=pokeid)
 
 # Ruta para mostrar una cantidad específica de Pokémon
-@app.route("/<cantidad>")
+@app.route("/pokemon/cantidad/<cantidad>")
 def pokecant(cantidad):
     return render_template("index.html", cantidad=cantidad)
 
-# Error cuando no se encuentra un Pokémon
-def pokemon_no_encontrado(mensaje: str):
+# BONUS: Página de error personalizada si el usuario ingresa una ruta inexistente
+@app.errorhandler(404)
+def pokemon_no_encontrado(mensaje: f""):
     """Función simple para renderizar la página 404 con un mensaje."""
     return render_template("404.html", mensaje=mensaje)
 
