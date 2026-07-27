@@ -5,7 +5,8 @@
 }
 
 body {
-    background-color: #f8f9fa; /* Fondo gris muy claro */
+    background-color: #f8f9fa;
+    font-family: sans-serif;
 }
 
 /* Contenedor del header centrado verticalmente */
@@ -79,11 +80,224 @@ nav {
     background-color: #0b5ed7;
 }
 
-/* Botón "Ver 5 primeros" (Verde) */
+/* Botón "Ver 5 primeros" */
 .btn-five {
     background-color: #198754;
 }
 
 .btn-five:hover {
     background-color: #157347;
+}
+
+.container {
+    margin: 0 auto;
+    max-width: 1280px;
+}
+
+.back-box {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 23px;
+    justify-content: center;
+    max-width: 1280px;
+    margin: 0 auto;
+}
+
+.card {
+    width: 320px;
+    background-color: #ffffff;
+    border-radius: 16px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+    overflow: hidden;
+    border: 1px solid #eef0f4;
+    box-shadow: 0px 5px 10px #acabab;
+}
+
+/* Encabezado con fondo en gradiente */
+.card-header {
+    position: relative;
+    background: linear-gradient(135deg, #edf2f7 0%, #d5e0ea 100%);
+    height: 160px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.badge-number {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    background-color: #4a5568;
+    color: #ffffff;
+    font-weight: bold;
+    font-size: 0.85rem;
+    padding: 4px 10px;
+    border-radius: 20px;
+}
+
+.pokemon-img {
+    max-height: 120px;
+    object-fit: contain;
+}
+
+/* Contenido interno */
+.card-body {
+    padding: 20px;
+    text-align: center;
+}
+
+.pokemon-name {
+    margin: 0 0 12px 0;
+    font-size: 1rem;
+    color: #2d3748;
+    font-weight: 700;
+}
+
+/* Tipos / Badges */
+.types {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    margin-bottom: 20px;
+}
+
+.type-badge {
+    color: #ffffff;
+    font-weight: bold;
+    font-size: 0.83rem;
+    padding: 3px 12px;
+    border-radius: 12px;
+}
+
+/* Colores según tipo */
+.types span {
+    font-weight: bolder;
+}
+
+.type-badge.Planta {
+    background-color: #78c850;
+}
+
+.type-badge.Veneno {
+    background-color: #a040a0;
+}  
+
+.type-badge.Fuego {
+    background-color: #f08030;
+}
+
+.type-badge.Agua {
+    background-color: #6890f0;
+}
+
+.type-badge.Eléctrico {
+    background-color: #f7d030;
+    color: #000;
+}
+
+.type-badge.Normal {
+    background-color: #a8a878;
+}
+
+.type-badge.Hada {
+    background-color: #ed99ac;
+}
+
+.type-badge.Fantasma {
+    background-color: #705898;
+}
+
+.type-badge.Roca {
+    background-color: #b8a038;
+}
+
+.type-badge.Tierra {
+    background-color: #e0c068;
+    color: #000;
+}
+
+/* Sección de Poder / Stats */
+.stat-group {
+    text-align: left;
+    margin-bottom: 20px;
+}
+
+.stat-label {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    font-size: 0.9rem;
+    font-weight: 700;
+    color: #4a5568;
+    margin-bottom: 8px;
+}
+
+.progress-bar-bg {
+    width: 100%;
+    height: 14px;
+    background-color: #edf2f7;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.progress-bar-fill {
+    height: 100%;
+    background-color: #3b52d4;
+    color: #ffffff;
+    font-size: 0.65rem;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+}
+
+/* Métricas (Altura y Peso) */
+.metrics {
+    display: flex;
+    border-radius: 12px;
+    padding: 12px;
+    justify-content: space-around;
+}
+
+.metric-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.metric-label {
+    font-size: 0.8rem;
+    color: #718096;
+    font-weight: 600;
+    margin-bottom: 4px;
+}
+
+.metric-value {
+    font-size: 1.1rem;
+    font-weight: 800;
+    color: #2d3748;
+}
+
+/* Pie de la tarjeta */
+.card-footer {
+    padding: 12px 20px 16px 20px;
+    border-top: 1px solid #edf2f7;
+}
+
+.btn-details {
+    padding: 8px 0;
+    background-color: transparent;
+    border: 1px solid #3182ce;
+    color: #3182ce;
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: background-color 0.2s, color 0.2s;
+}
+
+.btn-details:hover {
+    background-color: #3182ce;
+    color: #ffffff;
 }
