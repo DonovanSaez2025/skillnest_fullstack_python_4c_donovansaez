@@ -22,8 +22,7 @@
     
     <main class="container">
         <div class="back-box">
-            {% for pokemon in pokedex[:cant] %}
-                <div class="card">
+            <div class="card">
                     <!-- Cabecera de la tarjeta con imagen y número -->
                     <div class="card-header">
                         <span class="badge-number">#{{ pokemon.id }}</span>
@@ -59,28 +58,27 @@
                     </div>
 
                         <!-- Métricas (Altura y Peso) -->
-                        <div class="metrics">
-                            <div class="metric-item">
-                                <div class="metric-label">
-                                    <span class="icon"><i class="bi bi-rulers"></i></span> Altura
-                                </div>
-                                <div class="metric-value">{{ pokemon.altura }}</div>
+                    <div class="metrics">
+                        <div class="metric-item">
+                            <div class="metric-label">
+                                <span class="icon"><i class="bi bi-rulers"></i></span> Altura
                             </div>
-                            <div class="metric-item">
-                                <div class="metric-label">
-                                    <span class="icon"><i class="bi bi-handbag-fill"></i></span> Peso
-                                </div>
-                                <div class="metric-value">{{ pokemon.peso }}</div>
+                            <div class="metric-value">{{ pokemon.altura }}</div>
+                        </div>
+                        <div class="metric-item">
+                            <div class="metric-label">
+                                <span class="icon"><i class="bi bi-handbag-fill"></i></span> Peso
                             </div>
+                            <div class="metric-value">{{ pokemon.peso }}</div>
                         </div>
                     </div>
-
-                    <!-- Pie de la tarjeta -->
-                    <div class="card-footer">
-                        <a href="/pokemon/{{ pokemon.id }}" class="btn-details">Ver detalles</a>
-                    </div>
                 </div>
-            {% endfor %}
+
+                <!-- Pie de la tarjeta -->
+                <div class="card-footer">
+                    <a href="/pokemon/{{ pokemon.id }}" class="btn-details">Ver detalles</a>
+                </div>
+            </div>
         </div>
     </main>
 

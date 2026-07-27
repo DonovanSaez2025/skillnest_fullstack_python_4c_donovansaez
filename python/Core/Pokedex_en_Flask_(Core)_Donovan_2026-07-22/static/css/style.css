@@ -267,21 +267,22 @@ nav {
 }
 
 .metric-label {
-    font-size: 0.8rem;
+    font-size: 0.7rem;
     color: #718096;
     font-weight: 600;
-    margin-bottom: 4px;
 }
 
 .metric-value {
-    font-size: 1.1rem;
+    font-size: 0.8rem;
     font-weight: 800;
     color: #2d3748;
 }
 
 /* Pie de la tarjeta */
 .card-footer {
-    padding: 12px 20px 16px 20px;
+    display: flex;
+    justify-content: center;
+    padding: 5px 10px;
     border-top: 1px solid #edf2f7;
 }
 
@@ -290,9 +291,10 @@ nav {
     background-color: transparent;
     border: 1px solid #3182ce;
     color: #3182ce;
-    border-radius: 8px;
+    border-radius: 4px;
     font-weight: 600;
-    font-size: 0.9rem;
+    padding: 5px 115px;
+    font-size: 0.7rem;
     cursor: pointer;
     transition: background-color 0.2s, color 0.2s;
 }

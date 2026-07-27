@@ -23,22 +23,38 @@ def pokedexfull(pokedex=pokedex):
 
 # Ruta para mostrar un Pokémon por nombre
 @app.route("/pokemon/<pokename>")
-def pokenamefilter(pokename, pokedex):
-    return render_template("index.html", pokename=pokename, pokedex=pokedex)
+def pokenamefilter(pokename):
+    # Buscamos el Pokémon por nombre (ignorando mayúsculas/minúsculas)
+    pokemon_encontrado = None
+    for p in pokedex:
+        if p["nombre"].lower() == pokename.lower():
+            pokemon_encontrado = p
+            break
+        
+    if pokemon_encontrado:
+        return render_template("indexnombre.html", pokemon=pokemon_encontrado)
 
 # Ruta para mostrar un Pokémon por número en la Pokédex
-@app.route("/pokemon/<pokeid>")
-def pokedexid(pokeid, pokedex):
-    return render_template("index.html", pokeid=pokeid, pokedex=pokedex)
+@app.route("/pokemon/<int:pokeid>")
+def pokedexid(pokeid):
+    # Buscar ID
+    pokemon_encontrado = None
+    for p in pokedex:
+        if p["id"] == pokeid:
+            pokemon_encontrado = p
+            break
+
+    if pokemon_encontrado:
+        return render_template("indexid.html", pokemon=pokemon_encontrado)
 
 # Ruta para mostrar una cantidad específica de Pokémon
-@app.route("/pokemon/cantidad/<int:cantidad>")
-def pokecant(cantidad, pokedex):
-    return render_template("index.html", cantidad=cantidad, pokedex=pokedex)
+@app.route("/pokemon/cantidad/<int:cant>")
+def pokecant(cant):
+    return render_template("indexcantidad.html", pokedex=pokedex, cant=cant)
 
 # BONUS: Página de error personalizada si el usuario ingresa una ruta inexistente
 @app.errorhandler(404)
-def pokemon_no_encontrado(mensaje: f""):
+def pokemon_no_encontrado(mensaje):
     """Función simple para renderizar la página 404 con un mensaje."""
     return render_template("404.html", mensaje=mensaje)
 
