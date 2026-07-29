@@ -67,7 +67,7 @@ nav {
 }
 
 
-/* Estilo común para ambos botones */
+/* Botones de la barra de navegación */
 
 .nav-btn {
     display: inline-flex;
@@ -79,16 +79,18 @@ nav {
     font-weight: 500;
     padding: 8px 13px;
     border-radius: 8px;
-    /* Bordes ligeramente redondeados */
     transition: background-color 0.2s;
 }
+
+
+/* Ícono de los botones de la barra de navegación */
 
 .nav-btn i {
     margin-right: 8px;
 }
 
 
-/* Botón "Ver todos" (Azul) */
+/* Botón todos */
 
 .btn-all {
     background-color: #0d6efd;
@@ -99,7 +101,7 @@ nav {
 }
 
 
-/* Botón "Ver 5 primeros" */
+/* Botón 5 primeros */
 
 .btn-five {
     background-color: #198754;
@@ -109,10 +111,16 @@ nav {
     background-color: #157347;
 }
 
+
+/* Contenedor de la página */
+
 .container {
     margin: 0 auto;
     max-width: 1280px;
 }
+
+
+/* Caja de fondo de las tarjetas */
 
 .back-box {
     display: flex;
@@ -122,6 +130,9 @@ nav {
     max-width: 1280px;
     margin: 0 auto;
 }
+
+
+/* Tarjetas */
 
 .card {
     width: 320px;
@@ -134,7 +145,7 @@ nav {
 }
 
 
-/* Encabezado con fondo en gradiente */
+/* Encabezado de las tarjetas */
 
 .card-header {
     position: relative;
@@ -144,6 +155,9 @@ nav {
     justify-content: center;
     align-items: center;
 }
+
+
+/* ID de los pokemones */
 
 .badge-number {
     position: absolute;
@@ -157,18 +171,24 @@ nav {
     border-radius: 20px;
 }
 
+
+/* Imagen de los pokemones */
+
 .pokemon-img {
     max-height: 120px;
     object-fit: contain;
 }
 
 
-/* Contenido interno */
+/* Cuerpo de las tarjetas */
 
 .card-body {
     padding: 20px;
     text-align: center;
 }
+
+
+/* Nombre de los pokemones */
 
 .pokemon-name {
     margin: 0 0 12px 0;
@@ -178,7 +198,7 @@ nav {
 }
 
 
-/* Tipos / Badges */
+/* Tipos */
 
 .types {
     display: flex;
@@ -186,6 +206,9 @@ nav {
     gap: 8px;
     margin-bottom: 20px;
 }
+
+
+/* Emblema de los tipos */
 
 .type-badge {
     color: #ffffff;
@@ -245,7 +268,7 @@ nav {
 }
 
 
-/* Sección de Poder / Stats */
+/* Sección poder */
 
 .stat-group {
     text-align: left;
