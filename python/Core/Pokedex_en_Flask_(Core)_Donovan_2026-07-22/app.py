@@ -18,7 +18,7 @@ pokedex = [
 
 # Ruta para mostrar todos los Pokémon
 @app.route("/pokemon")
-def pokedexfull(pokedex=pokedex):
+def pokedexfull():
     return render_template("index.html", pokedex=pokedex)
 
 # Ruta para mostrar un Pokémon por nombre

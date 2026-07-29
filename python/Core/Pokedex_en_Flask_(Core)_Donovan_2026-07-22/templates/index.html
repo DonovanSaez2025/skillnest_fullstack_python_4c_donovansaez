@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -13,7 +13,7 @@
 <body>
     <!-- Cabecera de la página -->
     <header>
-        <h1><img class="h-img" src="{{ url_for('static', filename='img/pokeball.png') }}">Pokédex</h1>
+        <h1><img class="h-img" src="{{ url_for('static', filename='img/pokeball.png') }}" alt="Pokebola">Pokédex</h1>
         <p>Todos los Pokémones</p>
         <!-- Barra de navegación -->
         <nav>
@@ -37,13 +37,12 @@
                     <!-- Cuerpo de la tarjeta -->
                     <div class="card-body">
                         <h2 class="pokemon-name">{{ pokemon.nombre }}</h2>
-                        <!-- sección de tipos del pokemon -->
+                        
+                        <!-- Sección de tipos del pokemon -->
                         <div class="types">
-                            {% set tipos = pokemon.tipo.split('/') %}
-                            <span class="type-badge {{ tipos[0] }}">{{ tipos[0] }}</span>
-                            {% if tipos|length > 1 %}
-                                <span class="type-badge {{ tipos[1] }}">{{ tipos[1] }}</span>
-                            {% endif %}
+                            {% for tipo in pokemon.tipo.split('/') %}
+                                <span class="type-badge {{ tipo }}">{{ tipo }}</span>
+                            {% endfor %}
                         </div>
 
                         <!-- Barra de Poder -->
@@ -60,23 +59,23 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
 
-                    <!-- Altura y Peso -->
-                    <div class="h-w">
-                        <!-- Sección altura -->
-                        <div class="h-w-item">
-                            <div class="h-w-label">
-                                <span class="icon"><i class="bi bi-rulers"></i></span> Altura
+                        <!-- Altura y Peso -->
+                        <div class="h-w">
+                            <!-- Sección altura -->
+                            <div class="h-w-item">
+                                <div class="h-w-label">
+                                    <span class="icon"><i class="bi bi-rulers"></i></span> Altura
+                                </div>
+                                <div class="h-w-value">{{ pokemon.altura }}</div>
                             </div>
-                            <div class="h-w-value">{{ pokemon.altura }}</div>
-                        </div>
-                        <!-- Sección peso -->
-                        <div class="h-w-item">
-                            <div class="h-w-label">
-                                <span class="icon"><i class="bi bi-handbag-fill"></i></span> Peso
+                            <!-- Sección peso -->
+                            <div class="h-w-item">
+                                <div class="h-w-label">
+                                    <span class="icon"><i class="bi bi-handbag-fill"></i></span> Peso
+                                </div>
+                                <div class="h-w-value">{{ pokemon.peso }}</div>
                             </div>
-                            <div class="h-w-value">{{ pokemon.peso }}</div>
                         </div>
                     </div>
 
