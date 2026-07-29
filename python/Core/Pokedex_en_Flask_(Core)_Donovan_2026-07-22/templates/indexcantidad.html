@@ -6,25 +6,29 @@
     <!-- Bootstrap icons -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
     <title>Pokédex</title>
+    <!-- Estilos CSS -->
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
 </head>
 
 <body>
+    <!-- Cabecera de la página -->
     <header>
         <h1><img class="h-img" src="{{ url_for('static', filename='img/pokeball.png') }}">Pokédex</h1>
         <p>Todos los Pokémones</p>
+        <!-- Barra de navegación -->
         <nav>
             <a class="nav-btn btn-all" href="http://127.0.0.1:5000/pokemon"><i class="bi bi-list-ul"></i>Ver todos</a>
             <a class="nav-btn btn-five" href="http://127.0.0.1:5000/pokemon/cantidad/5"><i class="bi bi-funnel-fill"></i>Ver 5 primeros</a>
         </nav>
     </header>
     
+    <!-- Contenedor de la página -->
     <main class="container">
         <div class="back-box">
+            <!-- For jinja2 para repetir la creación de la tarjeta -->
             {% for pokemon in pokedex[:cant] %}
                 <div class="card">
-                    <!-- Cabecera de la tarjeta con imagen y número -->
+                    <!-- Cabecera de la tarjeta -->
                     <div class="card-header">
                         <span class="badge-number">#{{ pokemon.id }}</span>
                         <img src="{{ url_for('static', filename='img/' + pokemon.imagen) }}" alt="{{ pokemon.nombre }}" class="pokemon-img">
@@ -33,8 +37,7 @@
                     <!-- Cuerpo de la tarjeta -->
                     <div class="card-body">
                         <h2 class="pokemon-name">{{ pokemon.nombre }}</h2>
-
-                        <!-- Tipos (separados si contienen '/') -->
+                        <!-- sección de tipos del pokemon -->
                         <div class="types">
                             {% set tipos = pokemon.tipo.split('/') %}
                             <span class="type-badge {{ tipos[0] }}">{{ tipos[0] }}</span>
@@ -45,15 +48,16 @@
 
                         <!-- Barra de Poder -->
                         <div class="stat-group">
-                        <div class="stat-label">
-                            <span class="icon"><i class="bi bi-lightning-charge-fill"></i></span>
-                            <span>Poder</span>
-                        </div>
-                        <div class="progress-bar-bg">
-                            <!-- Calculamos el % dividiendo el poder entre el valor máximo (ej: 160) -->
-                            {% set porcentaje = (pokemon.poder / 160 * 100)|round %}
-                            <div class="progress-bar-fill" style="width: {{ porcentaje }}%;">
-                                {{ pokemon.poder }}
+                            <div class="stat-label">
+                                <span class="icon"><i class="bi bi-lightning-charge-fill"></i></span>
+                                <span>Poder</span>
+                            </div>
+                            <div class="progress-bar-bg">
+                                <!-- Cálculo del porcentaje -->
+                                {% set porcentaje = (pokemon.poder / 160 * 100)|round %}
+                                <div class="progress-bar-fill" style="width: {{ porcentaje }}%;">
+                                    {{ pokemon.poder }}
+                                </div>
                             </div>
                         </div>
                     </div>

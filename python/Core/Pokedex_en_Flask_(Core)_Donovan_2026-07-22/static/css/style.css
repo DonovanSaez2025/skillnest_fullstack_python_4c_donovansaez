@@ -9,7 +9,9 @@ body {
     font-family: sans-serif;
 }
 
+
 /* Contenedor del header centrado verticalmente */
+
 header {
     display: flex;
     flex-direction: column;
@@ -19,9 +21,12 @@ header {
     text-align: center;
 }
 
+
 /* Contenedor del título con la pokebola alineada al texto */
+
 h1 {
-    color: #3b4cca; /* Azul brillante del título */
+    color: #3b4cca;
+    /* Azul brillante del título */
     font-family: sans-serif;
     font-size: 3.2rem;
     font-weight: bold;
@@ -32,12 +37,16 @@ h1 {
     letter-spacing: -1px;
 }
 
+
 /* Tamaño de la Pokebola */
+
 .h-img {
     width: 33px;
 }
 
+
 /* Subtítulo "Todos los Pokémones" */
+
 header p {
     font-family: sans-serif;
     color: #000;
@@ -46,14 +55,18 @@ header p {
     margin-bottom: 30px;
 }
 
+
 /* Contenedor horizontal de los botones */
+
 nav {
     display: flex;
     gap: 15px;
     justify-content: center;
 }
 
+
 /* Estilo común para ambos botones */
+
 .nav-btn {
     display: inline-flex;
     font-family: sans-serif;
@@ -63,7 +76,8 @@ nav {
     font-size: 0.8rem;
     font-weight: 500;
     padding: 8px 13px;
-    border-radius: 8px; /* Bordes ligeramente redondeados */
+    border-radius: 8px;
+    /* Bordes ligeramente redondeados */
     transition: background-color 0.2s;
 }
 
@@ -71,7 +85,9 @@ nav {
     margin-right: 8px;
 }
 
+
 /* Botón "Ver todos" (Azul) */
+
 .btn-all {
     background-color: #0d6efd;
 }
@@ -80,7 +96,9 @@ nav {
     background-color: #0b5ed7;
 }
 
+
 /* Botón "Ver 5 primeros" */
+
 .btn-five {
     background-color: #198754;
 }
@@ -113,7 +131,9 @@ nav {
     box-shadow: 0px 5px 10px #acabab;
 }
 
+
 /* Encabezado con fondo en gradiente */
+
 .card-header {
     position: relative;
     background: linear-gradient(135deg, #edf2f7 0%, #d5e0ea 100%);
@@ -140,7 +160,9 @@ nav {
     object-fit: contain;
 }
 
+
 /* Contenido interno */
+
 .card-body {
     padding: 20px;
     text-align: center;
@@ -153,7 +175,9 @@ nav {
     font-weight: 700;
 }
 
+
 /* Tipos / Badges */
+
 .types {
     display: flex;
     justify-content: center;
@@ -169,7 +193,9 @@ nav {
     border-radius: 12px;
 }
 
+
 /* Colores según tipo */
+
 .types span {
     font-weight: bolder;
 }
@@ -180,7 +206,7 @@ nav {
 
 .type-badge.Veneno {
     background-color: #a040a0;
-}  
+}
 
 .type-badge.Fuego {
     background-color: #f08030;
@@ -216,7 +242,9 @@ nav {
     color: #000;
 }
 
+
 /* Sección de Poder / Stats */
+
 .stat-group {
     text-align: left;
     margin-bottom: 20px;
@@ -252,33 +280,37 @@ nav {
     border-radius: 10px;
 }
 
-/* Métricas (Altura y Peso) */
-.metrics {
+
+/* Sección de altura y Peso */
+
+.h-w {
     display: flex;
     border-radius: 12px;
     padding: 12px;
     justify-content: space-around;
 }
 
-.metric-item {
+.h-w-item {
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
-.metric-label {
+.h-w-label {
     font-size: 0.7rem;
     color: #718096;
     font-weight: 600;
 }
 
-.metric-value {
+.h-w-value {
     font-size: 0.8rem;
     font-weight: 800;
     color: #2d3748;
 }
 
+
 /* Pie de la tarjeta */
+
 .card-footer {
     display: flex;
     justify-content: center;
