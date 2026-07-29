@@ -1,3 +1,5 @@
+/* Resetear estilos */
+
 * {
     margin: 0;
     padding: 0;
@@ -10,7 +12,7 @@ body {
 }
 
 
-/* Contenedor del header centrado verticalmente */
+/* Cabecera  */
 
 header {
     display: flex;
@@ -22,7 +24,7 @@ header {
 }
 
 
-/* Contenedor del título con la pokebola alineada al texto */
+/* H1 */
 
 h1 {
     color: #3b4cca;
@@ -38,14 +40,14 @@ h1 {
 }
 
 
-/* Tamaño de la Pokebola */
+/* Imagen pokebola */
 
 .h-img {
     width: 33px;
 }
 
 
-/* Subtítulo "Todos los Pokémones" */
+/* Párrafo de la cabecera */
 
 header p {
     font-family: sans-serif;
@@ -56,7 +58,7 @@ header p {
 }
 
 
-/* Contenedor horizontal de los botones */
+/* Barra de navegación */
 
 nav {
     display: flex;

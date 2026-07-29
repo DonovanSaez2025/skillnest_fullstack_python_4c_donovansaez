@@ -24,7 +24,7 @@ def pokedexfull():
 # Ruta para mostrar un Pokémon por nombre
 @app.route("/pokemon/<pokename>")
 def pokenamefilter(pokename):
-    # Buscamos el Pokémon por nombre (ignorando mayúsculas/minúsculas)
+    # Buscar nombre del pokemon
     pokemon_encontrado = None
     for p in pokedex:
         if p["nombre"].lower() == pokename.lower():
