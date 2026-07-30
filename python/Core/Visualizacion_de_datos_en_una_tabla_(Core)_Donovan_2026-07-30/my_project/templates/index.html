@@ -24,7 +24,7 @@
             <!-- Tabla -->
             <table>
                 <!-- Cabecera de la tabla -->
-                <tr>
+                <tr class="t-header">
                     <th>Nombre</th>
                     <th>Usuarios</th>
                     <th>Año Fundación</th>
@@ -33,12 +33,12 @@
                 </tr>
                 <!-- Otras filas de la tabla -->
                 {% for dato in datos %}
-                    <tr>
+                    <tr class="t-data">
                         <td class="t-name"><img src="{{ url_for('static', filename='images/' + dato.imagen) }}" alt="{{ dato.discord }}">{{ dato.nombre }}</td>
-                        <td class="t-users">{{ dato.usuarios }}</td>
+                        <td class="t-users"><span>{{ dato.usuarios }}</span></td>
                         <td>{{ dato.fundado }}</td>
-                        <td class="t-pais">{{ dato.pais }}</td>
-                        <td><a href="#"><i class="bi bi-info-circle-fill"></i></td>
+                        <td class="t-pais"><span>{{ dato.pais }}</span></td>
+                        <td class="t-info"><a href="#"><i class="bi bi-info-circle-fill"></i></td>
                     </tr>
                 {% endfor %}
             </table>
