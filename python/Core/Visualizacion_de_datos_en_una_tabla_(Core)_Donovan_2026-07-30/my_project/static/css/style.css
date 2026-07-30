@@ -6,12 +6,35 @@
     box-sizing: border-box;
 }
 
+
+/* Estilos generales */
+
 body {
     background-color: #f8f9fa;
+    font-family: sans-serif;
+}
+
+header {
+    text-align: center;
+    margin-top: 30px;
+}
+
+h1 .bi {
+    font-size: 1.8rem;
 }
 
 h1 {
     color: #0f6ffc;
+    font-size: 2.1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+}
+
+header p {
+    font-size: 0.76rem;
+    margin-top: 8px;
 }
 
 .t-users {

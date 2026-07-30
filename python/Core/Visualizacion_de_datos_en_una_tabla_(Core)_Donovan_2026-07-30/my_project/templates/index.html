@@ -34,7 +34,7 @@
                 <!-- Otras filas de la tabla -->
                 {% for dato in datos %}
                     <tr>
-                        <td>{{ dato.nombre }}</td>
+                        <td><img src="{{ url_for('static', filename='images/' + dato.imagen) }}" alt="{{ dato.discord }}">{{ dato.nombre }}</td>
                         <td class="t-users">{{ dato.usuarios }}</td>
                         <td>{{ dato.fundado }}</td>
                         <td class="t-pais">{{ dato.pais }}</td>
