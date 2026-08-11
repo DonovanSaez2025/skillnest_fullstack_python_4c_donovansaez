@@ -64,7 +64,7 @@ nav a:hover {
     color: #d8e3e7;
 }
 
-.inPage {
+.in-page {
     font-weight: bold;
 }
 
@@ -74,6 +74,7 @@ nav a:hover {
 header {
     background-color: #7b7b7c;
     color: #fff;
+    text-align: center;
 }
 
 
@@ -86,4 +87,29 @@ header {
     align-items: center;
     max-width: 1040px;
     margin: 0 auto;
+    padding: 5rem 0;
+    gap: 2px;
+}
+
+h2 {
+    font-size: 2.5rem;
+}
+
+.h-cont p {
+    font-size: 0.9rem;
+}
+
+.container {
+    width: 1040px;
+    margin: 0 auto;
+    text-align: left;
+}
+
+.back-box {
+    display: flex;
+    justify-content: space-between;
+}
+
+.column {
+    background-color: #fbfbfc;
 }
