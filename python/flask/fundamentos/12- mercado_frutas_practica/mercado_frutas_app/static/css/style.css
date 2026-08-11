@@ -1,0 +1,89 @@
+/* Resetear estilos */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+/* Cuerpo de la página */
+
+body {
+    background-color: #f7f8fa;
+    font-family: sans-serif;
+}
+
+
+/* Barra de navegación */
+
+nav {
+    background-color: #4cae50;
+    color: #fff;
+}
+
+
+/* Contenedor de la barra de navegación */
+
+.nav-cont {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1040px;
+    margin: 0 auto;
+    padding: 10px 0;
+}
+
+.nav-left,
+.nav-right {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+h1 {
+    font-size: 1.5rem;
+}
+
+
+/* Imagen del título */
+
+nav img {
+    width: 2rem;
+}
+
+
+/* Enlaces de la barra de navegación */
+
+nav a {
+    text-decoration: none;
+    color: #fff;
+}
+
+nav a:hover {
+    color: #d8e3e7;
+}
+
+.inPage {
+    font-weight: bold;
+}
+
+
+/* Cabecera de la página */
+
+header {
+    background-color: #7b7b7c;
+    color: #fff;
+}
+
+
+/* Contenedor de la cabecera */
+
+.h-cont {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1040px;
+    margin: 0 auto;
+}
