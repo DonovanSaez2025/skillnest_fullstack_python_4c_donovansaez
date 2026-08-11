@@ -33,6 +33,9 @@ def crear_usuario():
     print("-----------------------------------")
     print("Nombre:", request.form["nombre"])
     print("Correo:", request.form["email"])
+    print("Teléfono:", request.form["phone"])
+    print("Edad:", request.form["edad"])
+    print("Ciudad:", request.form["city"])
     print("===================================")
     # Nunca renderizamos una plantilla
     # directamente desde una solicitud POST.
