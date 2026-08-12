@@ -1,202 +1,343 @@
-/* Resetear estilos */
+/* ==========================================================
+   MERCADO DE FRUTAS
+   Hoja de estilos principal
+========================================================== */
 
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+
+/* ==========================================================
+   VARIABLES
+========================================================== */
+
+:root {
+    --color-principal: #198754;
+    --color-principal-hover: #157347;
+    --color-fondo: #f4f6f8;
+    --color-texto: #333;
+    --color-blanco: #ffffff;
 }
 
 
-/* Cuerpo de la página */
+/* ==========================================================
+   ESTILOS GENERALES
+========================================================== */
 
 body {
-    background-color: #f7f8fa;
-    font-family: sans-serif;
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: var(--color-fondo);
+    color: var(--color-texto);
+    margin: 0;
 }
 
 
-/* Botónes */
+/* ==========================================================
+   NAVBAR
+========================================================== */
 
-button {
-    cursor: pointer;
+.navbar {
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.15);
+}
+
+.navbar-brand {
+    font-size: 1.4rem;
+}
+
+.nav-link {
+    transition: 0.2s ease;
+}
+
+.nav-link:hover {
+    opacity: 0.8;
 }
 
 
-/* Barra de navegación */
+/* ==========================================================
+   HERO
+========================================================== */
 
-nav {
-    background-color: #4cae50;
-    color: #fff;
+.hero {
+    background: linear-gradient( 135deg, #198754, #157347);
+    padding: 70px 20px;
 }
 
-
-/* Contenedor de la barra de navegación */
-
-.nav-cont {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    max-width: 1040px;
-    margin: 0 auto;
-    padding: 10px 0;
-}
-
-.nav-left,
-.nav-right {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-}
-
-h1 {
-    font-size: 1.5rem;
-}
-
-
-/* Imagen del título */
-
-nav img {
-    width: 2rem;
-}
-
-
-/* Enlaces de la barra de navegación */
-
-nav a {
-    text-decoration: none;
-    color: #fff;
-}
-
-nav a:hover {
-    color: #d8e3e7;
-}
-
-.in-page {
+.hero h1 {
     font-weight: bold;
 }
 
-
-/* Cabecera de la página */
-
-header {
-    background-color: #7b7b7c;
-    color: #fff;
-    text-align: center;
-    margin-bottom: 50px;
+.hero p {
+    font-size: 20px;
 }
 
 
-/* Contenedor de la cabecera */
-
-.h-cont {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: center;
-    max-width: 1040px;
-    margin: 0 auto;
-    padding: 5rem 0;
-    gap: 2px;
-}
-
-h2 {
-    font-size: 2.5rem;
-}
-
-.h-cont p {
-    font-size: 0.9rem;
-}
-
-.container {
-    width: 1040px;
-    margin: 0 auto;
-    text-align: left;
-}
-
-.back-box {
-    display: flex;
-    justify-content: space-between;
-}
-
-.column {
-    background-color: #fbfbfc;
-    border: 1px solid #eaebed;
-    border-radius: 8px;
-}
+/* ==========================================================
+   TARJETAS GENERALES
+========================================================== */
 
 .card {
-    margin: 10px;
-    border: 1px solid #eaebed;
-    background-color: #fbfbfc;
+    border: none;
+    border-radius: 15px;
+    overflow: hidden;
+}
+
+.card-header {
+    font-weight: bold;
+}
+
+.card-footer {
+    border-top: none;
+}
+
+
+/* ==========================================================
+   TARJETAS DE FRUTAS
+========================================================== */
+
+.fruta-card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.fruta-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+}
+
+
+/* ==========================================================
+   CONTENEDOR DE IMÁGENES
+========================================================== */
+
+
+/*
+   Todas las frutas utilizan el mismo espacio.
+
+   Esto evita que una imagen grande deforme
+   el tamaño de la tarjeta.
+*/
+
+.imagen-fruta {
+    width: 100%;
+    height: 230px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #ffffff;
+    padding: 20px;
+    overflow: hidden;
+}
+
+
+/* ==========================================================
+   IMÁGENES DE FRUTAS
+========================================================== */
+
+.imagen-fruta img {
+    max-width: 85%;
+    max-height: 190px;
+    width: auto;
+    height: auto;
+    object-fit: contain;
+    transition: transform 0.3s ease;
+}
+
+
+/* ==========================================================
+   EFECTO HOVER DE IMÁGENES
+========================================================== */
+
+.fruta-card:hover .imagen-fruta img {
+    transform: scale(1.08);
+}
+
+
+/* ==========================================================
+   INFORMACIÓN DE PRODUCTOS
+========================================================== */
+
+.card-title {
+    font-weight: bold;
+}
+
+.card-text {
+    color: #666;
+    font-size: 15px;
+    line-height: 1.5;
+}
+
+
+/* ==========================================================
+   FORMULARIOS
+========================================================== */
+
+.form-control {
     border-radius: 8px;
-    padding: 2px;
+    padding: 10px;
 }
 
-.up-part {
-    border-bottom: 1px solid #eaebed;
-    padding: 6px;
+.form-control:focus {
+    border-color: var(--color-principal);
+    box-shadow: 0 0 0 0.2rem rgba(25, 135, 84, 0.15);
 }
 
-.card-img-bg {
-    background-color: #f5f7f9;
-    border-bottom: 1px solid #eaebed;
-    display: flex;
-    justify-content: center;
-    padding: 17px;
+
+/* ==========================================================
+   INPUTS DE CANTIDAD
+========================================================== */
+
+input[type="number"] {
+    text-align: center;
 }
 
-.card-img-bg img {
-    max-width: 80px;
+
+/* ==========================================================
+   BOTONES
+========================================================== */
+
+.btn {
+    border-radius: 10px;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
-.card-desc {
+.btn:hover {
+    transform: translateY(-2px);
+}
+
+
+/* ==========================================================
+   TABLAS
+========================================================== */
+
+.table {
+    margin-bottom: 0;
+}
+
+.table thead {
+    font-size: 15px;
+}
+
+.table tbody tr {
+    transition: background-color 0.2s ease;
+}
+
+.table tbody tr:hover {
+    background-color: #f3fff7;
+}
+
+
+/* ==========================================================
+   IMÁGENES DEL CHECKOUT
+========================================================== */
+
+.checkout-fruta {
+    width: 60px;
+    height: 60px;
+    object-fit: contain;
+    border-radius: 10px;
+    background-color: #ffffff;
+    padding: 5px;
+}
+
+
+/* ==========================================================
+   RESUMEN DEL PEDIDO
+========================================================== */
+
+.order-summary {
+    background-color: #f8f9fa;
+    border-radius: 12px;
+    padding: 20px;
+}
+
+
+/* ==========================================================
+   ALERTAS
+========================================================== */
+
+.alert {
+    border-radius: 12px;
+}
+
+
+/* ==========================================================
+   BADGES
+========================================================== */
+
+.badge {
+    font-size: 13px;
     padding: 8px 12px;
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
 }
 
-.card-price {
-    color: #54b258;
-    font-weight: bold;
-    font-size: 0.9rem;
+
+/* ==========================================================
+   FOOTER
+========================================================== */
+
+footer {
+    margin-top: 80px;
 }
 
-.fruit-desc {
-    font-size: 0.7rem;
-    color: #575757;
+
+/* ==========================================================
+   RESPONSIVE — TABLETS
+========================================================== */
+
+@media (max-width: 992px) {
+    .hero {
+        padding: 55px 20px;
+    }
+    .hero h1 {
+        font-size: 36px;
+    }
 }
 
-.fruit-cant {
-    margin-top: 13px;
-    display: flex;
-    justify-content: center;
+
+/* ==========================================================
+   RESPONSIVE — CELULARES
+========================================================== */
+
+@media (max-width: 768px) {
+    .hero {
+        padding: 45px 15px;
+    }
+    .hero h1 {
+        font-size: 30px;
+    }
+    .hero p {
+        font-size: 17px;
+    }
+    .imagen-fruta {
+        height: 210px;
+    }
+    .imagen-fruta img {
+        max-height: 170px;
+    }
 }
 
-.card-button {
-    background-color: #eaebed;
-    border: none;
-    font-weight: bold;
-    font-size: 1rem;
-    padding: 4px 10px;
-    border-radius: 6px;
-}
 
-.cant-int {
-    padding: 2px 8px;
-    border: none;
-    border: 1px solid #eaebed;
-    border-left: none;
-    padding: 0 32px;
-    border-right: none;
-}
+/* ==========================================================
+   RESPONSIVE — CELULARES PEQUEÑOS
+========================================================== */
 
-.c-button-l {
-    border-top-right-radius: 0;
-    border-bottom-right-radius: 0;
-}
-
-.c-button-r {
-    border-top-left-radius: 0;
-    border-bottom-left-radius: 0;
+@media (max-width: 576px) {
+    .hero {
+        padding: 40px 15px;
+    }
+    .hero h1 {
+        font-size: 26px;
+    }
+    .hero p {
+        font-size: 16px;
+    }
+    .navbar-brand {
+        font-size: 1.15rem;
+    }
+    .imagen-fruta {
+        height: 200px;
+    }
+    .imagen-fruta img {
+        max-width: 80%;
+        max-height: 160px;
+    }
+    .btn-lg {
+        width: 100%;
+        margin-bottom: 10px;
+    }
 }
