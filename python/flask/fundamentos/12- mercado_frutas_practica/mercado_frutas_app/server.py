@@ -74,9 +74,7 @@ def index():
     Muestra la página principal.
     Envía la lista de frutas hacia index.html.
     """
-    return render_template(
-        "index.html",
-        frutas=frutas)
+    return render_template("index.html", frutas=frutas)
 
 # ----------------------------------------------------------
 # RUTA DEL CATÁLOGO
