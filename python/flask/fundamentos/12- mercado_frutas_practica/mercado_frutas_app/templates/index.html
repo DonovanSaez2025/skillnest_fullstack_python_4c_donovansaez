@@ -45,6 +45,25 @@
                 <div class="up-part">
                     <h3>Selecciona tus frutas</h3>
                 </div>
+                <!-- Caja que contendrá las tarjetas -->
+                <div class="card-box">
+                    <!-- Tarjeta -->
+                    <div class="card">
+                        <div class="card-img-bg">
+                            <img src="{{ url_for('static', filename='img/manzana.png') }}">
+                        </div>
+                        <div class="card-desc">
+                            <h4>Manzana</h4>
+                            <span class="card-price">$2.5</span>
+                            <span class="fruit-desc">Fruta dulce y crujiente, rica en fibra y vitamina C.</span>
+                            <div class="fruit-cant">
+                                <button id="apple-remove" class="card-button c-button-l">-</button>
+                                <input type="number" placeholder="0" class="cant-int"></input>
+                                <button id="apple-add" class="card-button c-button-r">+</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </section>
 
             <!-- Columna derecha-->
