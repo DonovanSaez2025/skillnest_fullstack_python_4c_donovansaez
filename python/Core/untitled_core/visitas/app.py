@@ -32,6 +32,17 @@ def reiniciar():
     session.pop("contador", None)
     return redirect(url_for("mainRoot"))
 
+# Suma personalizada
+@app.route('/sumar-custom', methods=['POST'])
+def sumar_personalizado():
+    if "cantidad" not in session:
+        session["cantidad"] = 0
+    cantidad = request.form.get("cantidad", 0)
+    
+    if cantidad:
+        session["contador"] += int(cantidad)-1
+    return redirect(url_for("mainRoot"))
+
 # Debug
 if __name__ == "__main__":
     app.run(debug=True)
