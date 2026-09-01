@@ -7,8 +7,12 @@ app.secret_key = "llave"
 def mainRoot():
     if "contador" not in session:
         session["contador"] = 0
+        
+    if "contadorRes" not in session:
+            session["contadorRes"] = 0
+            
     session["contador"] += 1
-    return render_template("index.html", counter=session["contador"])
+    return render_template("index.html", counter=session["contador"], counterRes=session["contadorRes"])
 
 # Suma dos al conteo
 @app.route('/sumar-dos', methods=["POST"])
@@ -21,6 +25,10 @@ def sumar_dos():
 # Reinicia el conteo
 @app.route("/reiniciar", methods=["POST"])
 def reiniciar():
+    if "contadorRes" not in session:
+                session["contadorRes"] = 0
+    session["contadorRes"] += 1
+    
     session.pop("contador", None)
     return redirect(url_for("mainRoot"))
 
