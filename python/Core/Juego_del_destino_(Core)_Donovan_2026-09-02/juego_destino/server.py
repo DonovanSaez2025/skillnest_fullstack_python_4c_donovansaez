@@ -12,13 +12,20 @@ def main():
 # Ruta para procesar los datos del formulario y almacenarlos en sesión
 @app.route("/enviar", methods=["POST"])
 def procesar():
-    session["nombre"] = ""
+    session["nombre"] = request.form["nombre"].strip()
+    session["edad"] = request.form["edad"]
+    session["color"] = request.form["color"]
+    session["animal"] = request.form["animal"]
     return redirect(url_for("prediccion"))
 
 # Ruta para mostrar la predicción del futuro basada en los datos ingresados
 @app.route("/futuro", methods=["GET"])
 def prediccion():
-    return render_template("futuro.html")
+    nombre = session["nombre"]
+    edad = session["edad"]
+    color = session["color"]
+    animal = session["animal"]
+    return render_template("futuro.html", nombre=nombre, edad=edad, color=color, animal=animal)
 
 # Debug
 if __name__ == "__main__":
