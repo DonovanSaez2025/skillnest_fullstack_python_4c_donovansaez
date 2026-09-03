@@ -5,22 +5,27 @@ app = Flask(__name__)
 # Lista respuestas
 respuestas = [
     # Respuestas
-    ["", "", "", "", "", "", "", "", "", ""]
+    {"respuestas": ["Encontrarás el verdadero amor en los próximos meses. Tu corazón se llenará de alegría.",
+                    "Grandes momentos de alegría se acercan a tu vida. Tu mente hallará paz en estas semanas.",
+                    "Enfrentarás el mayor desafío del año uno de estos días. Preparate para sufrir una pérdida.",
+                    "La buena suerte va a estar de tu lado por este mes. Aún así no te confíes en las apuestas.",
+                    "Cuida tus objetos mañana, una visita inesperada traerá miedo a tu vida. Prepara una defensa crítica.",
+                    "Recibirás una visita agradable hoy mismo. Será mejor que tengas lista una buena ofrenda de paz.",
+                    "Un evento misterioso sucederá este año que te dejará con la duda creciente. Cuida tu curiosidad"],
+        "colores": ["#ff00bf", "#0000FF", "#FF0000", "#00ff00", "#ffe600", "#ffbb00", "#9c4df7"]},
     # Respuestas al color
-    ["", "", "", "", "", "", "", "", "", ""]
+    ["", "", "", "", "", "", "", "", "", ""],
     # Respuestas al animal
-    ["", "", "", "", "", "", "", "", "", ""]
-    ]
+    ["", "", "", "", "", "", "", "", "", ""]]
 respuestasEdad = [
     # 1-10 años
-    ["", "", "", "", "", "", "", "", "", ""]
+    ["", "", "", ""],
     # 11-17 años
-    ["", "", "", "", "", "", "", "", "", ""]
+    ["", "", "", ""],
     # 18-25
-    ["", "", "", "", "", "", "", "", "", ""]
+    ["", "", "", ""],
     # 26+
-    ["", "", "", "", "", "", "", "", "", ""]
-]
+    ["", "", "", ""]]
 
 # Clave para manejar sesiones en Flask
 app.secret_key = "clave_secreta"
