@@ -12,7 +12,7 @@ def main():
 # Ruta para procesar los datos del formulario y almacenarlos en sesión
 @app.route("/enviar", methods=["POST"])
 def procesar():
-    return redirect(url_for("main"))
+    return redirect(url_for("prediccion"))
 
 # Ruta para mostrar la predicción del futuro basada en los datos ingresados
 @app.route("/futuro", methods=["GET"])

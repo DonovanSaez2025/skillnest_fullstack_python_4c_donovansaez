@@ -1,0 +1,41 @@
+/* Gradiente del header */
+
+.gradiente-header {
+    background: linear-gradient(135deg, #3e3d58 10%, #2c2b44 50%, #27263e 100%);
+}
+
+.bi-moon-fill {
+    background-color: #8225E1;
+    padding: 8px 14px;
+    border-radius: 100px;
+}
+
+.container {
+    max-width: 500px;
+}
+
+.header-parrafo {
+    font-size: 0.8rem;
+}
+
+.grupos-form div {
+    background-color: #fff;
+    max-width: 300px;
+}
+
+.grupos-form input {
+    border: none !important;
+}
+
+.caja-inferior {
+    background-color: #f2f2f3;
+}
+
+.animal input {
+    width: 8rem;
+}
+
+.notice {
+    font-size: 0.7rem;
+    color: #969696;
+}
