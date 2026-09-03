@@ -52,7 +52,15 @@ def prediccion():
     edad = session["edad"]
     color = session["color"]
     animal = session["animal"]
-    return render_template("futuro.html", nombre=nombre, edad=edad, color=color, animal=animal)
+    randomRespuesta = random.randint(0, 6)
+    respuesta = respuestas[0]["respuestas"][randomRespuesta]
+    colorRespuesta = respuestas[0]["colores"][randomRespuesta]
+    respuestaColor = random.choice(respuestas[1])
+    respuestaAnimal = random.choice(respuestas[2])
+    
+    return render_template("futuro.html", nombre=nombre, edad=edad, color=color, animal=animal,
+                            respuesta=respuesta, colorRespuesta=colorRespuesta, respuestaColor=respuestaColor,
+                            respuestaAnimal=respuestaAnimal)
 
 # Debug
 if __name__ == "__main__":
