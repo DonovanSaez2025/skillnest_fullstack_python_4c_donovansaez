@@ -30,38 +30,11 @@
                 </header>
             </div>
             <div class="caja-inferior">
-                <form method="POST" action={{ url_for("procesar") }} class="p-3 mx-auto d-flex flex-column">
-                    <div class="grupos-form mb-3">
-                        <div class="mx-auto d-flex justify-content-between p-2 rounded-4">
-                            <label for="nombre"><i class="bi bi-person-fill"></i> Tu nombre</label>
-                            <input name="nombre" id="nombre" type="text">
-                        </div>
+                <div class="p-3 mx-auto d-flex flex-column">
+                    <div class="">
+                        {{ respuesta }}
                     </div>
-                    <div class="grupos-form mb-3">
-                        <div class="mx-auto d-flex justify-content-between p-2 rounded-4">
-                            <label for="edad"><i class="bi bi-calendar-fill"></i> Tu edad</label>
-                            <input name="edad" id="edad" type="number">
-                        </div>
-                    </div>
-                    <div class="grupos-form">
-                        <div class="mx-auto d-flex justify-content-between p-2 rounded-4">
-                            <label for="color"><i class="bi bi-palette-fill"></i> Tu color favorito</label>
-                            <input name="color" id="color" type="color">
-                        </div>
-                        <span class="notice">Ej: Rojo, azul, verde, morado, amarillo...</span>
-                    </div>
-                    <div class="grupos-form mt-3">
-                        <div class="mx-auto d-flex justify-content-between p-2 rounded-4 animal">
-                            <label for="animal">🐾 Tu animal favorito</label>
-                            <input name="animal" id="animal" type="text">
-                        </div>
-                        <span class="notice">Ej: Perro, gato, águila, león, delfín...</span>
-                    </div>
-                    <div>
-                        <img class="img" src={{ url_for("static", filename="img/boladecristal.png")}}>
-                    </div>
-                        <button type="submit" class="enviar text-light py-2 rounded-3"><i class="bi bi-pencil-fill"></i> Revelar mi destino</button>
-                </form>
+                </div>
             </div>
         </section>
     </main>

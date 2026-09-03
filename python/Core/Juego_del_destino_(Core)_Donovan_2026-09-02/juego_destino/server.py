@@ -1,5 +1,26 @@
 from flask import Flask, render_template, request, session, redirect, url_for
+import random
 app = Flask(__name__)
+
+# Lista respuestas
+respuestas = [
+    # Respuestas
+    ["", "", "", "", "", "", "", "", "", ""]
+    # Respuestas al color
+    ["", "", "", "", "", "", "", "", "", ""]
+    # Respuestas al animal
+    ["", "", "", "", "", "", "", "", "", ""]
+    ]
+respuestasEdad = [
+    # 1-10 años
+    ["", "", "", "", "", "", "", "", "", ""]
+    # 11-17 años
+    ["", "", "", "", "", "", "", "", "", ""]
+    # 18-25
+    ["", "", "", "", "", "", "", "", "", ""]
+    # 26+
+    ["", "", "", "", "", "", "", "", "", ""]
+]
 
 # Clave para manejar sesiones en Flask
 app.secret_key = "clave_secreta"
