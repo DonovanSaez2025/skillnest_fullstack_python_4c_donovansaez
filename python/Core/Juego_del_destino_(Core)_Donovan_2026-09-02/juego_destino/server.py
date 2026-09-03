@@ -14,18 +14,19 @@ respuestas = [
                     "Un evento misterioso sucederá este año que te dejará con la duda creciente. Cuida tu curiosidad"],
         "colores": ["#ff00bf", "#0000FF", "#FF0000", "#00ff00", "#ffe600", "#ffbb00", "#9c4df7"]},
     # Respuestas al color
-    ["", "", "", "", "", "", "", "", "", ""],
+    ["el misterio y descubrimiento", "la amabilidad y cariño", "la ansiedad y miedo",
+    "la investigación y atracción", "la física y lógica", "la buena vibra y positividad",
+    "la naturaleza y vida"],
     # Respuestas al animal
-    ["", "", "", "", "", "", "", "", "", ""]]
+    ["feróz y sigilosa", "tranquila y desapercibida", "tonta e ilógica",
+    "social y colectiva", "calculadora y capáz", "inteligente y sabia", "aportadora y eficiente"]]
 respuestasEdad = [
-    # 1-10 años
-    ["", "", "", ""],
-    # 11-17 años
-    ["", "", "", ""],
+    # 1-12 años
+    ["explorar la creatividad", "hacer nuevos amigos", "leer más libros", "dibujar para entrenar la mente"],
+    # 13-17 años
+    ["conocer el mundo exterior", "manejar mejor tus amistades", "empezar a ver tu futuro", "elegir una meta de vida"],
     # 18-25
-    ["", "", "", ""],
-    # 26+
-    ["", "", "", ""]]
+    ["obtener un buen empleo", "pensar a largo plazo", "estudiar para seguir tus metas", "un momento favorable para aprovechar nuevas oportunidades"]]
 
 # Clave para manejar sesiones en Flask
 app.secret_key = "clave_secreta"
