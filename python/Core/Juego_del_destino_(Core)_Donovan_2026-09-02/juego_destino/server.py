@@ -25,7 +25,7 @@ respuestasEdad = [
     ["explorar la creatividad", "hacer nuevos amigos", "leer más libros", "dibujar para entrenar la mente"],
     # 13-17 años
     ["conocer el mundo exterior", "manejar mejor tus amistades", "empezar a ver tu futuro", "elegir una meta de vida"],
-    # 18-25
+    # 18-más
     ["obtener un buen empleo", "pensar a largo plazo", "estudiar para seguir tus metas", "un momento favorable para aprovechar nuevas oportunidades"]]
 
 # Clave para manejar sesiones en Flask
@@ -55,12 +55,19 @@ def prediccion():
     randomRespuesta = random.randint(0, 6)
     respuesta = respuestas[0]["respuestas"][randomRespuesta]
     colorRespuesta = respuestas[0]["colores"][randomRespuesta]
+    if int(edad) > 0 and int(edad) < 13:
+        edadRespuesta = random.choice(respuestasEdad[0])
+    elif int(edad) > 13 and int(edad) < 18:
+        edadRespuesta = random.choice(respuestasEdad[1])
+    elif int(edad) >= 18:
+        edadRespuesta = random.choice(respuestasEdad[2])
     respuestaColor = random.choice(respuestas[1])
     respuestaAnimal = random.choice(respuestas[2])
+    numeroRandom = random.randint(1, 100)
     
     return render_template("futuro.html", nombre=nombre, edad=edad, color=color, animal=animal,
                             respuesta=respuesta, colorRespuesta=colorRespuesta, respuestaColor=respuestaColor,
-                            respuestaAnimal=respuestaAnimal)
+                            respuestaAnimal=respuestaAnimal, numeroRandom=numeroRandom, edadRespuesta=edadRespuesta)
 
 # Debug
 if __name__ == "__main__":

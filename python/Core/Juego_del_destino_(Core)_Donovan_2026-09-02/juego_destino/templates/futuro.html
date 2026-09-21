@@ -31,9 +31,26 @@
             </div>
             <div class="caja-inferior">
                 <div class="p-3 mx-auto d-flex flex-column">
-                    <div class="">
+                    <div style="border: 3px solid {{ colorRespuesta }};" class="rounded-2 p-1">
                         {{ respuesta }}
                     </div>
+                    <div style="border: 3px solid {{ color }};" class="rounded-2 p-1 mt-2">
+                        <span style="color: {{ color }}">Color: {{ color }}</span><br>
+                        Tu preferencia por este color reveña tu afinidad por {{ respuestaColor }}
+                    </div>
+                    <div style="border: 3px solid #000;" class="rounded-2 p-1 mt-2">
+                        <span>🐾Tu animal: {{ animal }}</span><br>
+                        Tu conexión con el {{ animal}} simboliza tu naturaleza {{ respuestaAnimal }}
+                    </div>
+                    <div style="border: 3px solid #000;" class="rounded-2 p-1 mt-2">
+                        <span>Tu número: {{ numeroRandom }}</span><br>
+                        Este número te acompañará en momentos importantes.
+                    </div>
+                    <div style="border: 3px solid #000;" class="rounded-2 p-1 mt-2">
+                        A tus {{ edad }} años estás en momento de {{ edadRespuesta }}
+                    </div>
+
+                    <a href="/" class="button rounded-2 mt-2 bg-primary text-light" style="border: 2px solid #000; text-decoration: none;">Consultar de nuevo</a>
                 </div>
             </div>
         </section>
