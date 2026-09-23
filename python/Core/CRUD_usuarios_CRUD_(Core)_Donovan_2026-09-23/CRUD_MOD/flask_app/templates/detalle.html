@@ -16,16 +16,16 @@
     <!-- Contenedor de la página -->
     <div class="container py-5">
         <div class="detail-card">
-            <h1>Usuario {{ usuario.id }}</h1>
+            <h1 class="titulo-principal">Usuario {{ usuario.id }}</h1>
             <p class="text-muted">Información completa del usuario.</p>
             <hr>
 
             <!-- Div para mostrar todos los datos del usuario -->
             <div class="detail-info">
-                <p><strong>Nombre:</strong> {{ usuario.nombre }}</p>
-                <p><strong>Apellido:</strong> {{ usuario.apellido }}</p>
-                <p><strong>Nombre Completo:</strong> {{ usuario.nombre }} {{ usuario.apellido }}</p>
-                <p><strong>E-mail:</strong> {{ usuario.email }}</p>
+                <p><strong>Nombre:</strong> {{ usuario.nombre_usuario }}</p>
+                <p><strong>Apellido:</strong> {{ usuario.apellido_usuario }}</p>
+                <p><strong>Nombre Completo:</strong> {{ usuario.nombre_usuario }} {{ usuario.apellido_usuario }}</p>
+                <p><strong>E-mail:</strong> {{ usuario.email_usuario }}</p>
                 <p><strong>Fecha Creación:</strong> {{ usuario.created_at }}</p>
                 <p><strong>Fecha Actualización:</strong> {{ usuario.updated_at }}</p>
             </div>
