@@ -14,7 +14,9 @@ class Usuario:
         self.nombre = data["nombre"]
         self.apellido = data["apellido"]
         self.email = data["email"]
-        self.password = data["password"]
+        self.password_hash = data["password_hash"]
+        self.animal_favorito = data["animal_favorito"]
+        self.fecha_nacimiento = data["fecha_nacimiento"]
         self.created_at = data["created_at"]
         self.updated_at = data["updated_at"]
 
