@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Inicio</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="main-container">
+        
+        <!-- Sección de Registro (Izquierda) -->
+        <div class="form-section">
+            <h2>Registro</h2>
+            <form action="{{ url_for('registrar') }}" method="POST">
+                <div class="input-group">
+                    <label>Nombre</label>
+                    <input type="text" name="nombre" required>
+                </div>
+                <div class="input-group">
+                    <label>Apellido</label>
+                    <input type="text" name="apellido" required>
+                </div>
+                <div class="input-group">
+                    <label>E-mail</label>
+                    <input type="email" name="email" required>
+                </div>
+                <div class="input-group">
+                    <label>Contraseña</label>
+                    <input type="password" name="password_hash" required>
+                </div>
+                <div class="input-group">
+                    <label>Conf. Contraseña</label>
+                    <input type="password" name="conf_password" required>
+                </div>
+                <button type="submit" class="btn">Registrar</button>
+            </form>
+        </div>
+
+        <!-- Sección de Inicio de Sesión (Derecha) -->
+        <div class="form-section">
+            <h2>Inicio de Sesión</h2>
+            <form action="{{ url_for('login') }}" method="POST">
+                <div class="input-group">
+                    <label>E-mail</label>
+                    <input type="email" name="email" required>
+                </div>
+                <div class="input-group">
+                    <label>Contraseña</label>
+                    <input type="password" name="contrasena" required>
+                </div>
+                <button type="submit" class="btn">Iniciar Sesión</button>
+            </form>
+        </div>
+
+    </div>
+</body>
+</html>

@@ -68,4 +68,35 @@ class Usuario:
             VALUES(%(nombre)s, %(apellido)s, %(email)s, %(password_hash)s, %(animal_favorito)s, %(edad)s);
         """
         return connectToMySQL("inicio_sesion_registro").query_db(query, datos)
-
+    
+    @classmethod
+    def buscar_por_email(cls, datos):
+        query = """
+            SELECT * FROM usuarios
+            WHERE email = %(email)s;
+        """
+        resultados = connectToMySQL("inicio_sesion_registro").query_db(query, datos)
+        if len(resultados) == 1:
+            return cls(resultados[0])
+        return False
+    
+    @classmethod
+    def existe_email(cls, datos):
+        query = """
+            SELECT id
+            FROM usuarios
+            WHERE email = %(email)s;
+        """
+        resultados = connectToMySQL("inicio_sesion_registro").query_db(query, datos)
+        return len(resultados) > 0
+    
+    @classmethod
+    def buscar_por_id(cls, datos):
+        query = """
+            SELECT * FROM usuarios
+            WHERE id = %(id)s;
+        """    
+        resultados = connectToMySQL("inicio_sesion_registro").query_db(query, datos)
+        if len(resultados) == 1:
+            return cls(resultados[0])
+        return False
