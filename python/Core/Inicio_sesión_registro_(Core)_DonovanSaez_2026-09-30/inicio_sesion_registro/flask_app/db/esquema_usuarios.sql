@@ -1,3 +1,4 @@
+-- Crear y usar la base de datos
 CREATE DATABASE inicio_sesion_registro;
 USE inicio_sesion_registro;
 

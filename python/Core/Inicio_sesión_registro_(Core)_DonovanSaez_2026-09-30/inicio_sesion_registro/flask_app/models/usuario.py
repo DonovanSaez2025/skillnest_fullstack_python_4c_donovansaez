@@ -6,7 +6,9 @@ from flask_app.config.mysqlconnection import connectToMySQL
 # Filtro de caracteres en los email
 EMAIL_REGEX = re.compile(r'^[a-zA-Z0-9.+_-]+@[a-zA-Z0-9._-]+\.[a-zA-Z]+$')
 
+# Clase Usuario
 class Usuario:
+    # Método constructor
     def __init__(self, data):
         self.id = data["id"]
         self.nombre = data["nombre"]
@@ -18,17 +20,20 @@ class Usuario:
         self.created_at = data["created_at"]
         self.updated_at = data["updated_at"]
 
+    # Validar los datos del usuario
     @staticmethod
     def validar_usuario(datos):
         es_valido = True
         
+        # Validar nombre
         if not datos["nombre"].strip():
             flash("El nombre es obligatorio.", "nombre")
             es_valido = False
         elif len(datos["nombre"].strip()) < 2:
             flash("El nombre debe tener al menos 2 caracteres.", "nombre")
             es_valido = False
-            
+        
+        # Validar apellido
         if not datos["apellido"].strip():
             flash("El apellido es obligatorio.", "apellido")
             es_valido = False
@@ -36,6 +41,7 @@ class Usuario:
             flash("El apellido debe tener al menos 2 caracteres.", "apellido")
             es_valido = False
             
+        # Validar email
         if not datos["email"].strip():
             flash("El email es obligatorio.", "email")
             es_valido = False
@@ -43,7 +49,7 @@ class Usuario:
             flash("El email no tiene un formato válido.", "email")
             es_valido = False
             
-        # Validación de contraseña base
+        # Validar contraseña
         if not datos["password_hash"]:
             flash("La contraseña es obligatoria.", "password_hash")
             es_valido = False
@@ -51,11 +57,12 @@ class Usuario:
             flash("La contraseña debe tener al menos 8 caracteres.", "password_hash")
             es_valido = False
             
-        # NUEVA VALIDACIÓN: Confirmación de contraseña
+        # Validar que ambas contraseñas sean iguales
         if datos["password_hash"] != datos["conf_password"]:
             flash("Las contraseñas no coinciden.", "password_hash")
             es_valido = False
             
+        # Validar animal favorito
         if not datos["animal_favorito"]:
             flash("Debes elegir un animal favorito.", "animal_favorito")
             es_valido = False
@@ -63,9 +70,12 @@ class Usuario:
             flash("El animal debe tener al menos 2 caracteres.", "animal_favorito")
             es_valido = False
             
-        # CORRECCIÓN DE BUG: Ahora sí bloquea si no ingresan la edad
+        # Validar edad
         if not datos["edad"]:
             flash("Debes ingresar tu edad.", "edad")
+            es_valido = False
+        elif int(datos["edad"]) < 18:
+            flash("Debes ser mayor de edad.", "edad")
             es_valido = False
             
         return es_valido

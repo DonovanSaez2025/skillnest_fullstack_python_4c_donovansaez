@@ -8,6 +8,7 @@ class MySQLConnection:
     def __init__(self, db):
         self.db = db
 
+    # Parámetros de la conexión
     def query_db(self, query, data=None):
         connection = pymysql.connect(
             host=os.getenv("DB_HOST"),
@@ -18,6 +19,7 @@ class MySQLConnection:
             autocommit=True
         )
         
+        # Intentar conectarse
         with connection.cursor() as cursor:
             try:
                 cursor.execute(query, data or {})
