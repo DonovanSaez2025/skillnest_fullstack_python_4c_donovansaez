@@ -80,6 +80,7 @@ class Usuario:
             
         return es_valido
 
+    # Método para guardar los datos en la base de datos
     @classmethod
     def guardar(cls, datos):
         query = """
@@ -88,38 +89,36 @@ class Usuario:
         """
         return connectToMySQL("inicio_sesion_registro").query_db(query, datos)
     
+    # Método para comprobar que exista el email
     @classmethod
     def existe_email(cls, datos):
         query = """
-            SELECT id FROM usuarios WHERE email = %(email)s;
+            SELECT id FROM usuarios
+            WHERE email = %(email)s;
         """
         resultados = connectToMySQL("inicio_sesion_registro").query_db(query, datos)
         return len(resultados) > 0
     
+    # Buscar usuario por email
     @classmethod
     def buscar_por_email(cls, datos):
         query = """
-            SELECT * FROM usuarios WHERE email = %(email)s;
+            SELECT * FROM usuarios
+            WHERE email = %(email)s;
         """
         resultados = connectToMySQL("inicio_sesion_registro").query_db(query, datos)
-        # CORRECCIÓN: Agregamos [0] para pasar el diccionario del usuario individual, no la lista entera
-        if resultados and len(resultados) == 1:
-            return cls(resultados[0]) 
-        return False
-        
-    @classmethod
-    def buscar_por_id(cls, datos):
-        query = """
-            SELECT * FROM usuarios WHERE id = %(id)s;
-        """    
-        resultados = connectToMySQL("inicio_sesion_registro").query_db(query, datos)
-        # CORRECCIÓN: Agregamos [0] para pasar el diccionario del usuario individual, no la lista entera
         if resultados and len(resultados) == 1:
             return cls(resultados[0]) 
         return False
     
+    # Buscar usuario por id
     @classmethod
-    def passwords(cls, datos):
-        if datos["password_1"] != datos["password_2"]:
-            return cls
+    def buscar_por_id(cls, datos):
+        query = """
+            SELECT * FROM usuarios
+            WHERE id = %(id)s;
+        """    
+        resultados = connectToMySQL("inicio_sesion_registro").query_db(query, datos)
+        if resultados and len(resultados) == 1:
+            return cls(resultados[0]) 
         return False
