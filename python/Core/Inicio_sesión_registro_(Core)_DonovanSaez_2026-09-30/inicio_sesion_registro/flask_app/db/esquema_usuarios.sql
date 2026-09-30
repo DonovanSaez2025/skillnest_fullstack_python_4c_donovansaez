@@ -8,7 +8,7 @@ CREATE TABLE usuarios (
     apellido VARCHAR(70) NOT NULL,
     email VARCHAR(150) NOT NULL UNIQUE,
     animal_favorito VARCHAR(30) NOT NULL,
-    fecha_nacimiento DATE NOT NULL,
+    edad INT NOT NULL,
     password_hash VARCHAR(255) NOT NULL,
     created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
     updated_at DATETIME DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
