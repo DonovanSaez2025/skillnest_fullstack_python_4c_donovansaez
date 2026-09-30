@@ -11,7 +11,21 @@
         <!-- Sección de Registro (Izquierda) -->
         <div class="form-section">
             <h2>Registro</h2>
-            <form action="{{ url_for('registrar') }}" method="POST">
+            
+            <!-- CONTENEDOR DE ERRORES DE REGISTRO -->
+            {% with messages = get_flashed_messages(with_categories=true) %}
+                {% if messages %}
+                    <ul class="error-list">
+                        {% for category, msg in messages %}
+                            {% if category != 'login' %}
+                                <li class="error-item">{{ msg }}</li>
+                            {% endif %}
+                        {% endfor %}
+                    </ul>
+                {% endif %}
+            {% endwith %}
+
+            <form action="{{ url_for('registrar') }}" method="POST" novalidate>
                 <div class="input-group">
                     <label>Nombre</label>
                     <input type="text" name="nombre" required>
@@ -32,6 +46,14 @@
                     <label>Conf. Contraseña</label>
                     <input type="password" name="conf_password" required>
                 </div>
+                <div class="input-group">
+                    <label>Animal Favorito:</label>
+                    <input type="text" name="animal_favorito" required>
+                </div>
+                <div class="input-group">
+                    <label>Edad:</label>
+                    <input type="number" name="edad" required>
+                </div>
                 <button type="submit" class="btn">Registrar</button>
             </form>
         </div>
@@ -39,6 +61,18 @@
         <!-- Sección de Inicio de Sesión (Derecha) -->
         <div class="form-section">
             <h2>Inicio de Sesión</h2>
+            
+            <!-- CONTENEDOR DE ERRORES DE LOGIN -->
+            {% with messages = get_flashed_messages(category_filter=["login"]) %}
+                {% if messages %}
+                    <ul class="error-list">
+                        {% for msg in messages %}
+                            <li class="error-item">{{ msg }}</li>
+                        {% endfor %}
+                    </ul>
+                {% endif %}
+            {% endwith %}
+
             <form action="{{ url_for('login') }}" method="POST">
                 <div class="input-group">
                     <label>E-mail</label>
@@ -46,7 +80,7 @@
                 </div>
                 <div class="input-group">
                     <label>Contraseña</label>
-                    <input type="password" name="contrasena" required>
+                    <input type="password" name="password_hash" required>
                 </div>
                 <button type="submit" class="btn">Iniciar Sesión</button>
             </form>
@@ -54,4 +88,5 @@
 
     </div>
 </body>
+
 </html>

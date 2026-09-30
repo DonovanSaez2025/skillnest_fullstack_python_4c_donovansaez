@@ -12,19 +12,25 @@ def registrar():
         "nombre": request.form["nombre"].strip(),
         "apellido": request.form["apellido"].strip(),
         "email": request.form["email"].strip().lower(),
-        "password_hash": request.form["password_hash"],
-        "animal_favorito": request.form["animal_favorito"],
-        "edad": request.form["edad"]}
+        "password_hash": request.form["password_hash"].strip(),
+        "conf_password": request.form["conf_password"].strip(),
+        "animal_favorito": request.form["animal_favorito"].strip(),
+        "edad": request.form["edad"]
+    }
     
+    # 1. Ejecuta todas las validaciones (Maneja vacíos, largos y coincidencia de claves)
     if not Usuario.validar_usuario(datos):
         return redirect("/")
     
+    # 2. Verifica que el correo no esté tomado
     if Usuario.existe_email({"email": datos["email"]}):
         flash("El email ya está registrado.", "email")
         return redirect("/")
-    
+
+    # 3. Cifra la contraseña únicamente tras pasar las validaciones con éxito
     password_hash = bcrypt.generate_password_hash(datos["password_hash"]).decode("utf-8")
     datos["password_hash"] = password_hash
+    
     usuario_id = Usuario.guardar(datos)
     if not usuario_id:
         flash("No fue posible registrar el usuario.", "general")
@@ -32,6 +38,7 @@ def registrar():
 
     session["usuario_id"] = usuario_id
     return redirect("/usuario")
+
 
 @app.route("/login", methods=["POST"])
 def login():

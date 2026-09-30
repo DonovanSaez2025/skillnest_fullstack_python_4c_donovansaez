@@ -6,17 +6,19 @@ import os
 # Clase para conectarse a la base de datos
 class MySQLConnection:
     def __init__(self, db):
-        self.connection = pymysql.connect(
+        self.db = db
+
+    def query_db(self, query, data=None):
+        connection = pymysql.connect(
             host=os.getenv("DB_HOST"),
             user=os.getenv("DB_USER"),
             password=os.getenv("DB_PASSWORD"),
-            database=db,
+            database=self.db,
             cursorclass=pymysql.cursors.DictCursor,
             autocommit=True
         )
-
-    def query_db(self, query, data=None):
-        with self.connection.cursor() as cursor:
+        
+        with connection.cursor() as cursor:
             try:
                 cursor.execute(query, data or {})
                 if query.strip().lower().startswith("select"):
@@ -26,7 +28,7 @@ class MySQLConnection:
                 print(f"Error MySQL: {e}")
                 return False
             finally:
-                self.connection.close()
+                connection.close()
                 
 def connectToMySQL(db):
     return MySQLConnection(db)
