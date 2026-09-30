@@ -2,17 +2,19 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="donovansaez@liceovvh.cl">
     <title>Inicio</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
 </head>
 <body>
     <div class="main-container">
         
-        <!-- Sección de Registro (Izquierda) -->
+        <!-- Sección de Registro  -->
         <div class="form-section">
             <h2>Registro</h2>
             
-            <!-- CONTENEDOR DE ERRORES DE REGISTRO -->
+            <!-- Contenedor de errores -->
             {% with messages = get_flashed_messages(with_categories=true) %}
                 {% if messages %}
                     <ul class="error-list">
@@ -24,7 +26,8 @@
                     </ul>
                 {% endif %}
             {% endwith %}
-
+            
+            <!-- Formulario de registro -->
             <form action="{{ url_for('registrar') }}" method="POST" novalidate>
                 <div class="input-group">
                     <label>Nombre</label>
@@ -58,11 +61,11 @@
             </form>
         </div>
 
-        <!-- Sección de Inicio de Sesión (Derecha) -->
+        <!-- Sección de Inicio de Sesión -->
         <div class="form-section">
             <h2>Inicio de Sesión</h2>
             
-            <!-- CONTENEDOR DE ERRORES DE LOGIN -->
+            <!-- Errores de login -->
             {% with messages = get_flashed_messages(category_filter=["login"]) %}
                 {% if messages %}
                     <ul class="error-list">
@@ -72,7 +75,8 @@
                     </ul>
                 {% endif %}
             {% endwith %}
-
+            
+            <!-- Formulario de inicio de sesión -->
             <form action="{{ url_for('login') }}" method="POST">
                 <div class="input-group">
                     <label>E-mail</label>
